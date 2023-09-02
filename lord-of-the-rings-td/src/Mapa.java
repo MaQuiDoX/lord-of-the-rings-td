@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.lang.String;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.AbstractMap.SimpleImmutableEntry;
+
 
 public class Mapa {
     public static void main(String[] args){
@@ -10,22 +14,8 @@ public class Mapa {
         letra = 'A';
 
         // BETA, camino matriz
-        List <Posicion> posiciones = new ArrayList<>();
-        posiciones.add(new Posicion(0,1));
-        posiciones.add(new Posicion(1,1));
-        posiciones.add(new Posicion(2,1));
-        posiciones.add(new Posicion(2,2));
-        posiciones.add(new Posicion(2,3));
-        posiciones.add(new Posicion(2,4));
-        posiciones.add(new Posicion(2,5));
-        posiciones.add(new Posicion(2,6));
-        posiciones.add(new Posicion(2,7));
-        posiciones.add(new Posicion(3,7));
-        posiciones.add(new Posicion(4,7));
-        posiciones.add(new Posicion(5,7));
-        posiciones.add(new Posicion(5,6));
-        posiciones.add(new Posicion(5,5));
-        posiciones.add(new Posicion(5,4));
+        String nivel1 = "[(0,1), (1,1), (2,1), (2,2), (2,3), (2,4), (2,5), (2,6), (2,7), (3,7), (4,7), (5,7), (5,6), (5,5), (5,4), (4,4), (4,3), (4,2), (4,1), (5,1), (6,1), (7,1), (7,2), (7,3), (7,4), (7,5), (7,6), (8,6), (9,6), (9,5), (9,4), (9,3), (9,2), (9,1), (10,1), (11,1), (12,1), (13,1), (14,1), (15,1), (15,2), (15,3), (14,3), (13,3), (12,3), (11,3), (11,4), (11,5), (11,6), (11,7), (11,8), (12,8), (13,8), (14,8), (15,8), (15,7), (15,6), (15,5,), (16,5)]";
+        ArrayList <SimpleImmutableEntry<Integer, Integer>> posiciones = ArrayUtils.parseArray(nivel1);
 
         // Necesario añadir mas posiciones
 
@@ -40,6 +30,14 @@ public class Mapa {
                 }
             }
         }
+
+        System.out.println();
+        for (int i = 0; i < posiciones.length; i++) {
+            System.out.print(posiciones[i] + " ");
+        }
+        System.out.println();
+
+
 
         // Imprimir matriz
         System.out.print("    ");
@@ -62,6 +60,8 @@ public class Mapa {
         }
     }
 }
+
+// Clase de utilidad para las posiciones en matriz
 class Posicion {
     int x;
     int y;
@@ -86,5 +86,22 @@ class Posicion {
     @Override
     public int hashCode() {
         return 31 * x + y;
+    }
+}
+
+// Clase de utilidad para la facilitacion de escritura de Arrays
+class ArrayUtils {
+    public static List<SimpleImmutableEntry<Integer, Integer>> parseArray(String input) {
+        List<SimpleImmutableEntry<Integer, Integer>> lista = new ArrayList<>();
+        Pattern pattern = Pattern.compile("\\((\\d+),(\\d+)\\)");
+        Matcher matcher = pattern.matcher(input);
+
+        while (matcher.find()) {
+            int valor1 = Integer.parseInt(matcher.group(1));
+            int valor2 = Integer.parseInt(matcher.group(2));
+            lista.add(new SimpleImmutableEntry<>(valor1, valor2));
+        }
+
+        return lista;
     }
 }
