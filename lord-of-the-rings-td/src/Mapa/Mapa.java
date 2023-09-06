@@ -14,10 +14,8 @@ public class Mapa {
         letra = 'A';
 
         // BETA, camino matriz
-        String nivel1 = "[(0,1), (1,1), (2,1), (2,2), (2,3), (2,4), (2,5), (2,6), (2,7), (3,7), (4,7), (5,7), (5,6), (5,5), (5,4), (4,4), (4,3), (4,2), (4,1), (5,1), (6,1), (7,1), (7,2), (7,3), (7,4), (7,5), (7,6), (8,6), (9,6), (9,5), (9,4), (9,3), (9,2), (9,1), (10,1), (11,1), (12,1), (13,1), (14,1), (15,1), (15,2), (15,3), (14,3), (13,3), (12,3), (11,3), (11,4), (11,5), (11,6), (11,7), (11,8), (12,8), (13,8), (14,8), (15,8), (15,7), (15,6), (15,5)]";
-        String cerro1 = "[(16,5)]";
+        String nivel1 = "[(0,1), (1,1), (2,1), (2,2), (2,3), (2,4), (2,5), (2,6), (2,7), (3,7), (4,7), (5,7), (5,6), (5,5), (5,4), (4,4), (4,3), (4,2), (4,1), (5,1), (6,1), (7,1), (7,2), (7,3), (7,4), (7,5), (7,6), (8,6), (9,6), (9,5), (9,4), (9,3), (9,2), (9,1), (10,1), (11,1), (12,1), (13,1), (14,1), (15,1), (15,2), (15,3), (14,3), (13,3), (12,3), (11,3), (11,4), (11,5), (11,6), (11,7), (11,8), (12,8), (13,8), (14,8), (15,8), (15,7), (15,6), (15,5), (16,5)]";
         List<Posicion> posiciones = parsearString(nivel1);
-        List<Posicion> cerrogloria1 = parsearString(cerro1);
 
         //comprobacion posiciones (acceso O(n)? despues averiguo como funca bien)
         //for (Posicion posicion : posiciones) {
@@ -29,13 +27,13 @@ public class Mapa {
             for (int j = 0; j < 9; j++) {
                 Posicion posicionActual = new Posicion(i, j);
                 if (posiciones.contains(posicionActual)) {
-                    matriz[i][j] = "   "; // Espacio vacío si está en la lista (para celda)
-                } else {
-                    if (posicionActual.equals(cerrogloria1)) {
-                        matriz[i][j] = " ⛰ "; // Espacio para celda ESTO NO ME SALE DESPUES VER
+                    if (i == 16 && j == 5) {
+                        matriz[i][j] = " ⛰ ";
                     } else {
-                        matriz[i][j] = "[ ]"; // Corchetes si no está en la lista (para celda)
+                        matriz[i][j] = "   ";
                     }
+                } else {
+                    matriz[i][j] = "[ ]";
                 }
             }
         }

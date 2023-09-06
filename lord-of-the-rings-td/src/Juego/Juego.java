@@ -13,32 +13,35 @@ public class Juego {
         System.out.println("        3 . DIFICULTAD DIFICIL ");
         System.out.println("        4 . CERRAR ");
         System.out.println("  ");
-        do {
-            System.out.println("Ingrese una opción");
+        System.out.println("Ingrese una opción");
+        opcion = scanner.nextInt();
+
+        while (opcion != 1 && opcion != 2 && opcion != 3 && opcion !=4) {
+            System.out.println("Opción inválida. Ingrese de nuevo.");
             opcion = scanner.nextInt();
+        }
 
-            switch (opcion) {
-                case 1:
-                    Mapa.printMapa1(args);
-                    break;
-                case 2:
-                    //iniciarPartida(2)
-                    break;
-                case 3:
-                    //iniciarPartida(3)
-                    break;
-                case 4:
-                    System.out.println("Cerrando...");
-                    System.exit(0);
-                default:
-                    System.out.println("Opción inválida. Ingrese de nuevo.");
-
-            }
-        } while (opcion != 1 || opcion != 2 || opcion != 3);
+        switch (opcion) {
+            case 1:
+                Mapa.printMapa1(args);
+                break;
+            case 2:
+                //iniciarPartida(2);
+                break;
+            case 3:
+                //iniciarPartida(3)
+                break;
+            case 4:
+                System.out.println("Cerrando...");
+                System.exit(0);
+        }
     }
 
     //private void iniciarPartida()
     //en este segun numero ingresado seria elegir una dificultad
+
+
+
 }
 
 
