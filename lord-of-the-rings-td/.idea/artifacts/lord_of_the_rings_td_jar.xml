@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="lord-of-the-rings-td:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/lord_of_the_rings_td_jar</output-path>
+    <root id="archive" name="lord-of-the-rings-td.jar">
+      <element id="module-output" name="lord-of-the-rings-td" />
+    </root>
+  </artifact>
+</component>

@@ -1,6 +1,8 @@
 package Juego;
 import java.util.Scanner;
 import Mapa.Mapa;
+import Juego.ClearScreen;
+import Jugador.Jugador;
 
 public class Juego {
     public void mostrarMenu(String[] args) {
@@ -23,13 +25,22 @@ public class Juego {
 
         switch (opcion) {
             case 1:
-                Mapa.printMapa1(args);
+                ClearScreen.cls();
+                System.out.println();
+                Mapa.printMapa1(1);
+                Jugador.mostrarInterfaz();
                 break;
             case 2:
-                //iniciarPartida(2);
+                ClearScreen.cls();
+                System.out.println();
+                Mapa.printMapa1(2);
+                Jugador.mostrarInterfaz();
                 break;
             case 3:
-                //iniciarPartida(3)
+                ClearScreen.cls();
+                System.out.println();
+                Mapa.printMapa1(3);
+                Jugador.mostrarInterfaz();
                 break;
             case 4:
                 System.out.println("Cerrando...");
