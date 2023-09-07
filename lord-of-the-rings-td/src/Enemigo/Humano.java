@@ -1,7 +1,7 @@
 package Enemigo;
 
-//public class Humano extends Enemigo {
-    //public Humano(){
-        //super(100,2,1,200,"");
-    //}
-//}
+public class Humano extends Enemigo{
+    public Humano(){
+        super(120,2,4,8,"Normal","Array");
+    }
+}
