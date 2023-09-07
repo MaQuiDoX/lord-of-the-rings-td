@@ -1,7 +1,8 @@
-package Torre;
+public class TorreBasica extends TorreActiva{
 
-//public class TorreBasica extends TorreActiva {
-    //public TorreBasica() {
-        // super(valores a asignar)
-    //}
-//}
+    public TorreBasica(CeldaTerreno celdaAsociada){
+        super(10,1,1,"neutro",100,200,celdaAsociada);
+    }
+
+
+}

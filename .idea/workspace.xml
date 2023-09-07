@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="171d98c7-b07b-4693-a064-dba52ede5961" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Tablero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/lord-of-the-rings-td.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/lord-of-the-rings-td.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/Torre.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/Torre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreActiva.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreActiva.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreBasica.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreBasica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreGeneradora.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreGeneradora.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreRalentizadora.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,6 +23,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="module-info" />
       </list>
     </option>
   </component>
@@ -22,9 +33,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2UqgfWSeDKntH2UdFLavLmmIy7U" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -35,8 +46,9 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/matuq/OneDrive/Documentos/GitHub/lord-of-the-rings-td",
+    "git-widget-placeholder": "Nacho",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/Martinotebook/Documents/nacho (podes borrar tranqui)/2° año/Paradigmas/lab/lord-of-the-rings-td",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
