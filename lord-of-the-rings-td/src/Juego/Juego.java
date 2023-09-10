@@ -53,13 +53,18 @@ public class Juego {
 
     public void iniciarPartida(){
         int auxiliar = 0;
-        int auxiliarTorresDesc = 0;
-        int auxiliarEnemDesc = 0;
+        int auxiliarTorresDesc, auxiliarEnemDesc;
+        int opcion2, opcion3, opcion4, opcion5, opcion6;
         do {
             auxiliarTorresDesc = 0;
             auxiliarEnemDesc = 0;
             Scanner scanner2 = new Scanner(System.in);
-            int opcion2 = 0;
+            opcion2 = 0;
+            opcion3 = 0;
+            opcion4 = 0;
+            opcion5 = 0;
+            opcion6 = 0;
+
             System.out.println();
             Jugador.mostrarOpciones();
 
@@ -71,7 +76,6 @@ public class Juego {
             switch (opcion2) {
                 case 1:
                     Scanner scanner3 = new Scanner(System.in);
-                    int opcion3 = 0;
                     System.out.println();
                     Jugador.mostrarOpcionesTorres();
                     opcion3 = scanner3.nextInt();
@@ -83,7 +87,6 @@ public class Juego {
                     switch (opcion3) {
                         case 1:
                             Scanner scanner4 = new Scanner(System.in);
-                            int opcion4 = 0;
                             System.out.println();
                             Jugador.mostrarTienda();
                             opcion4 = scanner4.nextInt();
@@ -111,7 +114,6 @@ public class Juego {
                 case 2:
                     do {
                         Scanner scanner5 = new Scanner(System.in);
-                        int opcion5 = 0;
                         System.out.println();
                         Jugador.descripcionTorres();
                         opcion5 = scanner5.nextInt();
@@ -123,25 +125,47 @@ public class Juego {
 
                         switch(opcion5){
                             case 1: //lore y caracteristicas torre basica
+                                System.out.println("");
+                                System.out.println("info torre basica");
+                                System.out.println("");
                                 break;
                             case 2: //lore y caracteristicas torre rango
+                                System.out.println("");
+                                System.out.println("info torre rango");
+                                System.out.println("");
                                 break;
                             case 3: //lore y caracteristicas torre area
+                                System.out.println("");
+                                System.out.println("info torre area");
+                                System.out.println("");
                                 break;
                             case 4: //lore y caracteristicas torre ralentizadora
+                                System.out.println("");
+                                System.out.println("info torre ralentizadora");
+                                System.out.println("");
                                 break;
                             case 5: //lore y caracteristicas torre generadora
+                                System.out.println("");
+                                System.out.println("info torre generadora");
+                                System.out.println("");
                                 break;
                             case 6: //lore y caracteristicas barricada
+                                System.out.println("");
+                                System.out.println("info barricada");
+                                System.out.println("");
                                 break;
                             case 7:
                                 auxiliarTorresDesc++;
+                                break;
                         }
-                    } while (auxiliarTorresDesc == 1);
+                        auxiliarTorresDesc++;
+                        break;
+                    } while (auxiliarTorresDesc >= 1);
+                    auxiliarTorresDesc = 0;
+                    opcion6 = 0;
                 case 3:
                     do {
                         Scanner scanner6 = new Scanner(System.in);
-                        int opcion6 = 0;
                         System.out.println();
                         Jugador.descripcionEnemigos();
                         opcion6 = scanner6.nextInt();
@@ -153,28 +177,49 @@ public class Juego {
 
                         switch(opcion6){
                             case 1: //lore y caracteristicas humano
+                                System.out.println("");
+                                System.out.println("info humano");
+                                System.out.println("");
                                 break;
                             case 2: //lore y caracteristicas elfo
+                                System.out.println("");
+                                System.out.println("info elfo");
+                                System.out.println("");
                                 break;
                             case 3: //lore y caracteristicas enano
+                                System.out.println("");
+                                System.out.println("info enano");
+                                System.out.println("");
                                 break;
                             case 4: //lore y caracteristicas hobbit
+                                System.out.println("");
+                                System.out.println("info hobbit");
+                                System.out.println("");
                                 break;
                             case 5: //lore y caracteristicas ent
+                                System.out.println("");
+                                System.out.println("info ent");
+                                System.out.println("");
                                 break;
                             case 6:
-                                auxiliarEnemDesc++;
+                                break;
                         }
-                    } while (auxiliarEnemDesc == 1);
+                        auxiliarEnemDesc++;
+                        break;
+                    } while (auxiliarEnemDesc >= 1);
+                    auxiliarEnemDesc = 0;
+                    opcion6 = 0;
                 case 4:
                     // asociado a mapa.array de enemigos
+                    System.out.println("");
+                    System.out.println("info oleadas");
+                    System.out.println("");
                 case 5:
-                    auxiliar++;
-                default:
-                    break;
             }
-        } while (auxiliar == 1);
+            auxiliar++;
+        } while (auxiliar <= 1);
     }
+
 }
 
 
