@@ -123,5 +123,4 @@ public class Jugador {
         System.out.println("5. Ent");
         System.out.println("6. Volver atrás");
     }
-
 }
