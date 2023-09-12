@@ -7,15 +7,28 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Mapa {
-    public static void printMapa1(String[] args){
+    public static void printMapa1(int dificultad){
         // Creo la matriz
         String[][] matriz = new String[17][9];
+        List<Posicion> posiciones;
         char letra;
         letra = 'A';
 
         // BETA, camino matriz
-        String nivel1 = "[(0,1), (1,1), (2,1), (2,2), (2,3), (2,4), (2,5), (2,6), (2,7), (3,7), (4,7), (5,7), (5,6), (5,5), (5,4), (4,4), (4,3), (4,2), (4,1), (5,1), (6,1), (7,1), (7,2), (7,3), (7,4), (7,5), (7,6), (8,6), (9,6), (9,5), (9,4), (9,3), (9,2), (9,1), (10,1), (11,1), (12,1), (13,1), (14,1), (15,1), (15,2), (15,3), (14,3), (13,3), (12,3), (11,3), (11,4), (11,5), (11,6), (11,7), (11,8), (12,8), (13,8), (14,8), (15,8), (15,7), (15,6), (15,5), (16,5)]";
-        List<Posicion> posiciones = parsearString(nivel1);
+        String beta = "[(0,0)]";
+        String nivel1 = "[(0,1), (1,1), (2,1), (2,2), (2,3), (2,4), (2,5), (2,6), (2,7), (3,7), (4,7), (5,7), (5,6), (5,5), (5,4), (4,4), (4,3), (4,2), (4,1), (5,1), (6,1), (7,1), (7,2), (7,3), (7,4), (7,5), (7,6), (8,6), (9,6), (9,5), (9,4), (9,3), (9,2), (9,1), (10,1), (11,1), (12,1), (13,1), (13,2), (13,3), (12,3), (11,3), (11,4), (11,5), (11,6), (11,7), (11,8), (12,8), (13,8), (14,8), (15,8), (15,7), (15,6), (15,5), (15,4) ,(16,4)]";
+        String nivel2 = "[(0,1), (16,4)]";
+        String nivel3 = "[(0,1), (16,4)]";
+
+        if (dificultad == 1){
+            posiciones = parsearString(nivel1);
+        }else{
+            if (dificultad == 2) {
+                posiciones = parsearString(nivel2);
+            }else{
+                posiciones = parsearString(nivel3);
+            }
+        }
 
         //comprobacion posiciones (acceso O(n)? despues averiguo como funca bien)
         //for (Posicion posicion : posiciones) {
@@ -27,8 +40,8 @@ public class Mapa {
             for (int j = 0; j < 9; j++) {
                 Posicion posicionActual = new Posicion(i, j);
                 if (posiciones.contains(posicionActual)) {
-                    if (i == 16 && j == 5) {
-                        matriz[i][j] = " ⛰ ";
+                    if (i == 16 && j == 4) {
+                        matriz[i][j] = " C ";
                     } else {
                         matriz[i][j] = "   ";
                     }

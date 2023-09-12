@@ -1,11 +1,11 @@
 package Jugador;
+//import Celda.CeldaCerro
 
 /**
  * Clase que representa al jugador.
  * @version 1.1, 10/7/23
  * @author Ignacio Coppede Santos */
 public class Jugador {
-
 
     private int magia;
     private int puntuacion;
@@ -64,7 +64,7 @@ public class Jugador {
 
     static int magiaJuego = 0; //ESTO CAMBIARLO, NO ESTOY SEGURO DE COMO, PERO NO PUEDO IMPRIMIR VALORES NO ESTATICOS
     static int puntuacionJuego = 0; //ESTO TAMBIEN
-
+  
     public static void mostrarInterfaz() {
         System.out.println("");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
