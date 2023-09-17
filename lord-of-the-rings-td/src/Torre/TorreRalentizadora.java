@@ -1,3 +1,5 @@
+package Torre;
+import Celda.CeldaTerreno;
 public class TorreRalentizadora extends Torre{
 
     private int alcance;

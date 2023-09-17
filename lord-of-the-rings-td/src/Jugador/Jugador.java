@@ -7,13 +7,12 @@ package Jugador;
  * @author Ignacio Coppede Santos */
 public class Jugador {
 
-    private int magia;
-    private int puntuacion;
+    private static int magia;
+    private static int puntuacion;
 
     /**
-     *
-     * @parammagia Magia que tiene el jugaador para comprar y mejorar torres.
-     * @parampuntuacion Puntuacion que tiene el jugador, empieza con cero y va aumentando.
+     * @param magia Magia que tiene el jugaador para comprar y mejorar torres.
+     * @param puntuacion Puntuacion que tiene el jugador, empieza con cero y va aumentando.
      */
 
     /**
@@ -62,13 +61,12 @@ public class Jugador {
     // return True;
     //}
 
-    static int magiaJuego = 0; //ESTO CAMBIARLO, NO ESTOY SEGURO DE COMO, PERO NO PUEDO IMPRIMIR VALORES NO ESTATICOS
-    static int puntuacionJuego = 0; //ESTO TAMBIEN
+
   
     public static void mostrarInterfaz() {
-        System.out.println("");
+        System.out.println(" ");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        System.out.println("Magia: " + magiaJuego + " - Puntuación: " + puntuacionJuego + " ||| Vida Cerro: ");
+        System.out.println("Magia: " + magia + " - Puntuación: " + puntuacion + " ||| Vida Cerro: ");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.println("Glosario:");
         System.out.println("Enemigos: Hu: Humano -- El: Elfo -- En: Enano -- Ho: Hobbit -- T: Ent -- V: Varios enemigos");
