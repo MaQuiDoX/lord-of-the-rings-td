@@ -1,7 +1,9 @@
 package Torre;
 import Celda.*;
+import Enemigo.Enemigo;
 import TimeTicks.TimeTicks;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
@@ -131,8 +133,14 @@ public abstract class TorreActiva extends Torre implements TimeTicks {
     public void actionTick(){
         Iterator<CeldaCamino> celda = celdaEnRango.iterator();
         while(celda.hasNext()){
-            enemigoslis=celda.get
-            if (!)
+
+            ArrayList<Enemigo> enemigoslis = celda.next().getListaEnemigos();
+            if (!enemigoslis.isEmpty()){
+                Enemigo enemigo = enemigoslis.get(0);
+                enemigo.setVida(enemigo.getVida()-dano);
+                break;
+
+            }
         }
     }
 }
