@@ -24,6 +24,12 @@ public class CeldaCamino extends Celda{
         }
         return b1;
     }
+
+    public ArrayList<Enemigo> getListaEnemigos(){
+        return listaEnemigos;
+    }
+
+
     //public Boolean hayBarricada(){
       //  Boolean b1 = new Boolean(false);
         //if

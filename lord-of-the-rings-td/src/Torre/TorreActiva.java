@@ -1,5 +1,8 @@
 package Torre;
 import Celda.*;
+import TimeTicks.TimeTicks;
+
+import java.util.Iterator;
 
 /**
  * Una clase abstracta para representar los comportamientos generales de las torres que atacan a los enemigos.
@@ -7,7 +10,7 @@ import Celda.*;
  * @author Ignacio Copppede Santos *
  */
 
-public abstract class TorreActiva extends Torre {
+public abstract class TorreActiva extends Torre implements TimeTicks {
 
     protected int dano;
     protected int velocidad;
@@ -115,6 +118,21 @@ public abstract class TorreActiva extends Torre {
     public void atacarEnemigo(){
         for (CeldaCamino celda: celdaEnRango){
             System.out.println(" ");
+        }
+    }
+    @Override
+    public void waitingTick(){
+        tick++;
+        if (tick==velocidad){
+            actionTick();
+        }
+    }
+    @Override
+    public void actionTick(){
+        Iterator<CeldaCamino> celda = celdaEnRango.iterator();
+        while(celda.hasNext()){
+            enemigoslis=celda.get
+            if (!)
         }
     }
 }
