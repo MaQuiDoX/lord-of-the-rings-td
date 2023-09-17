@@ -1,7 +1,9 @@
 package Torre;
 
-//public class TorreArea extends TorreActiva {
-    //public TorreArea() {
-        // super(valores a asignar)
-    //}
-//}
+import Celda.CeldaTerreno;
+
+public class TorreArea extends TorreActiva{
+    public TorreArea(CeldaTerreno celda){
+        super(20,10,2,"rango",100,200,celda);
+    }
+}

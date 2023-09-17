@@ -1,4 +1,5 @@
 package Torre;
+import Celda.*;
 
 /**
  * Una clase abstracta para representar los comportamientos generales de las torres que atacan a los enemigos.
