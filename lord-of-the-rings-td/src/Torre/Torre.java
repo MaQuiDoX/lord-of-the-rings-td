@@ -1,4 +1,5 @@
 package Torre;
+import Celda.*;
 
 import java.util.ArrayList; //importo la clase ArrayList
 
@@ -15,6 +16,7 @@ public abstract class Torre {
     protected int nivel;
     protected CeldaTerreno celdaAsociada;
     protected ArrayList<CeldaCamino> celdaEnRango;
+    protected int tick;
 
     /**
      *
@@ -23,6 +25,7 @@ public abstract class Torre {
      * @param nivel el nivel actual de la torre.
      * @param celdaAsociada La celda donde se encuentra la torre.
      * @param celdaEnRango Las celdas que estan en el rango de ataque de la torre.
+     * @param tick Contador de momentos antes de podes realizar su ejecucion.
      */
 
     /**
@@ -34,17 +37,19 @@ public abstract class Torre {
         this.costeMejora=costeMejora;
         nivel=0;
         this.celdaAsociada=celdaAsociada;
+        tick=0;
 
     }
 
     /** Constructor de la torre solo pasando el parametro de celdaTerren */
-    public int Torre(CeldaTerreno celdaAsociada){
+    public Torre(CeldaTerreno celdaAsociada){
         coste=100;
         costeMejora=200;
         nivel=0;
         this.celdaAsociada=celdaAsociada;
+        tick=0;
         //valores por default
-    //}
+    }
 
     /**
      * Getter del coste.
@@ -116,5 +121,12 @@ public abstract class Torre {
      */
     private void setCeldaEnRango(CeldaCamino nuevaCelda){
         celdaEnRango.add(nuevaCelda);
+    }
+
+    private int getTick(){
+        return tick;
+    }
+    private void aumentarTick(){
+        tick++;
     }
 }

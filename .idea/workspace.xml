@@ -5,13 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="171d98c7-b07b-4693-a064-dba52ede5961" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/lord-of-the-rings-td.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/lord-of-the-rings-td.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Elfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Elfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Enano.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Enano.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Enemigo.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Enemigo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Ent.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Ent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Hobbit.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Hobbit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Humano.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Humano.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Juego/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Juego/Juego.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Jugador/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Jugador/Jugador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/Torre.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/Torre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreActiva.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreActiva.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreArea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreBasica.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreBasica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreGeneradora.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreGeneradora.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreRalentizadora.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreRalentizadora.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreRango.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreRango.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +30,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="module-info" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -40,20 +49,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/emart/OneDrive/Documentos/GitHub/lord-of-the-rings-td",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/emart/OneDrive/Documentos/GitHub/lord-of-the-rings-td&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -64,6 +73,21 @@
       <updated>1693672628702</updated>
       <workItem from="1693672630851" duration="162000" />
       <workItem from="1694007857638" duration="1102000" />
+      <workItem from="1694477764554" duration="135000" />
+      <workItem from="1694478129087" duration="10000" />
+      <workItem from="1694650490551" duration="95000" />
+      <workItem from="1694704379210" duration="79000" />
+      <workItem from="1694718202145" duration="1165000" />
+      <workItem from="1694719616836" duration="17000" />
+      <workItem from="1694719684188" duration="9000" />
+      <workItem from="1694719838796" duration="32000" />
+      <workItem from="1694722636510" duration="178000" />
+      <workItem from="1694954123539" duration="3936000" />
+      <workItem from="1694958783540" duration="684000" />
+      <workItem from="1694960614764" duration="7000" />
+      <workItem from="1694960876927" duration="15000" />
+      <workItem from="1694967035561" duration="6237000" />
+      <workItem from="1694977023315" duration="1631000" />
     </task>
     <servers />
   </component>

@@ -1,4 +1,5 @@
 package Juego;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import Mapa.Mapa;
 import Juego.ClearScreen;
@@ -16,210 +17,170 @@ public class Juego {
         System.out.println("        4 . CERRAR ");
         System.out.println("  ");
         System.out.println("Ingrese una opción");
-        opcion = scanner.nextInt();
 
-        while (opcion != 1 && opcion != 2 && opcion != 3 && opcion !=4) {
-            System.out.println("Opción inválida. Ingrese de nuevo.");
-            opcion = scanner.nextInt();
-        }
 
-        switch (opcion) {
-            case 1:
-                ClearScreen.cls();
-                System.out.println();
-                Mapa.printMapa1(1);
-                Jugador.mostrarInterfaz();
-                iniciarPartida();
-                break;
-            case 2:
-                ClearScreen.cls();
-                System.out.println();
-                Mapa.printMapa1(2);
-                Jugador.mostrarInterfaz();
-                iniciarPartida();
-                break;
-            case 3:
-                ClearScreen.cls();
-                System.out.println();
-                Mapa.printMapa1(3);
-                Jugador.mostrarInterfaz();
-                iniciarPartida();
-                break;
-            case 4:
-                System.out.println("Cerrando...");
-                System.exit(0);
-        }
+        do {
+            try {
+                opcion = scanner.nextInt();
+                if (opcion == 1) {
+                    ClearScreen.cls();
+                    System.out.println();
+                    Mapa.printMapa1(1);
+                    Jugador.mostrarInterfaz();
+                    menuPartida();
+                    break;
+                } else if (opcion == 2) {
+                    ClearScreen.cls();
+                    System.out.println();
+                    Mapa.printMapa1(2);
+                    Jugador.mostrarInterfaz();
+                    menuPartida();
+                    break;
+                } else if (opcion == 3) {
+                    ClearScreen.cls();
+                    System.out.println();
+                    Mapa.printMapa1(3);
+                    Jugador.mostrarInterfaz();
+                    menuPartida();
+                    break;
+                } else if (opcion == 4) {
+                    System.out.println("Cerrando...");
+                    System.exit(0);
+                } else {
+                    System.out.println("Opción inválida. Ingrese de nuevo.");
+                }
+            } catch (InputMismatchException e1) {
+                scanner.nextLine();
+                System.out.println("Opción inválida. Ingrese de nuevo.");
+            }
+        } while ((opcion > 4) || (opcion < 1));
     }
 
-    public void iniciarPartida(){
-        int auxiliar = 0;
-        int auxiliarTorresDesc, auxiliarEnemDesc;
-        int opcion2, opcion3, opcion4, opcion5, opcion6;
+    public void menuPartida() {
+        Scanner scanner = new Scanner(System.in);
+        int opcion2, opcion3, opcion4, opcion5, finalizador;
+
         do {
-            auxiliarTorresDesc = 0;
-            auxiliarEnemDesc = 0;
-            Scanner scanner2 = new Scanner(System.in);
-            opcion2 = 0;
             opcion3 = 0;
             opcion4 = 0;
             opcion5 = 0;
-            opcion6 = 0;
-
-            System.out.println();
+            finalizador = 0;
             Jugador.mostrarOpciones();
-
-            opcion2 = scanner2.nextInt();
-            while (opcion2 != 1 && opcion2 != 2 && opcion2 != 3 && opcion2 != 4 && opcion2 != 5) {
-                System.out.println("Opción inválida. Ingrese de nuevo.");
-                opcion2 = scanner2.nextInt();
-            }
-            switch (opcion2) {
-                case 1:
-                    Scanner scanner3 = new Scanner(System.in);
-                    System.out.println();
+            try {
+                opcion2 = scanner.nextInt();
+                if (opcion2 == 1) {
                     Jugador.mostrarOpcionesTorres();
-                    opcion3 = scanner3.nextInt();
-
-                    while (opcion3 != 1 && opcion3 != 2 && opcion3 != 3) {
-                        System.out.println("Opción inválida. Ingrese de nuevo.");
-                        opcion3 = scanner3.nextInt();
-                    }
-                    switch (opcion3) {
-                        case 1:
-                            Scanner scanner4 = new Scanner(System.in);
-                            System.out.println();
-                            Jugador.mostrarTienda();
-                            opcion4 = scanner4.nextInt();
-
-                            while (opcion4 != 1 && opcion4 != 2 && opcion4 != 3 && opcion4 != 4 && opcion4 != 5 && opcion4 != 6 && opcion4 != 7) {
+                    do {
+                        try {
+                            opcion3 = scanner.nextInt();
+                            if (opcion3 == 1) {
+                                System.out.println("");
+                                System.out.println("TIENDA");
+                                System.out.println("");
+                            } else if (opcion3 == 2) {
+                                System.out.println("");
+                                System.out.println("MEJORA");
+                                System.out.println("");
+                            } else if (opcion3 == 3) {
+                                break;
+                            } else {
                                 System.out.println("Opción inválida. Ingrese de nuevo.");
-                                opcion4 = scanner4.nextInt();
                             }
+                        } catch (InputMismatchException e3) {
+                            scanner.nextLine();
+                            System.out.println("Opción inválida. Ingrese de nuevo.");
+                        }
+                    } while ((opcion3 > 3) || (opcion3 < 1));
 
-                            switch (opcion4) {
-                                case 1: //colocar torre basica
-                                case 2: //colocar torre rango
-                                case 3: //colocar torre area
-                                case 4: //colocar torre ralentizadora
-                                case 5: //colocar torre generadora
-                                case 6: //colocar barricada
-                                case 7:
-                                    break;
+                } else if (opcion2 == 2) {
+                    Jugador.descripcionTorres();
+                    do {
+                        try {
+                            opcion4 = scanner.nextInt();
+                            if (opcion4 == 1) {
+                                System.out.println("");
+                                System.out.println("Info Torre Basica");
+                                System.out.println("");
+                            } else if (opcion4 == 2) {
+                                System.out.println("");
+                                System.out.println("Info Torre Rango");
+                                System.out.println("");
+                            } else if (opcion4 == 3) {
+                                System.out.println("");
+                                System.out.println("Info Torre Area");
+                                System.out.println("");
+                            } else if (opcion4 == 4) {
+                                System.out.println("");
+                                System.out.println("Info Torre Ralentizadora");
+                                System.out.println("");
+                            } else if (opcion4 == 5) {
+                                System.out.println("");
+                                System.out.println("Info Torre Generadora");
+                                System.out.println("");
+                            } else if (opcion4 == 6) {
+                                System.out.println("");
+                                System.out.println("Info Barricada");
+                                System.out.println("");
+                            } else if (opcion4 == 7) {
+                                break;
+                            } else {
+                                System.out.println("Opción inválida. Ingrese de nuevo.");
                             }
-                        case 2:
-                            //mejora torre
-                        case 3:
-                            break;
-                    }
-                case 2:
-                    do {
-                        Scanner scanner5 = new Scanner(System.in);
-                        System.out.println();
-                        Jugador.descripcionTorres();
-                        opcion5 = scanner5.nextInt();
-
-                        while (opcion5 != 1 && opcion5 != 2 && opcion5 != 3 && opcion5 != 4 && opcion5 != 5 && opcion5 != 6 && opcion5 != 7) {
+                        } catch (InputMismatchException e4) {
+                            scanner.nextLine();
                             System.out.println("Opción inválida. Ingrese de nuevo.");
-                            opcion5 = scanner5.nextInt();
                         }
-
-                        switch(opcion5){
-                            case 1: //lore y caracteristicas torre basica
-                                System.out.println("");
-                                System.out.println("info torre basica");
-                                System.out.println("");
-                                break;
-                            case 2: //lore y caracteristicas torre rango
-                                System.out.println("");
-                                System.out.println("info torre rango");
-                                System.out.println("");
-                                break;
-                            case 3: //lore y caracteristicas torre area
-                                System.out.println("");
-                                System.out.println("info torre area");
-                                System.out.println("");
-                                break;
-                            case 4: //lore y caracteristicas torre ralentizadora
-                                System.out.println("");
-                                System.out.println("info torre ralentizadora");
-                                System.out.println("");
-                                break;
-                            case 5: //lore y caracteristicas torre generadora
-                                System.out.println("");
-                                System.out.println("info torre generadora");
-                                System.out.println("");
-                                break;
-                            case 6: //lore y caracteristicas barricada
-                                System.out.println("");
-                                System.out.println("info barricada");
-                                System.out.println("");
-                                break;
-                            case 7:
-                                auxiliarTorresDesc++;
-                                break;
-                        }
-                        auxiliarTorresDesc++;
-                        break;
-                    } while (auxiliarTorresDesc >= 1);
-                    auxiliarTorresDesc = 0;
-                    opcion6 = 0;
-                case 3:
+                    } while ((opcion4 > 7) || (opcion4 < 1));
+                } else if (opcion2 == 3) {
+                    Jugador.descripcionEnemigos();
                     do {
-                        Scanner scanner6 = new Scanner(System.in);
-                        System.out.println();
-                        Jugador.descripcionEnemigos();
-                        opcion6 = scanner6.nextInt();
-
-                        while (opcion6 != 1 && opcion6 != 2 && opcion6 != 3 && opcion6 != 4 && opcion6 != 5 && opcion6 != 6) {
+                        try {
+                            opcion5 = scanner.nextInt();
+                            if (opcion5 == 1) {
+                                System.out.println("");
+                                System.out.println("Info Humano");
+                                System.out.println("");
+                            } else if (opcion5 == 2) {
+                                System.out.println("");
+                                System.out.println("Info Elfo");
+                                System.out.println("");
+                            } else if (opcion5 == 3) {
+                                System.out.println("");
+                                System.out.println("Info Enano");
+                                System.out.println("");
+                            } else if (opcion5 == 4) {
+                                System.out.println("");
+                                System.out.println("Info Hobbit");
+                                System.out.println("");
+                            } else if (opcion5 == 5) {
+                                System.out.println("");
+                                System.out.println("Info Ent");
+                                System.out.println("");
+                            } else if (opcion5 == 6) {
+                                break;
+                            } else {
+                                System.out.println("Opción inválida. Ingrese de nuevo.");
+                            }
+                        } catch (InputMismatchException e5) {
+                            scanner.nextLine();
                             System.out.println("Opción inválida. Ingrese de nuevo.");
-                            opcion6 = scanner6.nextInt();
                         }
+                    } while ((opcion5 > 6) || (opcion5 < 1));
 
-                        switch(opcion6){
-                            case 1: //lore y caracteristicas humano
-                                System.out.println("");
-                                System.out.println("info humano");
-                                System.out.println("");
-                                break;
-                            case 2: //lore y caracteristicas elfo
-                                System.out.println("");
-                                System.out.println("info elfo");
-                                System.out.println("");
-                                break;
-                            case 3: //lore y caracteristicas enano
-                                System.out.println("");
-                                System.out.println("info enano");
-                                System.out.println("");
-                                break;
-                            case 4: //lore y caracteristicas hobbit
-                                System.out.println("");
-                                System.out.println("info hobbit");
-                                System.out.println("");
-                                break;
-                            case 5: //lore y caracteristicas ent
-                                System.out.println("");
-                                System.out.println("info ent");
-                                System.out.println("");
-                                break;
-                            case 6:
-                                break;
-                        }
-                        auxiliarEnemDesc++;
-                        break;
-                    } while (auxiliarEnemDesc >= 1);
-                    auxiliarEnemDesc = 0;
-                    opcion6 = 0;
-                case 4:
-                    // asociado a mapa.array de enemigos
+                } else if (opcion2 == 4) {
                     System.out.println("");
-                    System.out.println("info oleadas");
+                    System.out.println("Info oleada...");
                     System.out.println("");
-                case 5:
+                } else if (opcion2 == 5) {
+                    finalizador = 1;
+
+                } else {
+                    System.out.println("Opción inválida. Ingrese de nuevo.");
+                }
+            } catch (InputMismatchException e2) {
+                scanner.nextLine();
+                System.out.println("Opción inválida. Ingrese de nuevo.");
             }
-            auxiliar++;
-        } while (auxiliar <= 1);
+        } while (finalizador == 0);
     }
-
 }
-
-

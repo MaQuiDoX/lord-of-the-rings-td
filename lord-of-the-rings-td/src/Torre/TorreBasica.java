@@ -1,5 +1,5 @@
 package Torre;
-
+import Celda.*;
 /**
  * Una clase de las torres basicas sin ningun tipo de distincion.
  * @version 1.1 10/9/23 *

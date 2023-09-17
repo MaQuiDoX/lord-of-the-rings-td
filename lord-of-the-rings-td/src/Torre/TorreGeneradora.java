@@ -2,6 +2,8 @@ package Torre;
 
 
 import Jugador.Jugador;
+import Celda.CeldaTerreno;
+
 
 /**
  * Una clase de las torres capaces de generar magia.
@@ -9,7 +11,7 @@ import Jugador.Jugador;
  * @author Ignacio Copppede Santos *
  */
 
-public class TorreGeneradora extends Torre{
+public class TorreGeneradora extends Torre {
 
     private int frecuencia;
     private int cantidad;
@@ -35,4 +37,5 @@ public class TorreGeneradora extends Torre{
          int magia=jugador.getmagia();
          jugador.setmagia(magia+cantidad);
     }
+
 }
