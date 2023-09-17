@@ -4,6 +4,7 @@ import java.util.Scanner;
 import Mapa.Mapa;
 import Juego.ClearScreen;
 import Jugador.Jugador;
+import Celda.Celda;
 
 public class Juego {
     public void mostrarMenu(String[] args) {
@@ -25,21 +26,21 @@ public class Juego {
                 if (opcion == 1) {
                     ClearScreen.cls();
                     System.out.println();
-                    Mapa.printMapa1(1);
+                    Celda[][] matriz = Mapa.crearMapa(1);
                     Jugador.mostrarInterfaz();
                     menuPartida();
                     break;
                 } else if (opcion == 2) {
                     ClearScreen.cls();
                     System.out.println();
-                    Mapa.printMapa1(2);
+                    Celda[][] matriz = Mapa.crearMapa(2);
                     Jugador.mostrarInterfaz();
                     menuPartida();
                     break;
                 } else if (opcion == 3) {
                     ClearScreen.cls();
                     System.out.println();
-                    Mapa.printMapa1(3);
+                    Celda[][] matriz = Mapa.crearMapa(3);
                     Jugador.mostrarInterfaz();
                     menuPartida();
                     break;
