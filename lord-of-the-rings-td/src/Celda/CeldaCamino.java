@@ -3,6 +3,7 @@ package Celda;
 import Enemigo.Enemigo;
 
 import java.util.ArrayList;
+import Barricada.Barricada;
 
 public class CeldaCamino extends Celda{
     private ArrayList<Enemigo> listaEnemigos = new ArrayList<Enemigo>();
