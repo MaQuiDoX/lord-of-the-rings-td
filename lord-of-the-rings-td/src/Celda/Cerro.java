@@ -10,7 +10,8 @@ public class Cerro extends Celda {
     public int getVida(){
         return vida;
     }
+
     public void setVida(int vida){
-        this.vida = vida;
+        this.vida=vida;
     }
 }
