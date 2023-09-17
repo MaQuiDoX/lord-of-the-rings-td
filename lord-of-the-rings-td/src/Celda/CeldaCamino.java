@@ -1,7 +1,9 @@
 package Celda;
 
 import Enemigo.Enemigo;
+eze1
 import Barricada.Barricada;
+
 import java.util.ArrayList;
 
 public class CeldaCamino extends Celda{

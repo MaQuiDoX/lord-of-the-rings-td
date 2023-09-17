@@ -130,9 +130,9 @@ public abstract class TorreActiva extends Torre implements TimeTicks {
     @Override
     public void actionTick(){
         Iterator<CeldaCamino> celda = celdaEnRango.iterator();
-        /*while(celda.hasNext()){
-            enemigoslis=celda.get;
+        while(celda.hasNext()){
+            enemigoslis=celda.get
             if (!)
-        }*/
+        }
     }
 }
