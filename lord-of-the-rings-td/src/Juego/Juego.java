@@ -27,6 +27,7 @@ public class Juego {
                     ClearScreen.cls();
                     System.out.println();
                     Celda[][] matriz = Mapa.crearMapa(1);
+                    Mapa.imprimirMapa(matriz);
                     Jugador.mostrarInterfaz();
                     menuPartida();
                     break;
@@ -34,6 +35,7 @@ public class Juego {
                     ClearScreen.cls();
                     System.out.println();
                     Celda[][] matriz = Mapa.crearMapa(2);
+                    Mapa.imprimirMapa(matriz);
                     Jugador.mostrarInterfaz();
                     menuPartida();
                     break;
@@ -41,6 +43,7 @@ public class Juego {
                     ClearScreen.cls();
                     System.out.println();
                     Celda[][] matriz = Mapa.crearMapa(3);
+                    Mapa.imprimirMapa(matriz);
                     Jugador.mostrarInterfaz();
                     menuPartida();
                     break;

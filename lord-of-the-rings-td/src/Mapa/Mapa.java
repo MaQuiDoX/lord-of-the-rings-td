@@ -17,6 +17,13 @@ import Enemigo.Enano;
 import Enemigo.Hobbit;
 import Enemigo.Ent;
 
+import Torre.Torre;
+import Torre.TorreBasica;
+import Torre.TorreRango;
+import Torre.TorreArea;
+import Torre.TorreGeneradora;
+import Torre.TorreRalentizadora;
+
 public class Mapa {
     public static Celda[][] crearMapa(int dificultad) {
         Celda[][] matriz = new Celda[9][17];
@@ -44,21 +51,21 @@ public class Mapa {
             int x = posiciones.get(i).getX();
             int y = posiciones.get(i).getY();
 
-            if ((x == 5) && (y == 16)) {
+            if ((x == 4) && (y == 16)) {
                 matriz[x][y] = new Cerro();
-            } else if ((x == 5) && (y == 15)) {
+            } else if ((x == 4) && (y == 15)) {
                 matriz[x][y] = new CeldaCamino(matriz[5][16]);
             } else {
                 matriz[x][y] = new CeldaCamino(matriz[oldX][oldY]);
             }
             oldX = x;
             oldY = y;
+        }
 
-            for (int i = 0; i < 9; i++) {
-                for (int j = 0; i < 17; i++) {
-                    if (matriz[i][j] == null) {
-                        matriz[i][j] = new CeldaTerreno();
-                    }
+        for (int s = 0; s < 9; s++) {
+            for (int j = 0; j < 17; j++) {
+                if (!(matriz[s][j] instanceof CeldaCamino) && !(matriz[s][j] instanceof Cerro)) {
+                    matriz[s][j] = new CeldaTerreno();
                 }
             }
         }
@@ -79,50 +86,48 @@ public class Mapa {
         return posiciones;
     }
 
-    public Celda getMatrizCelda(int x, int y) {
-        return Celda[x][y];
-    }
-    public imprimirMapa(Celda[][] matriz){
+    public static void imprimirMapa(Celda[][] matriz){
         char letra = 'A';
         System.out.print("    ");
-        for (int i = 0; i < 17; i++){
-            if (i<10){
-                System.out.print(i + "  ");
+        for (int s = 0; s < 17; s++){
+            if (s<10){
+                System.out.print(s + "  ");
             } else {
-                System.out.print(i + " ");
+                System.out.print(s + " ");
             }
         }
-
-        for (int i = 0; i < matriz.length; i++){
+        System.out.println();
+        for (int i = 0; i < 9; i++){
             System.out.print(letra + "  ");
-            for (int j = 0; matriz[i].length; j++){
+            for (int j = 0; j < 17; j++){
                 if (matriz[i][j] instanceof CeldaTerreno){
-                    System.out.print("[ ]");
+                    Torre torre = ((CeldaTerreno) matriz[i][j]).getTorre();
+                    if (torre instanceof TorreBasica){
+                        System.out.print("[B]");
+                    } else if (torre instanceof TorreRango) {
+                        System.out.print("[R]");
+                    } else if (torre instanceof TorreArea) {
+                        System.out.print("[A]");
+                    } else if (torre instanceof TorreGeneradora) {
+                        System.out.print("[G]");
+                    } else if (torre instanceof TorreRalentizadora) {
+                        System.out.print("[L]");
+                    } else {
+                        System.out.print("[ ]");
+                    }
+                } else if (matriz[i][j] instanceof Cerro){
+                    System.out.print(" C ");
                 } else if (matriz[i][j] instanceof CeldaCamino){
                     ArrayList<Enemigo> listaEnemigo;
                     listaEnemigo = ((CeldaCamino) matriz[i][j]).getListaEnemigos();
                     if (listaEnemigo.size() > 1){
                         System.out.print(" Va");
                     } else {
-                        if (listaEnemigo.get(0) instanceof Humano){
-                            System.out.print(" Hu");
-                        } else if (listaEnemigo.get(0) instanceof Elfo){
-                            System.out.print(" El");
-                        } else if (listaEnemigo.get(0) instanceof Enano){
-                            System.out.print(" En");
-                        } else if (listaEnemigo.get(0) instanceof Hobbit){
-                            System.out.print(" Ho");
-                        } else if (listaEnemigo.get(0) instanceof Ent){
-                            System.out.print(" Te");
-                        } else {
-                            System.out.print("   ");
-                        }
+                        System.out.print("   ");
                     }
-                } else if (matriz[i][j] instanceof Cerro){
-                    System.out.print(" C ");
                 }
             }
-            System.out.println();
+            System.out.println("");
             letra++;
         }
     }
