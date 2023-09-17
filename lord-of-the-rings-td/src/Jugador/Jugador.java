@@ -1,5 +1,8 @@
 package Jugador;
-//import Celda.CeldaCerro
+import Celda.*;
+import Mapa.Mapa;
+
+import java.util.ArrayList;
 
 /**
  * Clase que representa al jugador.
@@ -53,6 +56,14 @@ public class Jugador {
     public Jugador(){
         magia=50;
         puntuacion=0;
+    }
+
+    public Boolean ComprarTorre(Mapa mapa,int coorX, int coorY, int tipoTorre){
+        ArrayList<ArrayList<Celda>> matriz = mapa.getMatriz();
+        ArrayList<Celda> columna = matriz.get(coorY);
+        Celda celda = columna.get(coorX);
+        if celda
+
     }
 
 

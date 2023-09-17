@@ -10,5 +10,13 @@ public class CeldaTerreno extends Celda{
 
     }
 
+    public Torre getTorre(){
+        return torre;
+    }
+
+    public void setTorre(Torre torre){
+        this.torre=torre;
+    }
+
 
 }
