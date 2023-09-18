@@ -9,7 +9,7 @@ import java.util.Iterator;
 
 public class TorreArea extends TorreActiva{
     public TorreArea(CeldaTerreno celda){
-        super(20,10,2,"rango",100,200,celda);
+        super(20,10,2,"a",100,200,celda);
     }
 
     @Override

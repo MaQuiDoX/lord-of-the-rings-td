@@ -5,6 +5,7 @@ import TimeTicks.TimeTicks;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Objects;
 
 /**
  * Una clase abstracta para representar los comportamientos generales de las torres que atacan a los enemigos.
@@ -21,10 +22,10 @@ public abstract class TorreActiva extends Torre implements TimeTicks {
 
     /**
      *
-     * @param daño Daño que le causa la torre al enemigo en cada ataque.
+     * @param dano Dano que le causa la torre al enemigo en cada ataque.
      * @param velocidad Tiempo que tarda en atacar a un enemigo.
      * @param alcance Radio, en cantidad de celdas, en el que puede atacar enemigos.
-     * @param tipoDaño Tipo de ataque que hace la torre.
+     * @param tipoDano Tipo de ataque que hace la torre.
      */
 
     /**
@@ -51,7 +52,7 @@ public abstract class TorreActiva extends Torre implements TimeTicks {
     }
 
     /**
-     * Getter del daño.
+     * Getter del dano.
      * @return daño de la torre*
      */
     public int getDano(){
@@ -59,7 +60,7 @@ public abstract class TorreActiva extends Torre implements TimeTicks {
     }
 
     /**
-     * Modifica el daño de la torre.
+     * Modifica el dano de la torre.
      * @param dano nuevo daño *
      */
     public void setDano(int dano){
@@ -99,7 +100,7 @@ public abstract class TorreActiva extends Torre implements TimeTicks {
     }
 
     /**
-     * Getter del tipoDaño.
+     * Getter del tipoDano.
      * @return el tipo de daño *
      */
     public String getTipoDano(){
@@ -107,8 +108,8 @@ public abstract class TorreActiva extends Torre implements TimeTicks {
     }
 
     /**
-     * Modifica el tipo de daño.
-     * @param tipoDano nuevo tipo de daño *
+     * Modifica el tipo de dano.
+     * @param tipoDano nuevo tipo de dano *
      */
     public void setTipoDano(String tipoDano){
         this.tipoDano=tipoDano;
@@ -131,14 +132,36 @@ public abstract class TorreActiva extends Torre implements TimeTicks {
     }
     @Override
     public void actionTick(){
-        Iterator<CeldaCamino> celda = celdaEnRango.iterator();
-        while(celda.hasNext()){
+        for (CeldaCamino enRango : celdaEnRango) {
 
-            ArrayList<Enemigo> enemigoslis = celda.next().getListaEnemigos();
-            if (!enemigoslis.isEmpty()){
+            ArrayList<Enemigo> enemigoslis = enRango.getListaEnemigos();
+            if (!enemigoslis.isEmpty()) {
                 Enemigo enemigo = enemigoslis.get(0);
-                enemigo.setVida(enemigo.getVida()-dano);
+                int vida = enemigo.getVida();
+                if (Objects.equals(tipoDano, "b")) {
+                    vida = vida - dano;
+                    if (Objects.equals(enemigo.getTipo(), "normal")) {
+                        vida -= 10;
+                    }
+
+                } else if (Objects.equals(tipoDano, "a")) {
+                    vida = vida - dano;
+                    if (Objects.equals(enemigo.getTipo(), "ligero")) {
+                        vida -= 10;
+                    }
+                } else if (Objects.equals(tipoDano, "r")) {
+                    vida = vida - dano;
+                    if (Objects.equals(enemigo.getTipo(), "pesado")) {
+                        vida -= 10;
+                    }
+                }
+                if ((vida) < 0) {
+                    enemigo.morir();
+                } else {
+                    enemigo.setVida(vida);
+                }
                 break;
+
 
             }
         }
