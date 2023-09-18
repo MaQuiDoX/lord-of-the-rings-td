@@ -1,18 +1,17 @@
 package Enemigo;
 
 import Celda.CeldaCamino;
-import Estructuras.Cerro;
-import Estructuras.Barricada;
+import Estructuras.*;
 import TimeTicks.TimeTicks;
 
 /**
  * Una clase abstracta para representar los comportamientos generales de los enemigos que intentan atacar el Cerro de la Gloria.
- * @version 1.0 18/9/23 *
- * @author Ezequiel L. Martins *
+ * @version 1.0 18/9/23
+ * @author Ezequiel L. Martins
  */
 public abstract class Enemigo implements TimeTicks {
 
-    protected int vida, velocidad, dano, magiaOtorgada;
+    protected int vida, velocidad, dano, magiaOtorgada, tick;
     protected String tipo;
     protected Boolean ralentizado;
     protected CeldaCamino ubicacion;
@@ -36,6 +35,7 @@ public abstract class Enemigo implements TimeTicks {
         this.tipo = tipo;
         this.ralentizado = ralentizado;
         this.ubicacion = ubicacion;
+        this.tick = 0;
     }
 
     /**
@@ -122,13 +122,13 @@ public abstract class Enemigo implements TimeTicks {
         this.ubicacion = nuevaUbicacion;
     }
 
-
-    public void moverEnemigo(Enemigo enemigo){  // LET THE BOY COOK => Tiene que arreglar lo viejo
+    // Documentar
+    public void moverEnemigo(Enemigo enemigo){
         CeldaCamino siguienteUbicacion;
         siguienteUbicacion = enemigo.getUbicacion();
         siguienteUbicacion = siguienteUbicacion.getSiguienteCelda();
-        if (siguienteUbicacion instanceof Cerro){
-            danarCerro(siguienteUbicacion);
+        if (siguienteUbicacion.getCerro() instanceof Cerro){
+            danarCerro(siguienteUbicacion.getCerro());
             morir(enemigo);
             return;
         }
@@ -138,7 +138,6 @@ public abstract class Enemigo implements TimeTicks {
             return;
         }
         setUbicacion(siguienteUbicacion);
-        return;
     }
 
     public void danarCerro(Cerro cerro){cerro.setVida(cerro.getVida() - dano);}
@@ -146,6 +145,19 @@ public abstract class Enemigo implements TimeTicks {
     public void morir(Enemigo enemigo){
         enemigo.ubicacion = null; // to do: eliminarlo de la lista de la celda
         // Eliminar la unidad de la celda en donde esta ubicado
+    }
+
+    @Override
+    public void waitingTick(){
+        tick++;
+        if (tick == velocidad){
+            actionTick();
+            tick=0;
+        }
+    }
+    @Override
+    public void actionTick(){
+
     }
 }
 

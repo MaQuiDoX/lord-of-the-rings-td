@@ -2,7 +2,7 @@ package Celda;
 
 import Enemigo.Enemigo;
 import java.util.ArrayList;
-import Estructuras.Barricada;
+import Estructuras.*;
 
 /**
  * Una clase que representa las celdas por las cuales pueden avanzar los enemigos y/o haber estructuras del jugador.
@@ -11,9 +11,10 @@ import Estructuras.Barricada;
  */
 public class CeldaCamino extends Celda{
     private ArrayList<Enemigo> listaEnemigos = new ArrayList<Enemigo>();
-    private Barricada barricada = null;
-    private int[] PosicionEnemigo;
-    private Celda siguienteCelda;
+    private Barricada barricada;
+    private Cerro cerro;
+    private CeldaCamino siguienteCelda;
+    private int[] posicionEnemigo;
 
     /**
      * Constructor de CeldaCamino, recibiendo como parametro la CeldaCamino que le sigue.
@@ -23,14 +24,18 @@ public class CeldaCamino extends Celda{
      * -------------------------
      * @see CeldaCamino
      */
-    public CeldaCamino(Celda siguienteCelda){
+    public CeldaCamino(CeldaCamino siguienteCelda){
         super(1,1);
         this.siguienteCelda=siguienteCelda;
+        this.cerro = null;
+        this.barricada = null;
     }
 
-    public CeldaCamino(Celda siguienteCelda, int coordenadaX, int coordenadaY){
+    public CeldaCamino(CeldaCamino siguienteCelda, int coordenadaX, int coordenadaY){
         super(coordenadaX,coordenadaY);
         this.siguienteCelda=siguienteCelda;
+        this.cerro = null;
+        this.barricada = null;
     }
 
     /**
@@ -56,11 +61,12 @@ public class CeldaCamino extends Celda{
         return b1;
     }
 
-    public Celda getSiguienteCelda() {
+    public CeldaCamino getSiguienteCelda() {
         return this.siguienteCelda;
     }
 
-
+    public Cerro getCerro(){return this.cerro;}
+    public void setCerro(Cerro cerro){this.cerro = cerro;}
 
     public Barricada getBarricada(){
         return barricada;

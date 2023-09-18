@@ -80,7 +80,6 @@ public class Jugador {
         }
 
     }
-
     private Boolean colocarTorre(int tipoTorre,CeldaTerreno t, CeldaCamino currentCelda,int coorX, int coorY){
             if (t.getOcupada()){
                 return Boolean.FALSE;
@@ -221,7 +220,6 @@ public class Jugador {
         }
         if (torre.getNivel()==2){
             torre.setAlcance(torre.getAlcance()+1);
-
         }
         return Boolean.TRUE;
     }
