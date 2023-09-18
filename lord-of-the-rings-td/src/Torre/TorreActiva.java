@@ -128,6 +128,7 @@ public abstract class TorreActiva extends Torre implements TimeTicks {
         tick++;
         if (tick==velocidad){
             actionTick();
+            tick=0;
         }
     }
     @Override
@@ -157,7 +158,7 @@ public abstract class TorreActiva extends Torre implements TimeTicks {
                     }
                 }
                 if ((vida) < 0) {
-                    enemigo.morir();
+                    enemigo.morir(enemigo);
                 } else {
                     enemigo.setVida(vida);
                 }

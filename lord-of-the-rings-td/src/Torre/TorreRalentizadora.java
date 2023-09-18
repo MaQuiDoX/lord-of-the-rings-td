@@ -16,7 +16,20 @@ public class TorreRalentizadora extends Torre implements TimeTicks {
     public TorreRalentizadora(CeldaTerreno celdaAsociada){
         super(15,30,celdaAsociada);
         alcance=1;
-        velocidad=1;
+        velocidad=3;
+    }
+
+    public int getAlcance(){
+        return alcance;
+    }
+    public void setAlcance(int alcance){
+        this.alcance=alcance;
+    }
+    public int getVelocidad(){
+        return velocidad;
+    }
+    public void setVelocidad(int velocidad){
+        this.velocidad=velocidad;
     }
 
 

@@ -13,7 +13,6 @@ import Celda.CeldaTerreno;
 
 public class TorreGeneradora extends Torre {
 
-    private int frecuencia;
     private int cantidad;
     /**
      * @param frecuencia la frecuencia en tiempo con la que se genera magia *
@@ -25,9 +24,15 @@ public class TorreGeneradora extends Torre {
      * @param celdaAsociada celda donde se encuentra la torre *
      */
     public TorreGeneradora(CeldaTerreno celdaAsociada){
-        super(15,30,celdaAsociada);
-        frecuencia=3;
-        cantidad=5;
+        super(200,30,celdaAsociada);
+        cantidad=10;
+    }
+
+    public int getCantidad(){
+        return cantidad;
+    }
+    public void setCantidad(int cantidad){
+        this.cantidad=cantidad;
     }
 
     /**
