@@ -108,7 +108,10 @@ public class Jugador {
                 } else {
                     return Boolean.FALSE;
                 }
-                while
+                Boolean b1 = Boolean.TRUE;
+                while (b1){
+                    if
+                }
                 return Boolean.TRUE;
 
             }
