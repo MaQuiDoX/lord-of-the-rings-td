@@ -8,14 +8,10 @@ import java.util.regex.Pattern;
 import Celda.Celda;
 import Celda.CeldaCamino;
 import Celda.CeldaTerreno;
-import Celda.Cerro;
+
+import Estructuras.Cerro;
 
 import Enemigo.Enemigo;
-import Enemigo.Humano;
-import Enemigo.Elfo;
-import Enemigo.Enano;
-import Enemigo.Hobbit;
-import Enemigo.Ent;
 
 import Torre.Torre;
 import Torre.TorreBasica;

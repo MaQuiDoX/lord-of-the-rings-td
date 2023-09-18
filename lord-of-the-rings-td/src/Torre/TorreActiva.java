@@ -31,7 +31,7 @@ public abstract class TorreActiva extends Torre implements TimeTicks {
     /**
      * Constructor de la torre pasando como parametros el valor de los atributo.
      */
-    public TorreActiva(int dano,int velocidad, int alcance, String tipoDano, int coste, int costeMejora, CeldaTerreno celdaAsociada){
+    public TorreActiva(int dano, int velocidad, int alcance, String tipoDano, int coste, int costeMejora, CeldaTerreno celdaAsociada){
         super(coste, costeMejora, celdaAsociada);
         this.dano=dano;
         this.velocidad=velocidad;

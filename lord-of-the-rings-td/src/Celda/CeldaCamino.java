@@ -2,15 +2,27 @@ package Celda;
 
 import Enemigo.Enemigo;
 import java.util.ArrayList;
-import Barricada.Barricada;
+import Estructuras.Barricada;
 
+/**
+ * Una clase que representa las celdas por las cuales pueden avanzar los enemigos y/o haber estructuras del jugador.
+ * @version 1.0 18/9/23 *
+ * @author Ezequiel L. Martins *
+ */
 public class CeldaCamino extends Celda{
     private ArrayList<Enemigo> listaEnemigos = new ArrayList<Enemigo>();
     private Barricada barricada = null;
     private int[] PosicionEnemigo;
     private Celda siguienteCelda;
 
-
+    /**
+     * Constructor de CeldaCamino, recibiendo como parametro la CeldaCamino que le sigue.
+     * @param siguienteCelda Celda en la cual se encuentra dentro del mapa.
+     * -------------------------
+     * ARREGLAR ESTE CONSTRUCTOR
+     * -------------------------
+     * @see CeldaCamino
+     */
     public CeldaCamino(Celda siguienteCelda){
         super(1,1);
         this.siguienteCelda=siguienteCelda;
@@ -21,6 +33,18 @@ public class CeldaCamino extends Celda{
         this.siguienteCelda=siguienteCelda;
     }
 
+    /**
+     * Getter de listaEnemigos.
+     * @return Devuelve un ArrayList con los enemigos en esa CeldaCamino.
+     */
+    public ArrayList<Enemigo> getListaEnemigos(){
+        return listaEnemigos;
+    }
+    /**
+     * Añade un nuevo enemigo a listaEnemigos.
+     * @param enemigo Recibe un objeto del tipo Enemigo para ser añadido.
+     * @see Enemigo
+     */
     public void nuevoEnemigo(Enemigo enemigo){
         listaEnemigos.add(enemigo);
     }
@@ -35,9 +59,8 @@ public class CeldaCamino extends Celda{
     public Celda getSiguienteCelda() {
         return this.siguienteCelda;
     }
-    public ArrayList<Enemigo> getListaEnemigos(){
-        return listaEnemigos;
-    }
+
+
 
     public Barricada getBarricada(){
         return barricada;
@@ -45,8 +68,5 @@ public class CeldaCamino extends Celda{
     public void setBarricada(Barricada barricada){
         this.barricada=barricada;
     }
-    //public Boolean hayBarricada(){
-      //  Boolean b1 = new Boolean(false);
-        //if
-    //}
+
 }
