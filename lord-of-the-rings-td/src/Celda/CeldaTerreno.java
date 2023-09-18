@@ -18,5 +18,9 @@ public class CeldaTerreno extends Celda{
         this.torre=torre;
     }
 
+    public Boolean getOcupada(){
+        return ocupada;
+    }
+
 
 }
