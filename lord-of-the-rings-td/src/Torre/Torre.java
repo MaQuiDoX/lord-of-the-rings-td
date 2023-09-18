@@ -121,7 +121,7 @@ public abstract class Torre {
      * modifica celdas en el rango de ataque.
      * @param celdaEnRango nueva lista de celdas en el rango de ataque*
      */
-    private void setCeldaEnRango(ArrayList<CeldaCamino> celdaEnRango){
+    public void setCeldaEnRango(ArrayList<CeldaCamino> celdaEnRango){
         this.celdaEnRango=celdaEnRango;
     }
 
