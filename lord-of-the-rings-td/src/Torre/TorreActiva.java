@@ -131,6 +131,7 @@ public abstract class TorreActiva extends Torre implements TimeTicks {
         }
     }
     @Override
+
     public void actionTick(){
         for (CeldaCamino enRango : celdaEnRango) {
 
