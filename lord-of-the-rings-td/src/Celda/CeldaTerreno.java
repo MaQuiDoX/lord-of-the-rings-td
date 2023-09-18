@@ -6,9 +6,17 @@ public class CeldaTerreno extends Celda{
     private Torre torre;
     private Boolean ocupada = new Boolean(false);
 
-    public void CeldaTerreno(){
-
+    public CeldaTerreno(){
+        super(1,1);
+        torre=null;
+        ocupada=Boolean.FALSE;
     }
+    public CeldaTerreno( int coordenadaX, int coordenadaY){
+        super(coordenadaX,coordenadaY);
+        torre=null;
+        ocupada=Boolean.FALSE;
+    }
+
 
     public Torre getTorre(){
         return torre;

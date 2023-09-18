@@ -24,6 +24,12 @@ public class CeldaCamino extends Celda{
      * @see CeldaCamino
      */
     public CeldaCamino(Celda siguienteCelda){
+        super(1,1);
+        this.siguienteCelda=siguienteCelda;
+    }
+
+    public CeldaCamino(Celda siguienteCelda, int coordenadaX, int coordenadaY){
+        super(coordenadaX,coordenadaY);
         this.siguienteCelda=siguienteCelda;
     }
 
