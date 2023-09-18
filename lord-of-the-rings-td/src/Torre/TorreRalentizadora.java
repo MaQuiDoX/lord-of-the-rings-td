@@ -14,7 +14,7 @@ public class TorreRalentizadora extends Torre implements TimeTicks {
 
     ///ver de balancearlo mejor, solo se podria mejorar el alcance
     public TorreRalentizadora(CeldaTerreno celdaAsociada){
-        super(15,30,celdaAsociada);
+        super(30,celdaAsociada);
         alcance=1;
         velocidad=3;
     }
@@ -44,13 +44,12 @@ public class TorreRalentizadora extends Torre implements TimeTicks {
 
     @Override
     public void actionTick() {
-        Iterator<CeldaCamino> celda = celdaEnRango.iterator();
-        while(celda.hasNext()){
+        for (CeldaCamino enRango : celdaEnRango) {
 
-            ArrayList<Enemigo> enemigoslis = celda.next().getListaEnemigos();
-            if (!enemigoslis.isEmpty()){
+            ArrayList<Enemigo> enemigoslis = enRango.getListaEnemigos();
+            if (!enemigoslis.isEmpty()) {
                 Enemigo enemigo = enemigoslis.get(0);
-                enemigo.setVelocidad(enemigo.getVelocidad()+1);
+                enemigo.setVelocidad(enemigo.getVelocidad() + 1);
                 break;
 
             }

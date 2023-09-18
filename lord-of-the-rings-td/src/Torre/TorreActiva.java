@@ -1,10 +1,11 @@
 package Torre;
-import Celda.*;
+
+import Celda.CeldaCamino;
+import Celda.CeldaTerreno;
 import Enemigo.Enemigo;
 import TimeTicks.TimeTicks;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Objects;
 
 /**
@@ -31,8 +32,8 @@ public abstract class TorreActiva extends Torre implements TimeTicks {
     /**
      * Constructor de la torre pasando como parametros el valor de los atributo.
      */
-    public TorreActiva(int dano, int velocidad, int alcance, String tipoDano, int coste, int costeMejora, CeldaTerreno celdaAsociada){
-        super(coste, costeMejora, celdaAsociada);
+    public TorreActiva(int dano, int velocidad, int alcance, String tipoDano, int costeMejora, CeldaTerreno celdaAsociada){
+        super( costeMejora, celdaAsociada);
         this.dano=dano;
         this.velocidad=velocidad;
         this.alcance=alcance;

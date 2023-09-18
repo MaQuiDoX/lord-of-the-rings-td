@@ -1,7 +1,8 @@
 package Jugador;
-import Enemigo.Enemigo;
+import Celda.Celda;
+import Celda.CeldaCamino;
+import Celda.CeldaTerreno;
 import Estructuras.Barricada;
-import Celda.*;
 import Mapa.Mapa;
 import Torre.*;
 
@@ -65,12 +66,12 @@ public class Jugador {
     public Boolean comprarTorre(Mapa mapa,int coorX, int coorY, int tipoTorre, CeldaCamino primeraCelda){
         Celda t = mapa.getMatrizCelda(coorX, coorY);
         if (t instanceof CeldaTerreno){
-            CeldaTerreno j = mapa.getMatrizCelda(coorX, coorY);
+            CeldaTerreno j = (CeldaTerreno) t;
             return colocarTorre(tipoTorre,j,primeraCelda, coorX, coorY);
         } else if (t instanceof CeldaCamino) {
 
             if (tipoTorre==6){
-                CeldaTerreno j = mapa.getMatrizCelda(coorX, coorY);
+                CeldaCamino j = (CeldaCamino) t;
                 return colocarBarricada(j);
             }
             else
@@ -123,7 +124,7 @@ public class Jugador {
 
 
     private void buscarCeldasEnRango(CeldaCamino currentCelda, int coorX, int coorY, TorreActiva torre){
-        Boolean b = new Boolean(true);
+        boolean b = Boolean.TRUE;
         int x = 1;
         int y = 1;
         ArrayList<CeldaCamino> list = new ArrayList<>();
@@ -145,7 +146,7 @@ public class Jugador {
     }
 
     private void buscarCeldasEnRango(CeldaCamino currentCelda, int coorX, int coorY, TorreRalentizadora torre){
-        Boolean b = new Boolean(true);
+        boolean b = Boolean.TRUE;
         int x = 1;
         int y = 1;
         ArrayList<CeldaCamino> list = new ArrayList<>();
@@ -168,6 +169,22 @@ public class Jugador {
 
 
 
+    public Boolean mejorarBarricada(Barricada barricada){
+        puntuacion+=100;
+        if (barricada.getNivel()>=3){
+            return Boolean.FALSE;
+        }
+        if (barricada.getNivel()==0){
+            barricada.setVida(barricada.getVida()+100);
+        }
+        if (barricada.getNivel()==1){
+            barricada.setVida(barricada.getVida()+100);
+        }
+        if (barricada.getNivel()==2){
+            barricada.setVida(barricada.getVida()+100);
+        }
+        return Boolean.TRUE;
+    }
 
 
     public Boolean mejorarTorre(CeldaTerreno celdaDeTorre, CeldaCamino primeraCelda){
@@ -205,6 +222,7 @@ public class Jugador {
         if (torre.getNivel()==2){
             torre.setCantidad(torre.getCantidad()+10);
         }
+        torre.setCosteMejora(torre.getCosteMejora()+20);
         return Boolean.TRUE;
     }
 
@@ -221,6 +239,7 @@ public class Jugador {
         if (torre.getNivel()==2){
             torre.setAlcance(torre.getAlcance()+1);
         }
+        torre.setCosteMejora(torre.getCosteMejora()+20);
         return Boolean.TRUE;
     }
 
@@ -236,8 +255,10 @@ public class Jugador {
         }
         if (torre.getNivel()==2){
             torre.setAlcance(torre.getAlcance()+1);
-            //cambiar celdaEnRango
+
         }
+
+        torre.setCosteMejora(torre.getCosteMejora()+20);
         return Boolean.TRUE;
     }
 
@@ -248,11 +269,11 @@ public class Jugador {
             //borrartorre(celda.getTorre);
             celda.setTorre(null);
             magia+=100;
-            return Boolean.FALSE;
+            return Boolean.TRUE;
         }
     }
 
-    public  Boolean colocarBarricada(CeldaCamino celda){
+    private   Boolean colocarBarricada(CeldaCamino celda){
         Barricada barricada = celda.getBarricada();
         if (barricada==null){
             Barricada barricada1 = new Barricada(100, 500,0,celda);
@@ -269,10 +290,6 @@ public class Jugador {
 
 
 
-    //devuelve verdadero si pudo vender lab torre y False en caso contrario
-    //public bool venderTorre(int coordenadaX, int coordenadaY){
-    // return True;
-    //}
 
 
   
