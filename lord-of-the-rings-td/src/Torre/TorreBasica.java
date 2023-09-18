@@ -15,5 +15,4 @@ public class TorreBasica extends TorreActiva{
         super(10, 1, 1, "b", 100, 200, celdaAsociada);
     }
 
-
 }

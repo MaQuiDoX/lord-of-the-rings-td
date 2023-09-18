@@ -12,6 +12,7 @@ public class TorreArea extends TorreActiva{
         super(20,10,2,"a",100,200,celda);
     }
 
+
     @Override
     public void actionTick(){
         Iterator<CeldaCamino> celda = celdaEnRango.iterator();
