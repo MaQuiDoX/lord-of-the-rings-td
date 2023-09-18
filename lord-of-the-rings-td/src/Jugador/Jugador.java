@@ -62,7 +62,7 @@ public class Jugador {
         Celda t = mapa.getMatrizCelda(coorX, coorY);
         if (t instanceof CeldaTerreno){
             CeldaTerreno j = mapa.getMatrizCelda(coorX, coorY);
-            return ColocarTorre(tipoTorre,j,primeraCelda);
+            return ColocarTorre(tipoTorre,j,primeraCelda, coorX, coorY);
         } else if (t instanceof CeldaCamino) {
 
             if (tipoTorre==6){
@@ -77,7 +77,7 @@ public class Jugador {
 
     }
 
-    public Boolean ColocarTorre(int tipoTorre,CeldaTerreno t, CeldaCamino currentCelda){
+    public Boolean ColocarTorre(int tipoTorre,CeldaTerreno t, CeldaCamino currentCelda,int coorX, int coorY){
             if (t.getOcupada()){
                 return Boolean.FALSE;
             }
@@ -106,13 +106,90 @@ public class Jugador {
                 } else {
                     return Boolean.FALSE;
                 }
-                Boolean b1 = Boolean.TRUE;
-                while (b1){
-                    if
-                }
+
                 return Boolean.TRUE;
 
             }
+    }
+
+
+
+    public Boolean mejorarTorre(Torre torre){
+
+        if (torre instanceof TorreActiva){
+            TorreActiva tor = (TorreActiva) torre;
+            return mejorarTorreActiva(tor);
+        }
+        if (torre instanceof TorreRalentizadora){
+            TorreRalentizadora tor = (TorreRalentizadora) torre;
+            return mejorarTorreRalentizadora(tor);
+        }
+        if (torre instanceof TorreGeneradora){
+            TorreGeneradora tor = (TorreGeneradora) torre;
+            return mejorarTorreGeneradora(tor);
+        }
+        return Boolean.FALSE;
+    }
+
+    public Boolean mejorarTorreGeneradora(TorreGeneradora torre){
+        if (torre.getNivel()>=3){
+            return Boolean.FALSE;
+        }
+        if (torre.getNivel()==0){
+            torre.setCantidad(torre.getCantidad()+10);
+        }
+        if (torre.getNivel()==1){
+            torre.setCantidad(torre.getCantidad()+10);
+        }
+        if (torre.getNivel()==2){
+            torre.setCantidad(torre.getCantidad()+10);
+        }
+        return Boolean.TRUE;
+    }
+
+    public Boolean mejorarTorreActiva(TorreActiva torre){
+        if (torre.getNivel()>=3){
+            return Boolean.FALSE;
+        }
+        if (torre.getNivel()==0){
+            torre.setDano(torre.getDano()+10);
+        }
+        if (torre.getNivel()==1){
+            torre.setVelocidad(torre.getVelocidad()-1);
+        }
+        if (torre.getNivel()==2){
+            torre.setAlcance(torre.getAlcance()+1);
+            //cambiar celdaEnRango
+        }
+        return Boolean.TRUE;
+    }
+
+    public Boolean mejorarTorreRalentizadora(TorreRalentizadora torre){
+        if (torre.getNivel()>=3){
+            return Boolean.FALSE;
+        }
+        if (torre.getNivel()==0){
+            torre.setVelocidad(torre.getVelocidad()-1);
+        }
+        if (torre.getNivel()==1){
+            torre.setVelocidad(torre.getVelocidad()-1);
+        }
+        if (torre.getNivel()==2){
+            torre.setAlcance(torre.getAlcance()+1);
+            //cambiar celdaEnRango
+        }
+        return Boolean.TRUE;
+    }
+
+    public Boolean venderTorre(CeldaTerreno celda){
+        if (celda.getTorre()==null)
+            return Boolean.FALSE;
+        else{
+            //borrartorre(celda.getTorre);
+            celda.setTorre(null);
+            magia+=100;
+            return Boolean.FALSE;
+        }
     }
 
     public  Boolean colocarBarricada(CeldaCamino celda){
@@ -126,6 +203,8 @@ public class Jugador {
             return Boolean.FALSE;
         }
     }
+
+
 
 
 
