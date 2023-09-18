@@ -1,8 +1,12 @@
 package Jugador;
+import Enemigo.Enemigo;
 import Estructuras.Barricada;
 import Celda.*;
 import Mapa.Mapa;
 import Torre.*;
+
+import java.util.ArrayList;
+
 
 /**
  * Clase que representa al jugador.
@@ -62,7 +66,7 @@ public class Jugador {
         Celda t = mapa.getMatrizCelda(coorX, coorY);
         if (t instanceof CeldaTerreno){
             CeldaTerreno j = mapa.getMatrizCelda(coorX, coorY);
-            return ColocarTorre(tipoTorre,j,primeraCelda, coorX, coorY);
+            return colocarTorre(tipoTorre,j,primeraCelda, coorX, coorY);
         } else if (t instanceof CeldaCamino) {
 
             if (tipoTorre==6){
@@ -76,8 +80,7 @@ public class Jugador {
         }
 
     }
-
-    public Boolean ColocarTorre(int tipoTorre,CeldaTerreno t, CeldaCamino currentCelda,int coorX, int coorY){
+    private Boolean colocarTorre(int tipoTorre,CeldaTerreno t, CeldaCamino currentCelda,int coorX, int coorY){
             if (t.getOcupada()){
                 return Boolean.FALSE;
             }
@@ -85,23 +88,28 @@ public class Jugador {
                 if (tipoTorre == 1) {
                     TorreBasica torre = new TorreBasica(t);
                     t.setTorre(torre);
+                    buscarCeldasEnRango(currentCelda, coorX, coorY,torre);
 
                 } else if (tipoTorre == 2) {
                     TorreRango torre = new TorreRango(t);
                     t.setTorre(torre);
+                    buscarCeldasEnRango(currentCelda, coorX, coorY,torre);
 
                 } else if (tipoTorre == 3) {
                     TorreArea torre = new TorreArea(t);
                     t.setTorre(torre);
+                    buscarCeldasEnRango(currentCelda, coorX, coorY,torre);
 
                 } else if (tipoTorre == 4) {
                     TorreRalentizadora torre = new TorreRalentizadora(t);
                     t.setTorre(torre);
+                    buscarCeldasEnRango(currentCelda, coorX, coorY,torre);
 
                 } else if (tipoTorre == 5) {
                     TorreGeneradora torre = new TorreGeneradora(t);
                     t.setTorre(torre);
                     return Boolean.TRUE;
+
 
                 } else {
                     return Boolean.FALSE;
@@ -114,14 +122,67 @@ public class Jugador {
 
 
 
-    public Boolean mejorarTorre(Torre torre){
+    private void buscarCeldasEnRango(CeldaCamino currentCelda, int coorX, int coorY, TorreActiva torre){
+        Boolean b = new Boolean(true);
+        int x = 1;
+        int y = 1;
+        ArrayList<CeldaCamino> list = new ArrayList<>();
+        while(b){
+            x = currentCelda.getCoorX();
+            y = currentCelda.getCoorY();
+            if (Math.abs(x-coorX)<= torre.getAlcance()){
+                if (Math.abs(y-coorY)<= torre.getAlcance()){
+                    list.add(currentCelda);
+                }
+            }
+            if (currentCelda.getSiguienteCelda()==null)
+                b=Boolean.FALSE;
+            else
+                currentCelda = currentCelda.getSiguienteCelda();
 
+        }
+        torre.setCeldaEnRango(list);
+    }
+
+    private void buscarCeldasEnRango(CeldaCamino currentCelda, int coorX, int coorY, TorreRalentizadora torre){
+        Boolean b = new Boolean(true);
+        int x = 1;
+        int y = 1;
+        ArrayList<CeldaCamino> list = new ArrayList<>();
+        while(b){
+            x = currentCelda.getCoorX();
+            y = currentCelda.getCoorY();
+            if (Math.abs(x-coorX)<= torre.getAlcance()){
+                if (Math.abs(y-coorY)<= torre.getAlcance()){
+                    list.add(currentCelda);
+                }
+            }
+            if (currentCelda.getSiguienteCelda()==null)
+                b=Boolean.FALSE;
+            else
+                currentCelda = currentCelda.getSiguienteCelda();
+
+        }
+        torre.setCeldaEnRango(list);
+    }
+
+
+
+
+
+    public Boolean mejorarTorre(CeldaTerreno celdaDeTorre, CeldaCamino primeraCelda){
+        puntuacion+=100;
+        Torre torre = celdaDeTorre.getTorre();
+        int x = celdaDeTorre.getCoorX();
+        int y = celdaDeTorre.getCoorY();
         if (torre instanceof TorreActiva){
             TorreActiva tor = (TorreActiva) torre;
+            buscarCeldasEnRango(primeraCelda, x, y,tor);
             return mejorarTorreActiva(tor);
         }
         if (torre instanceof TorreRalentizadora){
             TorreRalentizadora tor = (TorreRalentizadora) torre;
+            buscarCeldasEnRango(primeraCelda, x, y,tor);
             return mejorarTorreRalentizadora(tor);
         }
         if (torre instanceof TorreGeneradora){
@@ -131,7 +192,7 @@ public class Jugador {
         return Boolean.FALSE;
     }
 
-    public Boolean mejorarTorreGeneradora(TorreGeneradora torre){
+    private Boolean mejorarTorreGeneradora(TorreGeneradora torre){
         if (torre.getNivel()>=3){
             return Boolean.FALSE;
         }
@@ -147,7 +208,7 @@ public class Jugador {
         return Boolean.TRUE;
     }
 
-    public Boolean mejorarTorreActiva(TorreActiva torre){
+    private Boolean mejorarTorreActiva(TorreActiva torre){
         if (torre.getNivel()>=3){
             return Boolean.FALSE;
         }
@@ -159,12 +220,11 @@ public class Jugador {
         }
         if (torre.getNivel()==2){
             torre.setAlcance(torre.getAlcance()+1);
-            //cambiar celdaEnRango
         }
         return Boolean.TRUE;
     }
 
-    public Boolean mejorarTorreRalentizadora(TorreRalentizadora torre){
+    private Boolean mejorarTorreRalentizadora(TorreRalentizadora torre){
         if (torre.getNivel()>=3){
             return Boolean.FALSE;
         }

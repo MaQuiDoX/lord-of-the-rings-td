@@ -115,14 +115,6 @@ public abstract class TorreActiva extends Torre implements TimeTicks {
         this.tipoDano=tipoDano;
     }
 
-    /**
-     * ataca al enemigo que más avanzo.
-     */
-    public void atacarEnemigo(){
-        for (CeldaCamino celda: celdaEnRango){
-            System.out.println(" ");
-        }
-    }
     @Override
     public void waitingTick(){
         tick++;
@@ -132,7 +124,6 @@ public abstract class TorreActiva extends Torre implements TimeTicks {
         }
     }
     @Override
-
     public void actionTick(){
         for (CeldaCamino enRango : celdaEnRango) {
 
