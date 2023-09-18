@@ -1,10 +1,8 @@
 package Jugador;
-import Barricada.Barricada;
+import Estructuras.Barricada;
 import Celda.*;
 import Mapa.Mapa;
 import Torre.*;
-
-import java.util.ArrayList;
 
 /**
  * Clase que representa al jugador.
