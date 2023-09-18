@@ -30,6 +30,8 @@ public abstract class Torre {
 
     /**
      * Constructor de la torre pasando como parametros el valor de los atributo.
+     * @param coste El coste en magia de la torre.
+     * @param costeMejora El coste en magia de mejorar la torre.
      */
     public Torre(int coste, int costeMejora, CeldaTerreno celdaAsociada){
 
@@ -124,10 +126,4 @@ public abstract class Torre {
     }
 
 
-    private int getTick(){
-        return tick;
-    }
-    private void aumentarTick(){
-        tick++;
-    }
 }

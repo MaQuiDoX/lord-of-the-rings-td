@@ -62,7 +62,7 @@ public class Jugador {
         Celda t = mapa.getMatrizCelda(coorX, coorY);
         if (t instanceof CeldaTerreno){
             CeldaTerreno j = mapa.getMatrizCelda(coorX, coorY);
-            return ColocarTorre(tipoTorre,j,primeraCelda, coorX, coorY);
+            return colocarTorre(tipoTorre,j,primeraCelda, coorX, coorY);
         } else if (t instanceof CeldaCamino) {
 
             if (tipoTorre==6){
@@ -77,7 +77,7 @@ public class Jugador {
 
     }
 
-    public Boolean ColocarTorre(int tipoTorre,CeldaTerreno t, CeldaCamino currentCelda,int coorX, int coorY){
+    private Boolean colocarTorre(int tipoTorre,CeldaTerreno t, CeldaCamino currentCelda,int coorX, int coorY){
             if (t.getOcupada()){
                 return Boolean.FALSE;
             }
@@ -131,7 +131,7 @@ public class Jugador {
         return Boolean.FALSE;
     }
 
-    public Boolean mejorarTorreGeneradora(TorreGeneradora torre){
+    private Boolean mejorarTorreGeneradora(TorreGeneradora torre){
         if (torre.getNivel()>=3){
             return Boolean.FALSE;
         }
@@ -147,7 +147,7 @@ public class Jugador {
         return Boolean.TRUE;
     }
 
-    public Boolean mejorarTorreActiva(TorreActiva torre){
+    private Boolean mejorarTorreActiva(TorreActiva torre){
         if (torre.getNivel()>=3){
             return Boolean.FALSE;
         }
@@ -164,7 +164,7 @@ public class Jugador {
         return Boolean.TRUE;
     }
 
-    public Boolean mejorarTorreRalentizadora(TorreRalentizadora torre){
+    private Boolean mejorarTorreRalentizadora(TorreRalentizadora torre){
         if (torre.getNivel()>=3){
             return Boolean.FALSE;
         }
