@@ -7,7 +7,7 @@ import Barricada.Barricada;
 
 public class CeldaCamino extends Celda{
     private ArrayList<Enemigo> listaEnemigos = new ArrayList<Enemigo>();
-    private Barricada barricada;
+    private Barricada barricada = null;
     private int[] PosicionEnemigo;
     private Celda siguienteCelda;
 
@@ -30,7 +30,12 @@ public class CeldaCamino extends Celda{
         return listaEnemigos;
     }
 
-
+    public Barricada getBarricada(){
+        return barricada;
+    }
+    public void setBarricada(Barricada barricada){
+        this.barricada=barricada;
+    }
     //public Boolean hayBarricada(){
       //  Boolean b1 = new Boolean(false);
         //if
