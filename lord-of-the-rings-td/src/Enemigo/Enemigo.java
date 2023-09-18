@@ -28,8 +28,9 @@ public abstract class Enemigo {
      * Constructor de enemigo, recibiendo como parametros el valor de sus atributo.
      */
     public Enemigo(int vida, int dano, int velocidad, int magiaOtorgada, String tipo, CeldaCamino ubicacion){
+
         this.vida = vida;
-        this.dano = dano;
+        this.daño = daño;
         this.velocidad = velocidad;
         this.magiaOtorgada = magiaOtorgada;
         this.tipo = tipo;

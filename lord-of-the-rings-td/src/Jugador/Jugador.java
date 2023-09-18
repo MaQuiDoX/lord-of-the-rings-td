@@ -1,5 +1,10 @@
 package Jugador;
-//import Celda.CeldaCerro
+import Barricada.Barricada;
+import Celda.*;
+import Mapa.Mapa;
+import Torre.*;
+
+import java.util.ArrayList;
 
 /**
  * Clase que representa al jugador.
@@ -55,6 +60,74 @@ public class Jugador {
         puntuacion=0;
     }
 
+    public Boolean comprarTorre(Mapa mapa,int coorX, int coorY, int tipoTorre){
+        Celda t = mapa.getMatrizCelda(coorX, coorY);
+        if (t instanceof CeldaTerreno){
+            CeldaTerreno j = mapa.getMatrizCelda(coorX, coorY);
+            return ColocarTorre(tipoTorre,j);
+        } else if (t instanceof CeldaCamino) {
+
+            if (tipoTorre==6){
+                CeldaTerreno j = mapa.getMatrizCelda(coorX, coorY);
+                return colocarBarricada(j);
+            }
+            else
+                return Boolean.FALSE;
+        } else{
+            return Boolean.FALSE;
+        }
+
+    }
+
+    public Boolean ColocarTorre(int tipoTorre,CeldaTerreno t){
+            if (t.getOcupada()){
+                return Boolean.FALSE;
+            }
+            else {
+                if (tipoTorre == 1) {
+                    TorreBasica torre = new TorreBasica(t);
+                    t.setTorre(torre);
+
+                } else if (tipoTorre == 2) {
+                    TorreRango torre = new TorreRango(t);
+                    t.setTorre(torre);
+
+                } else if (tipoTorre == 3) {
+                    TorreArea torre = new TorreArea(t);
+                    t.setTorre(torre);
+
+                } else if (tipoTorre == 4) {
+                    TorreRalentizadora torre = new TorreRalentizadora(t);
+                    t.setTorre(torre);
+
+                } else if (tipoTorre == 5) {
+                    TorreGeneradora torre = new TorreGeneradora(t);
+                    t.setTorre(torre);
+                    return Boolean.TRUE;
+
+                } else {
+                    return Boolean.FALSE;
+                }
+                ///implementar la lista de celdas a atacar;
+                return Boolean.TRUE;
+
+            }
+    }
+
+    public  Boolean colocarBarricada(CeldaCamino celda){
+        Barricada barricada = celda.getBarricada();
+        if (barricada==null){
+            Barricada barricada1 = new Barricada(100, 500,0,celda);
+            celda.setBarricada(barricada1);
+            return Boolean.TRUE;
+        }
+        else{
+            return Boolean.FALSE;
+        }
+    }
+
+
+
 
     //devuelve verdadero si pudo vender lab torre y False en caso contrario
     //public bool venderTorre(int coordenadaX, int coordenadaY){
@@ -70,8 +143,8 @@ public class Jugador {
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.println("Glosario:");
         System.out.println("Enemigos: Hu: Humano -- El: Elfo -- En: Enano -- Ho: Hobbit -- T: Ent -- V: Varios enemigos");
-        System.out.println("Torres: B: Torre Básica -- R: Torre Rango -- A: Torre Área -- RR: Torre Ralentizadora");
-        System.out.println("        G: Torre Generadora -- BB: Barricada ");
+        System.out.println("Torres: B: Torre Básica -- R: Torre Rango -- A: Torre Área -- L: Torre Ralentizadora");
+        System.out.println("        G: Torre Generadora -- ||: Barricada ");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     }
 

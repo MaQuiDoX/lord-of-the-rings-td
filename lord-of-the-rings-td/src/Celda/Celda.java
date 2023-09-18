@@ -1,5 +1,5 @@
 package Celda;
-// añadir commit
+
 public abstract class Celda<T> {
     private T celda;
 
