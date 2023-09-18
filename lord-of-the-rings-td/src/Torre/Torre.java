@@ -120,7 +120,7 @@ public abstract class Torre {
      * @param nuevaCelda nueva celda en el rango de ataque*
      */
     private void setCeldaEnRango(CeldaCamino nuevaCelda){
-        celdaEnRango.add(nuevaCelda);
+        ;
     }
 
     private int getTick(){
