@@ -11,7 +11,6 @@ import java.util.ArrayList; //importo la clase ArrayList
 
 public abstract class Torre {
 
-    protected int coste;
     protected int costeMejora;
     protected int nivel;
     protected CeldaTerreno celdaAsociada;
@@ -30,12 +29,10 @@ public abstract class Torre {
 
     /**
      * Constructor de la torre pasando como parametros el valor de los atributo.
-     * @param coste El coste en magia de la torre.
      * @param costeMejora El coste en magia de mejorar la torre.
      */
-    public Torre(int coste, int costeMejora, CeldaTerreno celdaAsociada){
+    public Torre( int costeMejora, CeldaTerreno celdaAsociada){
 
-        this.coste=coste;
         this.costeMejora=costeMejora;
         nivel=0;
         this.celdaAsociada=celdaAsociada;
@@ -45,7 +42,6 @@ public abstract class Torre {
 
     /** Constructor de la torre solo pasando el parametro de celdaTerren */
     public Torre(CeldaTerreno celdaAsociada){
-        coste=100;
         costeMejora=200;
         nivel=0;
         this.celdaAsociada=celdaAsociada;
@@ -53,21 +49,7 @@ public abstract class Torre {
         //valores por default
     }
 
-    /**
-     * Getter del coste.
-     * @return el coste de la torre.
-     */
-    public int getCoste(){
-        return coste;
-    }
 
-    /**
-     * Modifica el coste de la torre.
-     * @param coste nuevo coste *
-     */
-    public void setCoste(int coste){
-        this.coste=coste;
-    }
 
     /**
      *getter costeMejora.
