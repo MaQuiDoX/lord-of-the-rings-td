@@ -1,8 +1,12 @@
 package Celda;
 
-import java.lang.reflect.Array;
+public abstract class Celda<T> {
+    private T celda;
 
-public abstract class Celda {
-
-
+    public T getCelda(){
+        return this.celda;
+    }
+    public void setCelda(T celda){
+        this.celda = celda;
+    }
 }
