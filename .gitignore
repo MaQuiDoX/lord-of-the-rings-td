@@ -1,1 +1,14 @@
 *.xml
+out/production/lord-of-the-rings-td/Barricada/Barricada.class
+out/production/lord-of-the-rings-td/Celda/Celda.class
+out/production/lord-of-the-rings-td/Celda/CeldaCamino.class
+out/production/lord-of-the-rings-td/Celda/CeldaGenerica.class
+out/production/lord-of-the-rings-td/Celda/CeldaTerreno.class
+out/production/lord-of-the-rings-td/Celda/Cerro.class
+out/production/lord-of-the-rings-td/Enemigo/Elfo.class
+out/production/lord-of-the-rings-td/Enemigo/Enano.class
+out/production/lord-of-the-rings-td/Enemigo/Enemigo.class
+out/production/lord-of-the-rings-td/Enemigo/Ent.class
+out/production/lord-of-the-rings-td/Enemigo/Hobbit.class
+out/production/lord-of-the-rings-td/Enemigo/Humano.class
+out/production/lord-of-the-rings-td/Torre/TorreActiva.class

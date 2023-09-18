@@ -5,7 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="171d98c7-b07b-4693-a064-dba52ede5961" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Barricada/Barricada.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Celda/Celda.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Celda/Celda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Celda/CeldaCamino.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Celda/CeldaCamino.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Celda/CeldaTerreno.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Celda/CeldaTerreno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Celda/Cerro.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Celda/Cerro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Elfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Elfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Enano.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Enano.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Enemigo.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Enemigo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Ent.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Ent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Hobbit.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Hobbit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Humano.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Humano.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lord-of-the-rings-td/Barricada/Barricada.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lord-of-the-rings-td/Celda/Celda.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lord-of-the-rings-td/Celda/CeldaCamino.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lord-of-the-rings-td/Celda/CeldaGenerica.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lord-of-the-rings-td/Celda/CeldaTerreno.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lord-of-the-rings-td/Celda/Cerro.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lord-of-the-rings-td/Enemigo/Elfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lord-of-the-rings-td/Enemigo/Enano.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lord-of-the-rings-td/Enemigo/Enemigo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lord-of-the-rings-td/Enemigo/Ent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lord-of-the-rings-td/Enemigo/Hobbit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lord-of-the-rings-td/Enemigo/Humano.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lord-of-the-rings-td/Torre/TorreActiva.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +69,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor.code.editing&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -74,6 +99,12 @@
       <workItem from="1694967035561" duration="6237000" />
       <workItem from="1694977023315" duration="1631000" />
       <workItem from="1694979663287" duration="179000" />
+      <workItem from="1694980246257" duration="1366000" />
+      <workItem from="1694988221583" duration="7000" />
+      <workItem from="1694988254617" duration="865000" />
+      <workItem from="1694991303241" duration="154000" />
+      <workItem from="1694991471069" duration="217000" />
+      <workItem from="1695042881677" duration="4386000" />
     </task>
     <servers />
   </component>

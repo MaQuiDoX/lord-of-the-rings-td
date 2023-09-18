@@ -1,5 +1,5 @@
 package Celda;
-
+// añadir commit
 import Torre.Torre;
 
 public class CeldaTerreno extends Celda{
@@ -7,6 +7,5 @@ public class CeldaTerreno extends Celda{
     public CeldaTerreno(){
         this.torre = null;
     }
-
 
 }

@@ -1,5 +1,5 @@
 package Celda;
-
+// añadir commit
 public class Cerro extends Celda {
     private int vida;
 
