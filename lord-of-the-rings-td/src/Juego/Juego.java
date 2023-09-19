@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import Enemigo.*;
+import Estructuras.Cerro;
 import Mapa.*;
 import Jugador.*;
 import Celda.*;
@@ -65,8 +66,9 @@ public class Juego {
 
     public void menuPartida() {
         Scanner scanner = new Scanner(System.in);
-        int opcion2, opcion3, opcion4, opcion5, opcion6, finalizador, fila, columna, oleadaActual;
+        int opcion2, opcion3, opcion4, opcion5, opcion6, finalizador, fila, columna, ol;
         do {
+            ol = 0;
             opcion3 = 0;
             opcion4 = 0;
             opcion5 = 0;
@@ -178,8 +180,8 @@ public class Juego {
                                                     System.out.println("No es posible realizar la compra, no se puede colocar una torre en el camino...");
                                                     break;
                                                 } else if (((CeldaTerreno)celda).getTorre() != null){
-                                                        System.out.println("No es posible realizar la compra, no se puede colocar una torre donde ya hay una colocada...");
-                                                        break;
+                                                    System.out.println("No es posible realizar la compra, no se puede colocar una torre donde ya hay una colocada...");
+                                                    break;
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
                                                     jugador.comprarTorre(celda, 4,fila, columna, primerCelda);
@@ -207,7 +209,9 @@ public class Juego {
                                                     break;
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
+
                                                     jugador.comprarTorre(celda, 5,fila, columna, primerCelda);//
+
                                                     jugador.setMagia(jugador.getMagia()-200);
                                                     ClearScreen.cls();
                                                     System.out.println();
@@ -227,8 +231,14 @@ public class Juego {
                                                 if (celda instanceof CeldaTerreno) {
                                                     System.out.println("No es posible realizar la compra, no se puede colocar una barricada fuera del camino...");
                                                     break;
-                                                } else if (((CeldaCamino)celda).getBarricada() != null){
+                                                } else if (((CeldaCamino)celda).getBarricada() != null) {
                                                     System.out.println("No es posible realizar la compra, no se puede colocar una barrera donde ya hay una colocada...");
+                                                    break;
+                                                } else if ((fila == 1) && (columna == 0)) {
+                                                    System.out.println("No es posible realizar la compra, no se puede colocar una barrera al principio del camino...");
+                                                    break;
+                                                } else if (((CeldaCamino)celda).getCerro()!=null) {
+                                                    System.out.println("No es posible realizar la compra, no se puede colocar una barrera en el cerro...");
                                                     break;
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
@@ -254,11 +264,15 @@ public class Juego {
                                 }while((opcion6>7)||(opcion6<1));
 
                             } else if (opcion3 == 2) {
-                                System.out.println("");
-                                System.out.println("MEJORA");
-                                //MEJORA TORRE
-                                System.out.println("");
+                                fila = colocarFila(fila);
+                                columna = colocarColumna(columna);
+                                Celda celda = mapa.getMatrizCelda(fila, columna);
+                                if (celda instanceof CeldaTerreno) {
+
+                                }
                             } else if (opcion3 == 3) {
+
+                            } else if (opcion3 == 4) {
                                 break;
                             } else {
                                 System.out.println("Opción inválida. Ingrese de nuevo.");
@@ -277,27 +291,55 @@ public class Juego {
                             opcion4 = scanner.nextInt();
                             if (opcion4 == 1) {
                                 System.out.println("");
-                                System.out.println("Info Torre Basica");
+                                System.out.println("Torre Basica:");
+                                System.out.println(" + Descripción: Torre confiable que dispara flechas a los enemigos cercanos para defender tu cerro");
+                                System.out.println(" + Daño: 10 (+10 mejora de nivel 1)");
+                                System.out.println(" + Velocidad: 2 (+1 mejora a nivel 2)");
+                                System.out.println(" + Alcance: 2 (+1 mejora a nivel3)");
+                                System.out.println(" + Tipo de daño: Daño básico");
+                                System.out.println(" + Coste de mejora: 200 de magia");
                                 System.out.println("");
                             } else if (opcion4 == 2) {
                                 System.out.println("");
-                                System.out.println("Info Torre Rango");
+                                System.out.println("Torre Rango:");
+                                System.out.println(" + Descripción: Torre especializada en disparar proyectiles de largo alcance con precisión letal");
+                                System.out.println(" + Daño: 20 (+10 mejora de nivel 1)");
+                                System.out.println(" + Velocidad: 2 (+1 mejora de nivel 2)");
+                                System.out.println(" + Alcance: 4 (+1 mejora de nivel 3)");
+                                System.out.println(" + Tipo de daño: Daño en rango");
+                                System.out.println(" + Coste de mejora: 300 de magia");
                                 System.out.println("");
                             } else if (opcion4 == 3) {
                                 System.out.println("");
-                                System.out.println("Info Torre Area");
+                                System.out.println("Torre Area:");
+                                System.out.println(" + Descripción: Torre mágica que libera hechizos explosivos para dañar múltiples enemigos a la vez");
+                                System.out.println(" + Daño: 20 (+10 mejora de nivel 1)");
+                                System.out.println(" + Velocidad: 4 (+1 mejora de nivel 2)");
+                                System.out.println(" + Alcance: 2 (+1 mejora de nivel 3)");
+                                System.out.println(" + Tipo de daño: Daño en área");
+                                System.out.println(" + Coste de mejora: 200 de magia");
                                 System.out.println("");
                             } else if (opcion4 == 4) {
                                 System.out.println("");
-                                System.out.println("Info Torre Ralentizadora");
+                                System.out.println("Torre Ralentizadora:");
+                                System.out.println(" + Descripción:  Torre que emite una aura gélida que desacelera a los invasores");
+                                System.out.println(" + Velocidad: 3 (+1 mejora a nivel 1, +1 a nivel 2)");
+                                System.out.println(" + Alcance: 1 (+1 mejora a nivel3)");
+                                System.out.println(" + Coste de mejora: 300 de magia");
                                 System.out.println("");
                             } else if (opcion4 == 5) {
                                 System.out.println("");
-                                System.out.println("Info Torre Generadora");
+                                System.out.println("Torre Generadora:");
+                                System.out.println(" + Descripción: Una estructura que acumula y canaliza capital mágico luego de cada oleada");
+                                System.out.println(" + Ganancia por ronda: 10 de magia ()");
+                                System.out.println(" + Coste de mejora: 300 de magia");
                                 System.out.println("");
                             } else if (opcion4 == 6) {
                                 System.out.println("");
-                                System.out.println("Info Barricada");
+                                System.out.println("Barricada:");
+                                System.out.println(" + Descripción: Una sólida barrera que bloquea el avance de los enemigos, ganando tiempo para tus torres");
+                                System.out.println(" + Vida: 10 (+10 mejora a nivel 1, +10 mejora a nivel 2, +10 mejora a nivel 3)");
+                                System.out.println(" + Coste de mejora: 200 de magia");
                                 System.out.println("");
                             } else if (opcion4 == 7) {
                                 break;
@@ -317,23 +359,28 @@ public class Juego {
                             opcion5 = scanner.nextInt();
                             if (opcion5 == 1) {
                                 System.out.println("");
-                                System.out.println("Info Humano");
+                                System.out.println(" -- HUMANO -- ");
+                                System.out.println("Guerreros humanos que marchan hacia tu Cerro, armados con espadas y escudos, listos para la batalla");
                                 System.out.println("");
                             } else if (opcion5 == 2) {
                                 System.out.println("");
-                                System.out.println("Info Elfo");
+                                System.out.println(" -- ELFO -- ");
+                                System.out.println("Ágiles arqueros elfos que disparan flechas con precisión, dañando con mayor eficacia tu Cerro");
                                 System.out.println("");
                             } else if (opcion5 == 3) {
                                 System.out.println("");
-                                System.out.println("Info Enano");
+                                System.out.println(" -- ENANO -- ");
+                                System.out.println("Resistentes enanos que avanzan lentamente, con una gran resistencia a los ataques");
                                 System.out.println("");
                             } else if (opcion5 == 4) {
                                 System.out.println("");
-                                System.out.println("Info Hobbit");
+                                System.out.println(" -- HOBBIT -- ");
+                                System.out.println("Pequeños y debiles pero agiles y astutos, los hobbits intentan infiltrarse rapidamente en el Cerro");
                                 System.out.println("");
                             } else if (opcion5 == 5) {
                                 System.out.println("");
-                                System.out.println("Info Ent");
+                                System.out.println(" -- ENT -- ");
+                                System.out.println("Criaturas gigantes de la naturaleza que avanzan lentamente pero son difíciles de derrotar.");
                                 System.out.println("");
                             } else if (opcion5 == 6) {
                                 break;
@@ -347,31 +394,39 @@ public class Juego {
                     } while ((opcion5 > 6) || (opcion5 < 1));
 
                 } else if (opcion2 == 4) {
-                    System.out.println("");
-                    System.out.println("Info oleada...");
-                    System.out.println("");
+                    System.out.println(" -- SIGUIENTE OLEADA: " + ol + " -- ");
+
                 } else if (opcion2 == 5) {
-                    int ol = jugador.getOleada();
+                    ol = jugador.getOleada();
                     ol++;
                     jugador.setOleada(ol);
                     oleadaActiva(mapa.getNivel(), ol);
+                    CeldaCamino celdaCerro = (CeldaCamino) mapa.getMatrizCelda(4,16);
+                    if (celdaCerro.getCerro().getVida() < 1){
+                        ClearScreen.cls();
+                        System.out.println(" === GAME OVER ===");
+                        System.out.println(" --- PUNTUACION FINAL: " + jugador.getPuntuacion() + " --- ");
+                        finalizador = 1;
+                    }
 
                     if ((mapa.getNivel() == 1) && (ol == 4)){
                         ClearScreen.cls();
                         System.out.println(" === FELICIDADES, EL CERRO SOBREVIVIÓ A LAS OLEADAS DE ENEMIGOS === ");
+                        System.out.println(" --- PUNTUACION FINAL: " + jugador.getPuntuacion() + " --- ");
                         finalizador = 1;
                     }
                     if ((mapa.getNivel() == 2) && (ol == 5)){
                         ClearScreen.cls();
                         System.out.println(" === FELICIDADES, EL CERRO SOBREVIVIÓ A LAS OLEADAS DE ENEMIGOS === ");
+                        System.out.println(" --- PUNTUACION FINAL: " + jugador.getPuntuacion() + " --- ");
                         finalizador = 1;
                     }
                     if ((mapa.getNivel() == 3) && (ol == 6)){
                         ClearScreen.cls();
                         System.out.println(" === FELICIDADES, EL CERRO SOBREVIVIÓ A LAS OLEADAS DE ENEMIGOS === ");
+                        System.out.println(" --- PUNTUACION FINAL: " + jugador.getPuntuacion() + " --- ");
                         finalizador = 1;
                     }
-
                 } else {
                     System.out.println("Opción inválida. Ingrese de nuevo.");
                 }
@@ -450,8 +505,6 @@ public class Juego {
         return y;
     }
 
-
-
     // ESTE MÉTODO DEBE LLAMARSE CUANDO SE ACEPTA EMPEZAR LA RONDA
     /**
      * Método que gestiona lo que sucede cuando se empieza una oleada y durante su ejecución.
@@ -474,11 +527,11 @@ public class Juego {
             try{
                 Thread.sleep(100);
                 //-----PRUEBAS DE ERROR-----//
-                System.out.println("Tick Actual: "+ ++tick);
+                //System.out.println("Tick Actual: "+ ++tick);
                 //System.out.println(listaEnemigosOleada.get(oleada));
                 //System.out.println(listaEnemigosOleada.get(oleada).get(contSpawns));
                 //System.out.println(mapa.getFirstCeldaCamino());
-                System.out.println("VIDA CERRO: "+celdaCerro.getCerro().getVida());
+                //System.out.println("VIDA CERRO: "+celdaCerro.getCerro().getVida());
                 // System.out.println("listaEnemigosVivos "+listaEnemigosVivos);
                 //-----PRUEBAS DE ERROR-----//
                 if (contSpawns < listaEnemigosOleada.get(oleada).size()){
@@ -501,6 +554,7 @@ public class Juego {
                     //-----PRUEBAS DE ERROR-----//
                 }
                 ClearScreen.cls();
+                System.out.println(" === VIDA CERRO: " + celdaCerro.getCerro().getVida() + " === ");
                 System.out.println();
                 mapa.imprimirMapa(mapa.getMatriz());
                 Jugador.mostrarInterfaz();
@@ -550,4 +604,11 @@ public class Juego {
         }
         return null;
     }
+    private int spawnDelay(Enemigo enemigo){
+        if (enemigo instanceof Hobbit){ return 6;}
+        if (enemigo instanceof Elfo){ return 0;} // 16
+        if (enemigo instanceof Enano){ return 24;}
+        if (enemigo instanceof Ent){ return 64;}
+        return 0; // 8
     }
+}

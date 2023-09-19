@@ -17,7 +17,6 @@ public class Jugador {
 
     private static int magia;
     private static int puntuacion;
-
     private ArrayList<Torre> torresOnField;
 
     public int oleada = 0;
@@ -317,14 +316,14 @@ public class Jugador {
 
     public static void mostrarInterfaz() {
         System.out.println(" ");
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        System.out.println("Magia: " + magia + " - Puntuación: " + puntuacion + " ||| Vida Cerro: ");
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("Magia: " + magia + " - Puntuación: " + puntuacion);
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.println("Glosario:");
-        System.out.println("Enemigos: Hu: Humano -- El: Elfo -- En: Enano -- Ho: Hobbit -- Te: Ent -- V: Varios enemigos");
+        System.out.println("Enemigos: Hu: Humano -- El: Elfo -- En: Enano -- Ho: Hobbit -- Te: Ent -- Va: Varios enemigos");
         System.out.println("Torres: B: Torre Básica -- R: Torre Rango -- A: Torre Área -- L: Torre Ralentizadora");
         System.out.println("        G: Torre Generadora -- BBB: Barricada ");
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     }
 
     public static void mostrarOpciones() {
@@ -340,6 +339,7 @@ public class Jugador {
         System.out.println("¿Qué desea hacer?:");
         System.out.println("1. Colocar una Torre");
         System.out.println("2. Mejorar una Torre");
+        System.out.println("2. Vender una Torre");
         System.out.println("3. Volver para atrás");
     }
 
