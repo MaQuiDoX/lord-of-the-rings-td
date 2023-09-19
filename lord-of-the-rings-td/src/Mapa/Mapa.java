@@ -17,8 +17,9 @@ public class Mapa {
     static String nivel3 = "[(0,1), (16,4)]";
     public static ArrayList<Posicion> posicionesLvl1 = parsearString(nivel1);
     public static ArrayList<Posicion> posicionesLvl2 = parsearString(nivel2);
-    public static ArrayList<Posicion> posicionesLvl3 = parsearString(nivel3);;
+    public static ArrayList<Posicion> posicionesLvl3 = parsearString(nivel3);
 
+    public int nivel = 0;
     public static ArrayList<Posicion> getPositionArray(int dificultad) {
         if (dificultad == 1) {
             return posicionesLvl1;
@@ -30,57 +31,15 @@ public class Mapa {
             return null;
         }
     }
-    public List<List<Character>> getOleadas(int dificultad){
-        List<List<Character>> oleada1 = new ArrayList<>();
-        List<Character> oleada11 = new ArrayList<>();
-        oleada11.add('H');
-        oleada11.add('H');
-        oleada11.add('H');
-        List<Character> oleada12 = new ArrayList<>();
-        oleada12.add('H');
-        oleada12.add('H');
-        oleada12.add('E');
-        oleada12.add('H');
-        List<Character> oleada13 = new ArrayList<>();
-        oleada13.add('H');
-        oleada13.add('E');
-        oleada13.add('S');
-        oleada13.add('H');
-        oleada13.add('R');
-        List<Character> oleada14 = new ArrayList<>();
-        oleada14.add('E');
-        oleada14.add('E');
-        oleada14.add('S');
-        oleada14.add('H');
-        oleada14.add('T');
-        List<Character> oleada15 = new ArrayList<>();
-        oleada15.add('E');
-        oleada15.add('E');
-        oleada15.add('S');
-        oleada15.add('S');
-        oleada15.add('T');
-        oleada15.add('R');
 
-        oleada1.add(oleada11);
-        oleada1.add(oleada12);
-        oleada1.add(oleada13);
-        oleada1.add(oleada14);
-        oleada1.add(oleada15);
+    public Celda[][] crearMapa(int dificultad) {
+        this.nivel = dificultad;
 
-        if (dificultad == 1){
-            return oleada1;
-        } else {
-            int x = 1; // RELLENO
-        }
-    }
-
-
-
-
-    public static Celda[][] crearMapa(int dificultad) {
         Celda[][] matriz = new Celda[9][17];
         ArrayList<Posicion> posiciones = getPositionArray(dificultad);
-
+        Cerro cerro = new Cerro();
+        CeldaCamino celdaConCerro = new CeldaCamino(null, 4, 16);
+        celdaConCerro.setCerro(cerro);
         int oldX = 0;
         int oldY = 0;
         for (int i = 0; i < posiciones.size(); i++) {
@@ -88,7 +47,7 @@ public class Mapa {
             int y = posiciones.get(i).getY();
 
             if ((x == 4) && (y == 16)) {
-                matriz[x][y] = new CeldaCamino(null, x, y).setCerro(Cerro);
+                matriz[x][y] = celdaConCerro;
             } else if ((x == 4) && (y == 15)) {
                 matriz[x][y] = new CeldaCamino((CeldaCamino) matriz[5][16], x, y);
             } else {
@@ -107,11 +66,21 @@ public class Mapa {
         }
         return matriz;
     }
-
+    public int getNivel(){
+        return this.nivel;
+    }
     public Celda getMatrizCelda(Celda[][] matriz, int x, int y){
-        Celda celda = new Celda[][];
-        celda = matriz[x][y];
-        return celda;
+        return matriz[x][y];
+    }
+
+    public CeldaCamino getFirstCeldaCamino(Celda[][] matriz){
+        int nivel = getNivel();
+        ArrayList<Posicion> posiciones = getPositionArray(nivel);
+        Posicion ultimaPosicion = posiciones.get(posiciones.size() -1);
+        int x = ultimaPosicion.getX();
+        int y = ultimaPosicion.getY();
+        CeldaCamino primerCelda = (CeldaCamino) matriz[x][y];
+        return primerCelda;
     }
 
     public static ArrayList<Posicion> parsearString(String input) {
@@ -160,9 +129,8 @@ public class Mapa {
                     }
                 } else if (matriz[i][j] instanceof CeldaCamino){
                     ArrayList<Enemigo> listaEnemigo;
-                    Cerro cerro = new Cerro;
                     listaEnemigo = ((CeldaCamino) matriz[i][j]).getListaEnemigos();
-                    cerro = ((CeldaCamino) matriz[i][j]).getCerro();
+                    Cerro cerro = ((CeldaCamino) matriz[i][j]).getCerro();
                     if (cerro != null){
                         System.out.print(" C ");
                     } else {
@@ -177,5 +145,50 @@ public class Mapa {
             System.out.println("");
             letra++;
         }
+
+    }
+    public List<List<Character>> getOleadas(int dificultad){
+        List<List<Character>> oleada1 = new ArrayList<>();
+        List<Character> oleada11 = new ArrayList<>();
+        oleada11.add('H');
+        oleada11.add('H');
+        oleada11.add('H');
+        List<Character> oleada12 = new ArrayList<>();
+        oleada12.add('H');
+        oleada12.add('H');
+        oleada12.add('E');
+        oleada12.add('H');
+        List<Character> oleada13 = new ArrayList<>();
+        oleada13.add('H');
+        oleada13.add('E');
+        oleada13.add('S');
+        oleada13.add('H');
+        oleada13.add('R');
+        List<Character> oleada14 = new ArrayList<>();
+        oleada14.add('E');
+        oleada14.add('E');
+        oleada14.add('S');
+        oleada14.add('H');
+        oleada14.add('T');
+        List<Character> oleada15 = new ArrayList<>();
+        oleada15.add('E');
+        oleada15.add('E');
+        oleada15.add('S');
+        oleada15.add('S');
+        oleada15.add('T');
+        oleada15.add('R');
+
+        oleada1.add(oleada11);
+        oleada1.add(oleada12);
+        oleada1.add(oleada13);
+        oleada1.add(oleada14);
+        oleada1.add(oleada15);
+
+        if (dificultad == 1){
+            return oleada1;
+        } else {
+            int x = 1; // RELLENO
+        }
+        return oleada1;
     }
 }

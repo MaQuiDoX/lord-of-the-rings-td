@@ -1,10 +1,14 @@
 package Juego;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
-import Mapa.Mapa;
-import Juego.ClearScreen;
-import Jugador.Jugador;
-import Celda.Celda;
+
+import Enemigo.*;
+import Estructuras.Cerro;
+import Mapa.*;
+import Jugador.*;
+import Celda.*;
 
 public class Juego {
     public void mostrarMenu(Jugador jugadorMain) {
@@ -61,7 +65,7 @@ public class Juego {
 
     public void menuPartida(Jugador jugadorMain) {
         Scanner scanner = new Scanner(System.in);
-        int opcion2, opcion3, opcion4, opcion5, opcion6, finalizador;
+        int opcion2, opcion3, opcion4, opcion5, opcion6, finalizador, fila, columna;
         int magiaActual = jugadorMain.getmagia();
 
         do {
@@ -69,6 +73,8 @@ public class Juego {
             opcion4 = 0;
             opcion5 = 0;
             opcion6 = 0;
+            fila = 0;
+            columna = 0;
             finalizador = 0;
             System.out.println();
             Jugador.mostrarOpciones();
@@ -92,7 +98,7 @@ public class Juego {
                                                 System.out.println("No es posible realizar la compra...");
                                                 break;
                                             }else{
-                                                //COLOCAR TORRE BASICA
+                                                colocarFilayColumna(fila, columna);
                                             }
                                         } else if (opcion6 == 1) {
                                             if (magiaActual < 150) {
@@ -255,4 +261,124 @@ public class Juego {
             }
         } while (finalizador == 0);
     }
-}
+    public void colocarFilayColumna(int x, int y){
+        Scanner scanner2 = new Scanner(System.in);
+        char posX = 'a';
+        int posY = 17;
+        System.out.println("En que fila desea colocar la torre (A-I)");
+        do{
+            try{
+                posX = scanner2.next().charAt(0);
+                if (posX == 'A'){
+                    x = 0;
+                } else if (posX == 'B'){
+                    x = 1;
+                } else if (posX == 'C') {
+                    x = 2;
+                } else if (posX == 'D') {
+                    x = 3;
+                } else if (posX == 'E') {
+                    x = 4;
+                } else if (posX == 'F') {
+                    x = 5;
+                } else if (posX == 'G') {
+                    x = 6;
+                } else if (posX == 'H') {
+                    x = 7;
+                } else if (posX == 'I') {
+                    x = 8;
+                } else {
+                    System.out.println("Opción inválida, ingrese nuevamente...");
+                }
+            } catch (InputMismatchException e6) {
+                scanner2.nextLine();
+                System.out.println("Opción inválida. Ingrese de nuevo.");
+            }
+        } while ((posX != 'A') || (posX != 'B') || (posX != 'C') || (posX != 'D') || (posX != 'E') || (posX != 'F') || (posX != 'G') || (posX != 'H') || (posX != 'I'));
+
+        System.out.println();
+        System.out.println("En que columna desea colocar la torre (0-16)");
+        do{
+            try{
+                posY = scanner2.nextInt();
+                if ((posY < 17) && (posY >= 0)){
+                    y = posY;
+                } else {
+                    System.out.println("Opción inválida, ingrese nuevamente...");
+                }
+            } catch (InputMismatchException e7) {
+                scanner2.nextLine();
+                System.out.println("Opción inválida. Ingrese de nuevo.");
+            }
+        } while ((posY > 17) || (posY < 0));
+    }
+
+    // ESTE MÉTODO DEBE LLAMARSE CUANDO SE ACEPTA EMPEZAR LA RONDA
+    /**
+     * Método que gestiona lo que sucede durante la duración de una oleada.
+     * @param mapa Mapa para poder obtener las oleadas de enemigos y las celdas del camino.
+     * @param dificultad La dificultad elegida por el jugador para poder seleccionar bien la oleada correspondiente.
+     * @param oleada La oleada en la cuál se encuentra el jugador en ese momento.
+     */
+    public void oleadaActiva(Mapa mapa, int dificultad, int oleada){
+        // ME FALTA RECIBIR COMO PARAMETRO LA LISTA DE TORRES ACTIVAS, PERO ESO LA TIENEN QUE HACER
+        // CUANDO COMPRAN LAS TORRES RECOMIENDO QUE SEA PARECIDO A LA QUE USO CON ENEMIGOS OSEA,
+        // QUE SEA MÁS O MENOS ASI: ArrayList<Torres> listaTorresActivas = new ArrayList<>();
+        // PERO CLARO, ESAS TORRES DEBEN SER UN ATRIBUTO DEL JUGADOR, YA QUE ÉL LAS COMPRA
+        // Y POR LO TANTO ÉL LAS POSEÉ
+        ArrayList<Enemigo> listaEnemigosActivos = new ArrayList<>();
+        int contSpawns = 0;
+        // ARREGLAR ESTO, SE SUPONE QUE TENGO UN METODO QUE TRAE LA 'CeldaCamino' CON EL CERRO
+        // O LA 1RA 'CeldaCamino' DEL MAPA, PREFERENTE ESTA ÚLTIMA PARA USARLA EN MÁS METODOS
+        CeldaCamino celdaCerro = new CeldaCamino(null);
+        celdaCerro.setCerro(new Cerro());
+        // --------
+        List<List<Character>> listaEnemigosOleada = mapa.getOleadas(dificultad);
+        while ((celdaCerro.getCerro().getVida() > 0) &&
+                (listaEnemigosActivos.size() < listaEnemigosOleada.get(oleada).size())){
+            try{
+                Thread.sleep(500);
+                // CAMBIAR ESE 'new CeldaCamino(null)' POR LA 1RA 'CeldaCamino' DEL MAPA, ES MUY IMPORTANTE
+                Enemigo enemigoSpawned = elegirEnemigo(listaEnemigosOleada.get(oleada).get(contSpawns),
+                        new CeldaCamino(null));
+                listaEnemigosActivos.add(enemigoSpawned);
+                int i = 0;
+                while (listaEnemigosActivos.size() > i){
+                    listaEnemigosActivos.get(i).waitingTick();
+                    i++;
+                }
+                int j = 0;
+                while (listaTorresActivas.size() > j){
+                    listaTorresActivas.get(j).waitingTick();
+                    j++;
+                }
+                // VER SI ME FALTA AÑADIR ALGO MÁS, PERO CREO QUE ESTA TODO
+
+            } catch(InterruptedException e){
+                e.printStackTrace();
+            }
+            }
+        }
+
+    /**
+     * Método que elige cuál enemigo será el siguiente en aparecer en el mapa.
+     * @param letra Letra dentro de 'Lista de Enemigos en la Oleada'.
+     * @param primeraCelda Celda que se encuentra al inicio del recorrido de los enemigos.
+     * @return
+     */
+    private Enemigo elegirEnemigo(char letra, CeldaCamino primeraCelda){
+        switch (letra){
+            case 'H':   // H = Humano
+                return new Humano(primeraCelda);
+            case 'O':   // O = Hobbit
+                return new Hobbit(primeraCelda);
+            case 'E':   // E = Elfo
+                return new Elfo(primeraCelda);
+            case 'N':   // N = Enano
+                return new Enano(primeraCelda);
+            case 'T':   // T = Ent
+                return new Ent(primeraCelda);
+        }
+        return null;
+    }
+    }
