@@ -480,19 +480,29 @@ public class Juego {
                 while (jugador.getTorresOnField().size() > j){  // Realizan las acciones los enemigos
                     jugador.getTorresOnField().get(j).waitingTick();
                     j++;
+                    //-----PRUEBAS DE ERROR-----//
+                    System.out.println("Estoy en Bucle?");
+                    //-----PRUEBAS DE ERROR-----//
                 }
                 mapa.imprimirMapa(mapa.getMatriz());
             } catch(InterruptedException e){
                 e.printStackTrace();
             }
+            //-----PRUEBAS DE ERROR-----//
+            System.out.println("Estoy en Bucle?2");
+            //-----PRUEBAS DE ERROR-----//
         }
         if (celdaCerro.getCerro().getVida() > 0){
             int g = 0;
             while(jugador.getTorresOnField().size() > g){   // Añade magia y puntos por cada torre generadora
+                //-----PRUEBAS DE ERROR-----//
+                System.out.println("Estoy en Bucle?3");
+                //-----PRUEBAS DE ERROR-----//
                 if (jugador.getTorresOnField().get(g) instanceof TorreGeneradora){
                     ((TorreGeneradora) jugador.getTorresOnField().get(g)).generarMagia(jugador);
                     jugador.sumaPuntuacion(100);
                 }
+                g++;
             }
             jugador.sumaPuntuacion(1000);   // Suma puntos por pasar la oleada
             jugador.setMagia(jugador.getMagia() + 300); // Suma magia por pasar la oleada
