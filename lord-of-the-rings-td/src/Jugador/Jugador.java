@@ -17,7 +17,6 @@ public class Jugador {
 
     private static int magia;
     private static int puntuacion;
-
     private ArrayList<Torre> torresOnField;
 
     public int oleada = 0;
@@ -75,14 +74,13 @@ public class Jugador {
      * Constructor del jugador con todos los valores por default.
      */
     public Jugador(){
-        magia=5000;
+        magia=500;
         puntuacion=0;
         torresOnField = new ArrayList<Torre>();
     }
 
-    public Boolean comprarTorre(Celda celdaTorre, int tipoTorre, CeldaCamino primeraCelda){
-        int coorX = celdaTorre.getCoorX();
-        int coorY = celdaTorre.getCoorY();
+    public Boolean comprarTorre(Celda celdaTorre, int tipoTorre,int coorX , int coorY, CeldaCamino primeraCelda){
+
 
         if (celdaTorre instanceof CeldaTerreno){
             CeldaTerreno j = (CeldaTerreno) celdaTorre;
@@ -100,48 +98,48 @@ public class Jugador {
 
     }
     private Boolean colocarTorre(int tipoTorre,CeldaTerreno t, CeldaCamino currentCelda,int coorX, int coorY){
-            if (t.getOcupada()){
-                return Boolean.FALSE;
-            }
-            else {
-                if (tipoTorre == 1) {
-                    TorreBasica torre = new TorreBasica(t);
-                    t.setTorre(torre);
-                    buscarCeldasEnRango(currentCelda, coorX, coorY,torre);
-                    torresOnField.add(torre);
+        if (t.getOcupada()){
+            return Boolean.FALSE;
+        }
+        else {
+            if (tipoTorre == 1) {
+                TorreBasica torre = new TorreBasica(t);
+                t.setTorre(torre);
+                buscarCeldasEnRango(currentCelda, coorX, coorY,torre);
+                torresOnField.add(torre);
 
-                } else if (tipoTorre == 2) {
-                    TorreRango torre = new TorreRango(t);
-                    t.setTorre(torre);
-                    buscarCeldasEnRango(currentCelda, coorX, coorY,torre);
-                    torresOnField.add(torre);
+            } else if (tipoTorre == 2) {
+                TorreRango torre = new TorreRango(t);
+                t.setTorre(torre);
+                buscarCeldasEnRango(currentCelda, coorX, coorY,torre);
+                torresOnField.add(torre);
 
-                } else if (tipoTorre == 3) {
-                    TorreArea torre = new TorreArea(t);
-                    t.setTorre(torre);
-                    buscarCeldasEnRango(currentCelda, coorX, coorY,torre);
-                    torresOnField.add(torre);
+            } else if (tipoTorre == 3) {
+                TorreArea torre = new TorreArea(t);
+                t.setTorre(torre);
+                buscarCeldasEnRango(currentCelda, coorX, coorY,torre);
+                torresOnField.add(torre);
 
-                } else if (tipoTorre == 4) {
-                    TorreRalentizadora torre = new TorreRalentizadora(t);
-                    t.setTorre(torre);
-                    buscarCeldasEnRango(currentCelda, coorX, coorY,torre);
-                    torresOnField.add(torre);
+            } else if (tipoTorre == 4) {
+                TorreRalentizadora torre = new TorreRalentizadora(t);
+                t.setTorre(torre);
+                buscarCeldasEnRango(currentCelda, coorX, coorY,torre);
+                torresOnField.add(torre);
 
-                } else if (tipoTorre == 5) {
-                    TorreGeneradora torre = new TorreGeneradora(t);
-                    t.setTorre(torre);
-                    torresOnField.add(torre);
-                    return Boolean.TRUE;
-
-
-                } else {
-                    return Boolean.FALSE;
-                }
-
+            } else if (tipoTorre == 5) {
+                TorreGeneradora torre = new TorreGeneradora(t);
+                t.setTorre(torre);
+                torresOnField.add(torre);
                 return Boolean.TRUE;
 
+
+            } else {
+                return Boolean.FALSE;
             }
+
+            return Boolean.TRUE;
+
+        }
     }
 
 
@@ -237,15 +235,15 @@ public class Jugador {
             return Boolean.FALSE;
         }
         if (torre.getNivel()==0){
-            torre.setCantidad(torre.getCantidad()+10);
+            torre.setCantidad(torre.getCantidad()+50);
         }
         if (torre.getNivel()==1){
-            torre.setCantidad(torre.getCantidad()+10);
+            torre.setCantidad(torre.getCantidad()+50);
         }
         if (torre.getNivel()==2){
-            torre.setCantidad(torre.getCantidad()+10);
+            torre.setCantidad(torre.getCantidad()+50);
         }
-        torre.setCosteMejora(torre.getCosteMejora()+20);
+        torre.setCosteMejora(torre.getCosteMejora()+50);
         return Boolean.TRUE;
     }
 
@@ -291,7 +289,6 @@ public class Jugador {
         else{
             torresOnField.remove(celda.getTorre());
             celda.setTorre(null);
-            magia+=100;
             return Boolean.TRUE;
         }
     }
@@ -315,17 +312,17 @@ public class Jugador {
 
 
 
-  
+
     public static void mostrarInterfaz() {
         System.out.println(" ");
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        System.out.println("Magia: " + magia + " - Puntuación: " + puntuacion + " ||| Vida Cerro: ");
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("Magia: " + magia + " - Puntuación: " + puntuacion);
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.println("Glosario:");
-        System.out.println("Enemigos: Hu: Humano -- El: Elfo -- En: Enano -- Ho: Hobbit -- Te: Ent -- V: Varios enemigos");
+        System.out.println("Enemigos: Hu: Humano -- El: Elfo -- En: Enano -- Ho: Hobbit -- Te: Ent -- Va: Varios enemigos");
         System.out.println("Torres: B: Torre Básica -- R: Torre Rango -- A: Torre Área -- L: Torre Ralentizadora");
         System.out.println("        G: Torre Generadora -- BBB: Barricada ");
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     }
 
     public static void mostrarOpciones() {
@@ -340,8 +337,9 @@ public class Jugador {
     public static void mostrarOpcionesTorres() {
         System.out.println("¿Qué desea hacer?:");
         System.out.println("1. Colocar una Torre");
-        System.out.println("2. Mejorar una Torre");
-        System.out.println("3. Volver para atrás");
+        System.out.println("2. Mejorar una Torre (200 de magia por mejora)");
+        System.out.println("3. Vender una Torre (+100 de magia por torre)");
+        System.out.println("4. Volver para atrás");
     }
 
     public static void mostrarTienda(){

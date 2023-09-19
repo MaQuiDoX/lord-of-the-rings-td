@@ -144,6 +144,7 @@ public abstract class Enemigo implements TimeTicks {
             barricada.destruirse();
         }
     }
+  
     /**
      * Método para eliminar al enemigo de la partida cuando su vida baja de 1 y dar una recompensa si la causo el jugador.
      * @param enemigo Objeto Cerro que sera dañado.

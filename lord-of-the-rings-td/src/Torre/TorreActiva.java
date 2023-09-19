@@ -154,7 +154,7 @@ public abstract class TorreActiva extends Torre implements TimeTicks {
                 } else if (Objects.equals(tipoDano, "r")) {
                     vida = vida - dano;
                     if (Objects.equals(enemigo.getTipo(), "pesado")) {
-                        vida -= 10;
+                        vida -= 40;
                     }
                 }
                 if ((vida) < 0) {
