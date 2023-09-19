@@ -1,12 +1,23 @@
 package Juego;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import Enemigo.Enemigo;
+import Estructuras.Barricada;
 import Mapa.Mapa;
 import Juego.ClearScreen;
 import Jugador.Jugador;
-import Celda.Celda;
+import Celda.*;
+import Torre.Torre;
 
 public class Juego {
+    ArrayList<? extends Torre> listaTorres;
+    public Juego(){
+        listaTorres = new ArrayList<>();
+    }
+    public ArrayList getListaTorres(){return this.listaTorres;}
+
     public void mostrarMenu(Jugador jugadorMain) {
         Scanner scanner = new Scanner(System.in);
         int opcion = 0;
@@ -254,5 +265,19 @@ public class Juego {
                 System.out.println("Opción inválida. Ingrese de nuevo.");
             }
         } while (finalizador == 0);
+    }
+
+    private void rondaActiva(Mapa mapa){
+        this.listaTorres.add()
+        ArrayList<? extends Enemigo> listaEnemigos;
+
+        while ((cerro.getVida() > 0) && (contSpawns < enemigosMapa)){
+            try{
+                Thread.sleep(500);
+
+            } catch(InterruptedException e){
+                e.printStackTrace();
+            }
+        }
     }
 }

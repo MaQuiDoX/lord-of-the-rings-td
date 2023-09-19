@@ -47,6 +47,7 @@ public class Mapa {
             int x = posiciones.get(i).getX();
             int y = posiciones.get(i).getY();
 
+
             if ((x == 4) && (y == 16)) {
                 matriz[x][y] = new Cerro();
             } else if ((x == 4) && (y == 15)) {

@@ -7,12 +7,9 @@
     <list default="true" id="171d98c7-b07b-4693-a064-dba52ede5961" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Celda/CeldaCamino.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Celda/CeldaCamino.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Elfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Elfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Enano.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Enano.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Enemigo.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Enemigo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Ent.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Ent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Hobbit.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Hobbit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Humano.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Humano.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Juego/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Juego/Juego.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Mapa/Mapa.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Mapa/Mapa.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,21 +38,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/emart/OneDive/Documentos/GitHub/lord-of-the-rings-td",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.editor.code.editing",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/emart/OneDive/Documentos/GitHub/lord-of-the-rings-td&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor.code.editing&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -66,7 +63,8 @@
       <updated>1693672628702</updated>
       <workItem from="1693672630851" duration="162000" />
       <workItem from="1694007857638" duration="1102000" />
-      <workItem from="1695063440828" duration="11211000" />
+      <workItem from="1695063440828" duration="13878000" />
+      <workItem from="1695080479822" duration="4200000" />
     </task>
     <servers />
   </component>

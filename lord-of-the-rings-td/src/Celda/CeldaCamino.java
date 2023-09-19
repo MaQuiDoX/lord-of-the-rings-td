@@ -14,7 +14,6 @@ public class CeldaCamino extends Celda{
     private Barricada barricada;
     private Cerro cerro;
     private CeldaCamino siguienteCelda;
-    private int[] posicionEnemigo;
 
     /**
      * Constructor de CeldaCamino, recibiendo como parametro la CeldaCamino que le sigue.
@@ -26,14 +25,14 @@ public class CeldaCamino extends Celda{
      */
     public CeldaCamino(CeldaCamino siguienteCelda){
         super(1,1);
-        this.siguienteCelda=siguienteCelda;
+        this.siguienteCelda = siguienteCelda;
         this.cerro = null;
         this.barricada = null;
     }
 
     public CeldaCamino(CeldaCamino siguienteCelda, int coordenadaX, int coordenadaY){
         super(coordenadaX,coordenadaY);
-        this.siguienteCelda=siguienteCelda;
+        this.siguienteCelda = siguienteCelda;
         this.cerro = null;
         this.barricada = null;
     }
@@ -53,8 +52,8 @@ public class CeldaCamino extends Celda{
     public void nuevoEnemigo(Enemigo enemigo){
         listaEnemigos.add(enemigo);
     }
-    public Boolean SacarEnemigo(Enemigo enemigo) {
-        Boolean b1=listaEnemigos.contains(enemigo);
+    public Boolean sacarEnemigo(Enemigo enemigo) {
+        Boolean b1 = listaEnemigos.contains(enemigo);
         if (b1){
             listaEnemigos.remove(enemigo);
         }
