@@ -1,9 +1,9 @@
 package Jugador;
+
 import Celda.Celda;
 import Celda.CeldaCamino;
 import Celda.CeldaTerreno;
 import Estructuras.Barricada;
-import Mapa.Mapa;
 import Torre.*;
 
 import java.util.ArrayList;
@@ -17,6 +17,8 @@ public class Jugador {
 
     private static int magia;
     private static int puntuacion;
+
+    private ArrayList<Torre> torresOnField;
 
     /**
      * @param magia Magia que tiene el jugaador para comprar y mejorar torres.
@@ -54,6 +56,12 @@ public class Jugador {
     public void sumaPuntuacion(int puntuacion){
         this.puntuacion+=puntuacion;
     }
+    public ArrayList<Torre> getTorresOnField(){
+        return torresOnField;
+    }
+    public void setTorresOnField(ArrayList<Torre> torresOnField){
+        this.torresOnField=torresOnField;
+    }
 
     /**
      * Constructor del jugador con todos los valores por default.
@@ -61,6 +69,7 @@ public class Jugador {
     public Jugador(){
         magia=500;
         puntuacion=0;
+        torresOnField = new ArrayList<Torre>();
     }
 
     public Boolean comprarTorre(Celda celdaTorre, int tipoTorre, CeldaCamino primeraCelda){
@@ -91,25 +100,30 @@ public class Jugador {
                     TorreBasica torre = new TorreBasica(t);
                     t.setTorre(torre);
                     buscarCeldasEnRango(currentCelda, coorX, coorY,torre);
+                    torresOnField.add(torre);
 
                 } else if (tipoTorre == 2) {
                     TorreRango torre = new TorreRango(t);
                     t.setTorre(torre);
                     buscarCeldasEnRango(currentCelda, coorX, coorY,torre);
+                    torresOnField.add(torre);
 
                 } else if (tipoTorre == 3) {
                     TorreArea torre = new TorreArea(t);
                     t.setTorre(torre);
                     buscarCeldasEnRango(currentCelda, coorX, coorY,torre);
+                    torresOnField.add(torre);
 
                 } else if (tipoTorre == 4) {
                     TorreRalentizadora torre = new TorreRalentizadora(t);
                     t.setTorre(torre);
                     buscarCeldasEnRango(currentCelda, coorX, coorY,torre);
+                    torresOnField.add(torre);
 
                 } else if (tipoTorre == 5) {
                     TorreGeneradora torre = new TorreGeneradora(t);
                     t.setTorre(torre);
+                    torresOnField.add(torre);
                     return Boolean.TRUE;
 
 
@@ -267,7 +281,7 @@ public class Jugador {
         if (celda.getTorre()==null)
             return Boolean.FALSE;
         else{
-            //borrartorre(celda.getTorre);
+            torresOnField.remove(celda.getTorre());
             celda.setTorre(null);
             magia+=100;
             return Boolean.TRUE;
