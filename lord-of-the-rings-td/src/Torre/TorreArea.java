@@ -21,9 +21,19 @@ public class TorreArea extends TorreActiva{
 
             ArrayList<Enemigo> enemigoslis = enRango.getListaEnemigos();
             if (!enemigoslis.isEmpty()) {
-                Iterator<Enemigo> enemigo = enemigoslis.iterator();
-                while (enemigo.hasNext()) {
-                    enemigo.next().setVida(enemigo.next().getVida() - dano);
+                //Iterator<Enemigo> enemigo = enemigoslis.iterator();
+                //while (enemigo.hasNext()) {
+                  //  enemigo.next().setVida(enemigo.next().getVida() - dano);
+
+                //}
+                int vida = 0;
+                for (Enemigo enemigo : enemigoslis){
+                     vida = enemigo.getVida() - dano ;
+                     if (vida<=0){
+                         enemigo.morir(enemigo);
+                    }
+                     else
+                         enemigo.setVida(vida);
 
                 }
                 break;
