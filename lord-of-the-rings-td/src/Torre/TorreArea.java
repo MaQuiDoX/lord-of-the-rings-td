@@ -9,19 +9,18 @@ import java.util.Iterator;
 
 public class TorreArea extends TorreActiva{
     public TorreArea(CeldaTerreno celda){
-        super(20,4,2,"a",100,200,celda);
+        super(20,4,2,"a",200,celda);
     }
 
 
     @Override
     public void actionTick(){
-        Iterator<CeldaCamino> celda = celdaEnRango.iterator();
-        while(celda.hasNext()){
+        for (CeldaCamino enRango : celdaEnRango) {
 
-            ArrayList<Enemigo> enemigoslis = celda.next().getListaEnemigos();
+            ArrayList<Enemigo> enemigoslis = enRango.getListaEnemigos();
             if (!enemigoslis.isEmpty()) {
                 Iterator<Enemigo> enemigo = enemigoslis.iterator();
-                while(enemigo.hasNext()) {
+                while (enemigo.hasNext()) {
                     enemigo.next().setVida(enemigo.next().getVida() - dano);
 
                 }

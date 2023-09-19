@@ -53,4 +53,11 @@ public class Barricada {
     public void destruirse() {
         this.celdaAsociada.setBarricada(null);
     }
+
+    public int getNivel(){
+        return nivel;
+    }
+    public void setNivel(int nivel){
+        this.nivel=nivel;
+    }
 }

@@ -24,7 +24,7 @@ public class TorreGeneradora extends Torre {
      * @param celdaAsociada celda donde se encuentra la torre *
      */
     public TorreGeneradora(CeldaTerreno celdaAsociada){
-        super(200,30,celdaAsociada);
+        super(30,celdaAsociada);
         cantidad=10;
     }
 
