@@ -6,6 +6,7 @@ import Enemigo.Enemigo;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Objects;
 
 public class TorreArea extends TorreActiva{
     public TorreArea(CeldaTerreno celda){
@@ -18,25 +19,28 @@ public class TorreArea extends TorreActiva{
 
     @Override
     public void actionTick(){
-        System.out.println("posicion de la torre" + celdaAsociada.getCoorX() + " "+ celdaAsociada.getCoorY());
-        System.out.println("celdas en rango: " + celdaEnRango);
         for (CeldaCamino enRango : celdaEnRango) {
-            System.out.println(("celda"+ enRango.getCoorX() + enRango.getCoorY()));
+
             ArrayList<Enemigo> enemigoslis = enRango.getListaEnemigos();
             if (!enemigoslis.isEmpty()) {
+                for (var i = 0; i<enemigoslis.size() ; i++) {
+                    Enemigo enemigo = enemigoslis.get(i);
+                    int vida = enemigo.getVida();
 
-                int vida = 0;
-                for (Enemigo enemigo : enemigoslis){
-                     vida = enemigo.getVida() - dano ;
-                     if (vida<=0) enemigo.morir(enemigo);
-                     else {
-                         enemigo.setVida(vida);
-                     }
-
+                    if (Objects.equals(tipoDano, "a")) {
+                        vida = vida - dano;
+                        if (Objects.equals(enemigo.getTipo(), "ligero")) {
+                            vida -= 10;
+                        }
+                    }
+                    if ((vida) < 0) {
+                        enemigo.morir(enemigo);
+                    } else {
+                        enemigo.setVida(vida);
+                    }
                 }
                 break;
             }
-
         }
     }
 
