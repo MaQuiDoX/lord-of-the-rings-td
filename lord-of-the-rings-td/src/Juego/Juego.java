@@ -460,6 +460,9 @@ public class Juego {
         while (celdaCerro.getCerro() == null){  // Busqueda de la celda con el 'Cerro de la Gloria'
             celdaCerro = celdaCerro.getSiguienteCelda();
         }
+        //-----PRUEBAS DE ERROR-----//
+        int tick = 0;
+        //-----PRUEBAS DE ERROR-----//
         List<List<Character>> listaEnemigosOleada = mapa.getOleadas(dificultad);
         while ((celdaCerro.getCerro().getVida() > 0) && // Vida actual del cerro > 0
                 ((contSpawns < listaEnemigosOleada.get(oleada).size()) || // Cantidad de enemigos spawneados < Cantidad total de enemigos por ronda
@@ -467,6 +470,7 @@ public class Juego {
             try{
                 Thread.sleep(100);
                 //-----PRUEBAS DE ERROR-----//
+                System.out.println("Tick Actual: "+ ++tick);
                 //System.out.println(listaEnemigosOleada.get(oleada));
                 //System.out.println(listaEnemigosOleada.get(oleada).get(contSpawns));
                 System.out.println("Cerro.getVida() "+celdaCerro.getCerro().getVida());

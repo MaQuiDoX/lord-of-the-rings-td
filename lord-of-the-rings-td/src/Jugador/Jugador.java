@@ -299,7 +299,7 @@ public class Jugador {
     private   Boolean colocarBarricada(CeldaCamino celda){
         Barricada barricada = celda.getBarricada();
         if (barricada==null){
-            Barricada barricada1 = new Barricada(100, 500,0,celda);
+            Barricada barricada1 = new Barricada(celda);
             celda.setBarricada(barricada1);
             return Boolean.TRUE;
         }
