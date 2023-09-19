@@ -10,16 +10,13 @@ import Celda.CeldaCamino;
 public class Cerro{
 
     private int vida;
-    private CeldaCamino celdaAsociada;
 
     /**
      * Constructor de cerro, recibiendo como parametro la CeldaCamino donde esta ubicado.
-     * @param celdaCamino Celda en la cual se encuentra dentro del mapa.
      * @see CeldaCamino
      */
-    public void Cerro(CeldaCamino celdaCamino){
+    public Cerro(){
         this.vida = 100;
-        this.celdaAsociada = celdaCamino;
     }
 
     /**

@@ -414,24 +414,27 @@ public class Juego {
         int contSpawns = 0;
         CeldaCamino celdaCerro = mapa.getFirstCeldaCamino();
         while (celdaCerro.getCerro() == null){  // Busqueda de la celda con el 'Cerro de la Gloria'
-            // PRUEBAS DE ERROR //// PRUEBAS DE ERROR //// PRUEBAS DE ERROR //// PRUEBAS DE ERROR //// PRUEBAS DE ERROR //
-            System.out.println("Celda: "+celdaCerro+" + SiguienteCelda: "+celdaCerro.getSiguienteCelda()+" + Cerro: "+celdaCerro.getCerro()+" + Barricada: "+celdaCerro.getBarricada());
-            // PRUEBAS DE ERROR //// PRUEBAS DE ERROR //// PRUEBAS DE ERROR //// PRUEBAS DE ERROR //// PRUEBAS DE ERROR //
             celdaCerro = celdaCerro.getSiguienteCelda();
         }
-        // PRUEBAS DE ERROR //// PRUEBAS DE ERROR //// PRUEBAS DE ERROR //// PRUEBAS DE ERROR //// PRUEBAS DE ERROR //
-        System.out.println("Celda: "+celdaCerro+" + SiguienteCelda: "+celdaCerro.getSiguienteCelda()+" + Cerro: "+celdaCerro.getCerro()+" + Barricada: "+celdaCerro.getBarricada());
-        // PRUEBAS DE ERROR //// PRUEBAS DE ERROR //// PRUEBAS DE ERROR //// PRUEBAS DE ERROR //// PRUEBAS DE ERROR //
         List<List<Character>> listaEnemigosOleada = mapa.getOleadas(dificultad);
         while ((celdaCerro.getCerro().getVida() > 0) && // Vida actual del cerro > 0
                 ((contSpawns < listaEnemigosOleada.get(oleada).size()) || // Cantidad de enemigos spawneados < Cantidad total de enemigos por ronda
                 (listaEnemigosVivos.size() > 0))){  // Cantidad de enemigos vivos > 0
             try{
-                Thread.sleep(500);
-                Enemigo enemigoSpawned = elegirEnemigo(this, listaEnemigosOleada.get(oleada).get(contSpawns),
-                        mapa.getFirstCeldaCamino());    // Se crea el enemigo que vendra en la oleada
-                listaEnemigosVivos.add(enemigoSpawned);   // Se añade el enemigo a lista de enemigos vivos
-                contSpawns++;
+                Thread.sleep(50);
+                //-----PRUEBAS DE ERROR-----//
+                //System.out.println(listaEnemigosOleada.get(oleada));
+                //System.out.println(listaEnemigosOleada.get(oleada).get(contSpawns));
+                //System.out.println(mapa.getFirstCeldaCamino());
+                System.out.println(celdaCerro.getCerro().getVida());
+                System.out.println(listaEnemigosVivos);
+                //-----PRUEBAS DE ERROR-----//
+                if (contSpawns < listaEnemigosOleada.get(oleada).size()){
+                    Enemigo enemigoSpawned = elegirEnemigo(this, listaEnemigosOleada.get(oleada).get(contSpawns),
+                            mapa.getFirstCeldaCamino());    // Se crea el enemigo que vendra en la oleada
+                    listaEnemigosVivos.add(enemigoSpawned);   // Se añade el enemigo a lista de enemigos vivos
+                    contSpawns++;
+                }
                 int i = 0;
                 while (listaEnemigosVivos.size() > i){  // Realizan las acciones las Torres
                     listaEnemigosVivos.get(i).waitingTick();

@@ -43,6 +43,10 @@ public abstract class Enemigo implements TimeTicks {
         this.tick = 0;
     }
 
+    //-----PRUEBAS DE ERROR-----//
+    public Juego getJuego(){return this.juego;}
+    //-----PRUEBAS DE ERROR-----//
+
     /**
      * Getter de la vida.
      * @return Vida actual del enemigo.
@@ -129,20 +133,23 @@ public abstract class Enemigo implements TimeTicks {
 
     // Documentar
     public void moverEnemigo(Enemigo enemigo){
-        CeldaCamino siguienteUbicacion;
-        siguienteUbicacion = enemigo.getUbicacion();
-        siguienteUbicacion = siguienteUbicacion.getSiguienteCelda();
-        if (siguienteUbicacion.getCerro() instanceof Cerro){
-            danarCerro(siguienteUbicacion.getCerro());
+        CeldaCamino ubicacionActual;
+        ubicacionActual = enemigo.getUbicacion();
+        if (ubicacionActual.getCerro() instanceof Cerro){
+            danarCerro(ubicacionActual.getCerro());
             morir(enemigo);
+            //-----PRUEBAS DE ERROR-----//
+            System.out.println(enemigo.getJuego());
+            //-----PRUEBAS DE ERROR-----//
             return;
         }
-        if (siguienteUbicacion.getBarricada() instanceof Barricada){
-            Barricada barricada = siguienteUbicacion.getBarricada();
+        if (ubicacionActual.getBarricada() instanceof Barricada){
+            Barricada barricada = ubicacionActual.getBarricada();
             barricada.setVida(barricada.getVida() - dano);
             return;
         }
-        setUbicacion(siguienteUbicacion);
+        ubicacionActual = ubicacionActual.getSiguienteCelda();
+        setUbicacion(ubicacionActual);
     }
 
     private void danarCerro(Cerro cerro){cerro.setVida(cerro.getVida() - dano);}
