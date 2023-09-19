@@ -414,8 +414,14 @@ public class Juego {
         int contSpawns = 0;
         CeldaCamino celdaCerro = mapa.getFirstCeldaCamino();
         while (celdaCerro.getCerro() == null){  // Busqueda de la celda con el 'Cerro de la Gloria'
+            // PRUEBAS DE ERROR //// PRUEBAS DE ERROR //// PRUEBAS DE ERROR //// PRUEBAS DE ERROR //// PRUEBAS DE ERROR //
+            System.out.println("Celda: "+celdaCerro+" + SiguienteCelda: "+celdaCerro.getSiguienteCelda()+" + Cerro: "+celdaCerro.getCerro()+" + Barricada: "+celdaCerro.getBarricada());
+            // PRUEBAS DE ERROR //// PRUEBAS DE ERROR //// PRUEBAS DE ERROR //// PRUEBAS DE ERROR //// PRUEBAS DE ERROR //
             celdaCerro = celdaCerro.getSiguienteCelda();
         }
+        // PRUEBAS DE ERROR //// PRUEBAS DE ERROR //// PRUEBAS DE ERROR //// PRUEBAS DE ERROR //// PRUEBAS DE ERROR //
+        System.out.println("Celda: "+celdaCerro+" + SiguienteCelda: "+celdaCerro.getSiguienteCelda()+" + Cerro: "+celdaCerro.getCerro()+" + Barricada: "+celdaCerro.getBarricada());
+        // PRUEBAS DE ERROR //// PRUEBAS DE ERROR //// PRUEBAS DE ERROR //// PRUEBAS DE ERROR //// PRUEBAS DE ERROR //
         List<List<Character>> listaEnemigosOleada = mapa.getOleadas(dificultad);
         while ((celdaCerro.getCerro().getVida() > 0) && // Vida actual del cerro > 0
                 ((contSpawns < listaEnemigosOleada.get(oleada).size()) || // Cantidad de enemigos spawneados < Cantidad total de enemigos por ronda
