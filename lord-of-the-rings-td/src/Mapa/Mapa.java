@@ -150,7 +150,7 @@ public class Mapa {
                         if (listaEnemigo == null){
                             System.out.print("   ");
                         } else {
-                            if (listaEnemigo.size() >= 2){
+                            if (listaEnemigo.size() > 1){
                                 System.out.print(" Va");
                             } else if (listaEnemigo.get(0) instanceof Humano){
                                 System.out.print(" Hu");
