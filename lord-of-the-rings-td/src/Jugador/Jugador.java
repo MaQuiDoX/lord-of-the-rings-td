@@ -60,10 +60,6 @@ public class Jugador {
         this.puntuacion+=puntuacion;
     }
 
-    /**
-     *
-     * @return
-     */
     public ArrayList<Torre> getTorresOnField(){
         return torresOnField;
     }
@@ -80,9 +76,7 @@ public class Jugador {
         torresOnField = new ArrayList<Torre>();
     }
 
-    public Boolean comprarTorre(Celda celdaTorre, int tipoTorre, CeldaCamino primeraCelda){
-        int coorX = celdaTorre.getCoorX();
-        int coorY = celdaTorre.getCoorY();
+    public Boolean comprarTorre(Celda celdaTorre,int coorX, int coorY, int tipoTorre, CeldaCamino primeraCelda){
 
         if (celdaTorre instanceof CeldaTerreno){
             CeldaTerreno j = (CeldaTerreno) celdaTorre;
