@@ -1,7 +1,10 @@
 package Torre;
 import Celda.*;
+import Enemigo.Enemigo;
+import TimeTicks.TimeTicks;
 
 import java.util.ArrayList; //importo la clase ArrayList
+import java.util.Objects;
 
 /**
  * Una clase abstracta para representar los comportamientos generales de las torres.
@@ -9,7 +12,7 @@ import java.util.ArrayList; //importo la clase ArrayList
  * @author Ignacio Copppede Santos *
  */
 
-public abstract class Torre {
+public abstract class Torre implements TimeTicks {
 
     protected int costeMejora;
     protected int nivel;
@@ -100,5 +103,11 @@ public abstract class Torre {
         this.celdaEnRango=celdaEnRango;
     }
 
+    @Override
+    public void waitingTick(){
+    }
 
+    @Override
+    public void actionTick(){
+    }
 }

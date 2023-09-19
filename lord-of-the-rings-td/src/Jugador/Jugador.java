@@ -29,7 +29,7 @@ public class Jugador {
      * Getter de magia.
      * @return magia del jugador *
      */
-    public int getmagia(){
+    public int getMagia(){
         return magia;
     }
 
@@ -37,7 +37,7 @@ public class Jugador {
      * Modifica la magia.
      * @param magia nuevo valor de la magia *
      */
-    public void setmagia(int magia){
+    public void setMagia(int magia){
         this.magia=magia;
     }
 
@@ -45,7 +45,7 @@ public class Jugador {
      * Getter de puntuacion.
      * @return puntuacion del jugador *
      */
-    public int getpuntuacion(){
+    public int getPuntuacion(){
         return puntuacion;
     }
 
