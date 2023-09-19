@@ -60,6 +60,10 @@ public class Jugador {
         this.puntuacion+=puntuacion;
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Torre> getTorresOnField(){
         return torresOnField;
     }
@@ -76,7 +80,9 @@ public class Jugador {
         torresOnField = new ArrayList<Torre>();
     }
 
-    public Boolean comprarTorre(Celda celdaTorre,int coorX, int coorY, int tipoTorre, CeldaCamino primeraCelda){
+    public Boolean comprarTorre(Celda celdaTorre, int tipoTorre, CeldaCamino primeraCelda){
+        int coorX = celdaTorre.getCoorX();
+        int coorY = celdaTorre.getCoorY();
 
         if (celdaTorre instanceof CeldaTerreno){
             CeldaTerreno j = (CeldaTerreno) celdaTorre;
@@ -94,48 +100,48 @@ public class Jugador {
 
     }
     private Boolean colocarTorre(int tipoTorre,CeldaTerreno t, CeldaCamino currentCelda,int coorX, int coorY){
-            if (t.getOcupada()){
-                return Boolean.FALSE;
-            }
-            else {
-                if (tipoTorre == 1) {
-                    TorreBasica torre = new TorreBasica(t);
-                    t.setTorre(torre);
-                    buscarCeldasEnRango(currentCelda, coorX, coorY,torre);
-                    torresOnField.add(torre);
+        if (t.getOcupada()){
+            return Boolean.FALSE;
+        }
+        else {
+            if (tipoTorre == 1) {
+                TorreBasica torre = new TorreBasica(t);
+                t.setTorre(torre);
+                buscarCeldasEnRango(currentCelda, coorX, coorY,torre);
+                torresOnField.add(torre);
 
-                } else if (tipoTorre == 2) {
-                    TorreRango torre = new TorreRango(t);
-                    t.setTorre(torre);
-                    buscarCeldasEnRango(currentCelda, coorX, coorY,torre);
-                    torresOnField.add(torre);
+            } else if (tipoTorre == 2) {
+                TorreRango torre = new TorreRango(t);
+                t.setTorre(torre);
+                buscarCeldasEnRango(currentCelda, coorX, coorY,torre);
+                torresOnField.add(torre);
 
-                } else if (tipoTorre == 3) {
-                    TorreArea torre = new TorreArea(t);
-                    t.setTorre(torre);
-                    buscarCeldasEnRango(currentCelda, coorX, coorY,torre);
-                    torresOnField.add(torre);
+            } else if (tipoTorre == 3) {
+                TorreArea torre = new TorreArea(t);
+                t.setTorre(torre);
+                buscarCeldasEnRango(currentCelda, coorX, coorY,torre);
+                torresOnField.add(torre);
 
-                } else if (tipoTorre == 4) {
-                    TorreRalentizadora torre = new TorreRalentizadora(t);
-                    t.setTorre(torre);
-                    buscarCeldasEnRango(currentCelda, coorX, coorY,torre);
-                    torresOnField.add(torre);
+            } else if (tipoTorre == 4) {
+                TorreRalentizadora torre = new TorreRalentizadora(t);
+                t.setTorre(torre);
+                buscarCeldasEnRango(currentCelda, coorX, coorY,torre);
+                torresOnField.add(torre);
 
-                } else if (tipoTorre == 5) {
-                    TorreGeneradora torre = new TorreGeneradora(t);
-                    t.setTorre(torre);
-                    torresOnField.add(torre);
-                    return Boolean.TRUE;
-
-
-                } else {
-                    return Boolean.FALSE;
-                }
-
+            } else if (tipoTorre == 5) {
+                TorreGeneradora torre = new TorreGeneradora(t);
+                t.setTorre(torre);
+                torresOnField.add(torre);
                 return Boolean.TRUE;
 
+
+            } else {
+                return Boolean.FALSE;
             }
+
+            return Boolean.TRUE;
+
+        }
     }
 
 
@@ -184,7 +190,7 @@ public class Jugador {
         torre.setCeldaEnRango(list);
     }
 
-
+// asd
 
     public Boolean mejorarBarricada(Barricada barricada){
         puntuacion+=100;
@@ -293,7 +299,7 @@ public class Jugador {
     private   Boolean colocarBarricada(CeldaCamino celda){
         Barricada barricada = celda.getBarricada();
         if (barricada==null){
-            Barricada barricada1 = new Barricada(100, 500,0,celda);
+            Barricada barricada1 = new Barricada(celda);
             celda.setBarricada(barricada1);
             return Boolean.TRUE;
         }
@@ -309,7 +315,7 @@ public class Jugador {
 
 
 
-  
+
     public static void mostrarInterfaz() {
         System.out.println(" ");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
