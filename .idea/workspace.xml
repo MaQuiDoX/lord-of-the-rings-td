@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="171d98c7-b07b-4693-a064-dba52ede5961" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Juego/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Juego/Juego.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Jugador/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Jugador/Jugador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/Torre.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/Torre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreGeneradora.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreGeneradora.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -44,8 +44,8 @@ public class TorreGeneradora extends Torre {
      * Metodo para sumarle magia al jugador.
      */
     public void generarMagia(Jugador jugador){
-         int magia=jugador.getmagia();
-         jugador.setmagia(magia+cantidad);
+         int magia=jugador.getMagia();
+         jugador.setMagia(magia+cantidad);
     }
 
 }

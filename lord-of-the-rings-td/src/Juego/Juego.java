@@ -9,6 +9,7 @@ import Estructuras.Cerro;
 import Mapa.*;
 import Jugador.*;
 import Celda.*;
+import Torre.TorreGeneradora;
 
 public class Juego {
     private Mapa mapa;
@@ -74,7 +75,7 @@ public class Juego {
     public void menuPartida(Jugador jugadorMain) {
         Scanner scanner = new Scanner(System.in);
         int opcion2, opcion3, opcion4, opcion5, opcion6, finalizador, fila, columna;
-        int magiaActual = jugadorMain.getmagia();
+        int magiaActual = jugadorMain.getMagia();
 
         do {
             opcion3 = 0;
@@ -323,12 +324,12 @@ public class Juego {
 
     // ESTE MÉTODO DEBE LLAMARSE CUANDO SE ACEPTA EMPEZAR LA RONDA
     /**
-     * Método que gestiona lo que sucede durante la duración de una oleada.
+     * Método que gestiona lo que sucede cuando se empieza una oleada y durante su ejecución.
      * @param mapa Mapa para poder obtener las oleadas de enemigos y las celdas del camino.
      * @param dificultad La dificultad elegida por el jugador para poder seleccionar bien la oleada correspondiente.
      * @param oleada La oleada en la cuál se encuentra el jugador en ese momento.
      */
-    public void oleadaActiva(Mapa mapa, int dificultad, int oleada){
+    public void oleadaActiva(Jugador jugador, Mapa mapa, int dificultad, int oleada){
         // ME FALTA RECIBIR COMO PARAMETRO LA LISTA DE TORRES ACTIVAS, PERO ESO LA TIENEN QUE HACER
         // CUANDO COMPRAN LAS TORRES RECOMIENDO QUE SEA PARECIDO A LA QUE USO CON ENEMIGOS OSEA,
         // QUE SEA MÁS O MENOS ASI: ArrayList<Torres> listaTorresActivas = new ArrayList<>();
@@ -356,17 +357,27 @@ public class Juego {
                     i++;
                 }
                 int j = 0;
-                while (listaTorresActivas.size() > j){
-                    listaTorresActivas.get(j).waitingTick();
+                while (jugador.getTorresOnField().size() > j){
+                    jugador.getTorresOnField().get(j).waitingTick();
                     j++;
                 }
-                // VER SI ME FALTA AÑADIR ALGO MÁS, PERO CREO QUE ESTA TODO
-
             } catch(InterruptedException e){
                 e.printStackTrace();
             }
-            }
         }
+        // CAMBIAR EL CERRO PARA SEA EL VERDADERO
+        if (celdaCerro.getCerro().getVida() > 0){
+            int g = 0;
+            while(jugador.getTorresOnField().size() > g){   // Añade magia y puntos por cada torre generadora
+                if (jugador.getTorresOnField().get(g) instanceof TorreGeneradora){
+                    ((TorreGeneradora) jugador.getTorresOnField().get(g)).generarMagia(jugador);
+                    jugador.sumaPuntuacion(100);
+                }
+            }
+            jugador.sumaPuntuacion(1000);   // Suma puntos por pasar la oleada
+            jugador.setMagia(jugador.getMagia() + 300); // Suma magia por pasar la oleada
+        }
+    }
 
     /**
      * Método que elige cuál enemigo será el siguiente en aparecer en el mapa.
