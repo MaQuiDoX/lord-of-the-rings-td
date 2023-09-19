@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="171d98c7-b07b-4693-a064-dba52ede5961" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Juego/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Juego/Juego.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,6 +63,7 @@
       <workItem from="1695080479822" duration="4200000" />
       <workItem from="1695140198012" duration="2198000" />
       <workItem from="1695144466279" duration="4811000" />
+      <workItem from="1695166615852" duration="314000" />
     </task>
     <servers />
   </component>
