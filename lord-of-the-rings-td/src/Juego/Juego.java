@@ -48,7 +48,7 @@ public class Juego {
                     System.out.println();
                     Celda[][] matriz = mapa.crearMapa(opcion);
                     Mapa.imprimirMapa(matriz);
-                    Jugador.mostrarInterfaz();
+                    jugador.mostrarInterfaz();
                     menuPartida();
                     break;
                 } else if (opcion == 4) {
@@ -355,11 +355,18 @@ public class Juego {
                     int ol = jugador.getOleada();
                     ol++;
                     jugador.setOleada(ol);
-                    oleadaActiva(mapa.getNivel(), 1);
-                    finalizador = 1;
-                    //-----PRUEBAS DE ERROR-----//
-                    System.out.println("SE TERMINO LA OLEADA, HAY QUE HACER ALGO!");
-                    //-----PRUEBAS DE ERROR-----//
+                    oleadaActiva(mapa.getNivel(), ol);
+
+                    if ((mapa.getNivel() == 1) && (ol == 5)){
+                        finalizador = 1;
+                    }
+                    if ((mapa.getNivel() == 2) && (ol == 6)){
+                        finalizador = 1;
+                    }
+                    if ((mapa.getNivel() == 3) && (ol == 7)){
+                        finalizador = 1;
+                    }
+
                 } else {
                     System.out.println("Opción inválida. Ingrese de nuevo.");
                 }
@@ -457,7 +464,7 @@ public class Juego {
                 ((contSpawns < listaEnemigosOleada.get(oleada).size()) || // Cantidad de enemigos spawneados < Cantidad total de enemigos por ronda
                 (listaEnemigosVivos.size() > 0))){  // Cantidad de enemigos vivos > 0
             try{
-                Thread.sleep(10);
+                Thread.sleep(100);
                 //-----PRUEBAS DE ERROR-----//
                 //System.out.println(listaEnemigosOleada.get(oleada));
                 //System.out.println(listaEnemigosOleada.get(oleada).get(contSpawns));
@@ -481,7 +488,10 @@ public class Juego {
                     jugador.getTorresOnField().get(j).waitingTick();
                     j++;
                 }
+                ClearScreen.cls();
+                System.out.println();
                 mapa.imprimirMapa(mapa.getMatriz());
+                Jugador.mostrarInterfaz();
             } catch(InterruptedException e){
                 e.printStackTrace();
             }
