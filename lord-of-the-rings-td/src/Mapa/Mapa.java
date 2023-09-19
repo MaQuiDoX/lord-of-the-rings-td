@@ -150,7 +150,7 @@ public class Mapa {
                     } else if (barricada != null) {
                         System.out.print("BBB");
                     } else {
-                        if ((listaEnemigo == null) || (listaEnemigo.size() == 0)){
+                        if ((listaEnemigo == null) || (listaEnemigo.isEmpty())){
                             System.out.print("   ");
                         } else {
                             if (listaEnemigo.size() > 1){
