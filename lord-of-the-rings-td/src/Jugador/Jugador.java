@@ -235,15 +235,15 @@ public class Jugador {
             return Boolean.FALSE;
         }
         if (torre.getNivel()==0){
-            torre.setCantidad(torre.getCantidad()+10);
+            torre.setCantidad(torre.getCantidad()+50);
         }
         if (torre.getNivel()==1){
-            torre.setCantidad(torre.getCantidad()+10);
+            torre.setCantidad(torre.getCantidad()+50);
         }
         if (torre.getNivel()==2){
-            torre.setCantidad(torre.getCantidad()+10);
+            torre.setCantidad(torre.getCantidad()+50);
         }
-        torre.setCosteMejora(torre.getCosteMejora()+20);
+        torre.setCosteMejora(torre.getCosteMejora()+50);
         return Boolean.TRUE;
     }
 
