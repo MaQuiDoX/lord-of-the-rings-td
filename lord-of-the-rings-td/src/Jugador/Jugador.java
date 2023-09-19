@@ -20,6 +20,13 @@ public class Jugador {
 
     private ArrayList<Torre> torresOnField;
 
+    public int oleada = 0;
+    public int getOleada(){
+        return oleada;
+    }
+    public void setOleada(int oleada1){
+        this.oleada = oleada1;
+    }
     /**
      * @param magia Magia que tiene el jugaador para comprar y mejorar torres.
      * @param puntuacion Puntuacion que tiene el jugador, empieza con cero y va aumentando.

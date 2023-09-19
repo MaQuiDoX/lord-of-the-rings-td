@@ -15,6 +15,7 @@ public class Juego {
     private Mapa mapa;
     private Jugador jugador;
 
+
     public Juego(){
         mapa = new Mapa();
         jugador = new Jugador();
@@ -311,7 +312,6 @@ public class Juego {
                     System.out.println("");
                 } else if (opcion2 == 5) {
                     finalizador = 1;
-
                 } else {
                     System.out.println("Opción inválida. Ingrese de nuevo.");
                 }
@@ -320,6 +320,10 @@ public class Juego {
                 System.out.println("Opción inválida. Ingrese de nuevo.");
             }
         } while (finalizador == 0);
+        int ol = jugador.getOleada();
+        ol++;
+        jugador.setOleada(ol);
+        oleadaActiva(mapa.getNivel(), ol);
     }
     public int colocarFila(int x) {
         Scanner scanner2 = new Scanner(System.in);
