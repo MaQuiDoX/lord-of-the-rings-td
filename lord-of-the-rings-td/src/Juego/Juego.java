@@ -1,10 +1,9 @@
 package Juego;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import Mapa.Mapa;
-import Juego.ClearScreen;
-import Jugador.Jugador;
-import Celda.Celda;
+import Mapa.*;
+import Jugador.*;
+import Celda.*;
 
 public class Juego {
     public void mostrarMenu(Jugador jugadorMain) {
@@ -61,7 +60,7 @@ public class Juego {
 
     public void menuPartida(Jugador jugadorMain) {
         Scanner scanner = new Scanner(System.in);
-        int opcion2, opcion3, opcion4, opcion5, opcion6, finalizador;
+        int opcion2, opcion3, opcion4, opcion5, opcion6, finalizador, fila, columna;
         int magiaActual = jugadorMain.getmagia();
 
         do {
@@ -69,6 +68,8 @@ public class Juego {
             opcion4 = 0;
             opcion5 = 0;
             opcion6 = 0;
+            fila = 0;
+            columna = 0;
             finalizador = 0;
             System.out.println();
             Jugador.mostrarOpciones();
@@ -92,7 +93,7 @@ public class Juego {
                                                 System.out.println("No es posible realizar la compra...");
                                                 break;
                                             }else{
-                                                //COLOCAR TORRE BASICA
+                                                colocarFilayColumna(fila, columna);
                                             }
                                         } else if (opcion6 == 1) {
                                             if (magiaActual < 150) {
@@ -254,5 +255,56 @@ public class Juego {
                 System.out.println("Opción inválida. Ingrese de nuevo.");
             }
         } while (finalizador == 0);
+    }
+    public void colocarFilayColumna(int x, int y){
+        Scanner scanner2 = new Scanner(System.in);
+        char posX = 'a';
+        int posY = 17;
+        System.out.println("En que fila desea colocar la torre (A-I)");
+        do{
+            try{
+                posX = scanner2.next().charAt(0);
+                if (posX == 'A'){
+                    x = 0;
+                } else if (posX == 'B'){
+                    x = 1;
+                } else if (posX == 'C') {
+                    x = 2;
+                } else if (posX == 'D') {
+                    x = 3;
+                } else if (posX == 'E') {
+                    x = 4;
+                } else if (posX == 'F') {
+                    x = 5;
+                } else if (posX == 'G') {
+                    x = 6;
+                } else if (posX == 'H') {
+                    x = 7;
+                } else if (posX == 'I') {
+                    x = 8;
+                } else {
+                    System.out.println("Opción inválida, ingrese nuevamente...");
+                }
+            } catch (InputMismatchException e6) {
+                scanner2.nextLine();
+                System.out.println("Opción inválida. Ingrese de nuevo.");
+            }
+        } while ((posX != 'A') || (posX != 'B') || (posX != 'C') || (posX != 'D') || (posX != 'E') || (posX != 'F') || (posX != 'G') || (posX != 'H') || (posX != 'I'));
+
+        System.out.println();
+        System.out.println("En que columna desea colocar la torre (0-16)");
+        do{
+            try{
+                posY = scanner2.nextInt();
+                if ((posY < 17) && (posY >= 0)){
+                    y = posY;
+                } else {
+                    System.out.println("Opción inválida, ingrese nuevamente...");
+                }
+            } catch (InputMismatchException e7) {
+                scanner2.nextLine();
+                System.out.println("Opción inválida. Ingrese de nuevo.");
+            }
+        } while ((posY > 17) || (posY < 0));
     }
 }
