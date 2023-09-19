@@ -1,9 +1,9 @@
 package Jugador;
+
 import Celda.Celda;
 import Celda.CeldaCamino;
 import Celda.CeldaTerreno;
 import Estructuras.Barricada;
-import Mapa.Mapa;
 import Torre.*;
 
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ public class Jugador {
     private static int magia;
     private static int puntuacion;
 
-    private ArrayList<Torre> torresOnField = new ArrayList<Torre>();
+    private ArrayList<Torre> torresOnField;
 
     /**
      * @param magia Magia que tiene el jugaador para comprar y mejorar torres.
@@ -69,6 +69,7 @@ public class Jugador {
     public Jugador(){
         magia=500;
         puntuacion=0;
+        torresOnField = new ArrayList<Torre>();
     }
 
     public Boolean comprarTorre(Celda celdaTorre, int tipoTorre, CeldaCamino primeraCelda){
