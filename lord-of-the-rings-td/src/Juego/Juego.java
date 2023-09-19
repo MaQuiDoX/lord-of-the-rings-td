@@ -208,7 +208,7 @@ public class Juego {
                                                     break;
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
-                                                    jugador.comprarTorre(celda, 5, primerCelda);
+                                                    jugador.comprarTorre(celda, 5, primerCelda);//
                                                     jugador.setMagia(jugador.getMagia()-200);
                                                     ClearScreen.cls();
                                                     System.out.println();
