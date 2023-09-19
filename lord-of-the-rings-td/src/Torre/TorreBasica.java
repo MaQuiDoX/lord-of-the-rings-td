@@ -12,7 +12,7 @@ public class TorreBasica extends TorreActiva{
      * @param celdaAsociada la celda en donde se va ubicar la torr *
      */
     public TorreBasica(CeldaTerreno celdaAsociada){
-        super(20, 2, 2, "b", 200, celdaAsociada);
+        super(5, 2, 2, "b", 200, celdaAsociada);
     }
 
 }

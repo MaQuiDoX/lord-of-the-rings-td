@@ -6,6 +6,6 @@ public class TorreRango extends TorreActiva{
 
 
     public TorreRango(CeldaTerreno celdaAsociada){
-        super(60, 8, 4, "r", 300, celdaAsociada);
+        super(30, 8, 4, "r", 300, celdaAsociada);
     }
 }

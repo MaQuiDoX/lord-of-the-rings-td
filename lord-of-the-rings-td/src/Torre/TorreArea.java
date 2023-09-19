@@ -10,7 +10,7 @@ import java.util.Objects;
 
 public class TorreArea extends TorreActiva{
     public TorreArea(CeldaTerreno celda){
-        super(30,6,2,"a",200,celda);
+        super(10,6,2,"a",200,celda);
     }
 
     /**

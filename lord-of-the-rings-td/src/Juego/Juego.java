@@ -364,31 +364,28 @@ public class Juego {
                                 System.out.println("");
                                 System.out.println("Torre Basica:");
                                 System.out.println(" + Descripción: Torre confiable que dispara flechas a los enemigos cercanos para defender tu cerro");
-                                System.out.println(" + Daño: 10 (+10 mejora de nivel 1)");
+                                System.out.println(" + Daño: 5 (+10 mejora de nivel 1)");
                                 System.out.println(" + Velocidad: 2 (+1 mejora a nivel 2)");
                                 System.out.println(" + Alcance: 2 (+1 mejora a nivel3)");
                                 System.out.println(" + Tipo de daño: Daño básico");
-                                System.out.println(" + Coste de mejora: 200 de magia");
                                 System.out.println("");
                             } else if (opcion4 == 2) {
                                 System.out.println("");
                                 System.out.println("Torre Rango:");
                                 System.out.println(" + Descripción: Torre especializada en disparar proyectiles de largo alcance con precisión letal");
-                                System.out.println(" + Daño: 20 (+10 mejora de nivel 1)");
-                                System.out.println(" + Velocidad: 2 (+1 mejora de nivel 2)");
+                                System.out.println(" + Daño: 30 (+10 mejora de nivel 1)");
+                                System.out.println(" + Velocidad: 8 (+1 mejora de nivel 2)");
                                 System.out.println(" + Alcance: 4 (+1 mejora de nivel 3)");
                                 System.out.println(" + Tipo de daño: Daño en rango");
-                                System.out.println(" + Coste de mejora: 300 de magia");
                                 System.out.println("");
                             } else if (opcion4 == 3) {
                                 System.out.println("");
                                 System.out.println("Torre Area:");
                                 System.out.println(" + Descripción: Torre mágica que libera hechizos explosivos para dañar múltiples enemigos a la vez");
-                                System.out.println(" + Daño: 20 (+10 mejora de nivel 1)");
-                                System.out.println(" + Velocidad: 4 (+1 mejora de nivel 2)");
+                                System.out.println(" + Daño: 10 (+10 mejora de nivel 1)");
+                                System.out.println(" + Velocidad: 6 (+1 mejora de nivel 2)");
                                 System.out.println(" + Alcance: 2 (+1 mejora de nivel 3)");
                                 System.out.println(" + Tipo de daño: Daño en área");
-                                System.out.println(" + Coste de mejora: 200 de magia");
                                 System.out.println("");
                             } else if (opcion4 == 4) {
                                 System.out.println("");
@@ -396,21 +393,18 @@ public class Juego {
                                 System.out.println(" + Descripción:  Torre que emite una aura gélida que desacelera a los invasores");
                                 System.out.println(" + Velocidad: 3 (+1 mejora a nivel 1, +1 a nivel 2)");
                                 System.out.println(" + Alcance: 1 (+1 mejora a nivel3)");
-                                System.out.println(" + Coste de mejora: 300 de magia");
                                 System.out.println("");
                             } else if (opcion4 == 5) {
                                 System.out.println("");
                                 System.out.println("Torre Generadora:");
                                 System.out.println(" + Descripción: Una estructura que acumula y canaliza capital mágico luego de cada oleada");
                                 System.out.println(" + Ganancia por ronda: 10 de magia ()");
-                                System.out.println(" + Coste de mejora: 300 de magia");
                                 System.out.println("");
                             } else if (opcion4 == 6) {
                                 System.out.println("");
                                 System.out.println("Barricada:");
                                 System.out.println(" + Descripción: Una sólida barrera que bloquea el avance de los enemigos, ganando tiempo para tus torres");
                                 System.out.println(" + Vida: 10 (+10 mejora a nivel 1, +10 mejora a nivel 2, +10 mejora a nivel 3)");
-                                System.out.println(" + Coste de mejora: 200 de magia");
                                 System.out.println("");
                             } else if (opcion4 == 7) {
                                 break;
