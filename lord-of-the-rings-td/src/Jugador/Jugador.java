@@ -100,48 +100,48 @@ public class Jugador {
 
     }
     private Boolean colocarTorre(int tipoTorre,CeldaTerreno t, CeldaCamino currentCelda,int coorX, int coorY){
-            if (t.getOcupada()){
-                return Boolean.FALSE;
-            }
-            else {
-                if (tipoTorre == 1) {
-                    TorreBasica torre = new TorreBasica(t);
-                    t.setTorre(torre);
-                    buscarCeldasEnRango(currentCelda, coorX, coorY,torre);
-                    torresOnField.add(torre);
+        if (t.getOcupada()){
+            return Boolean.FALSE;
+        }
+        else {
+            if (tipoTorre == 1) {
+                TorreBasica torre = new TorreBasica(t);
+                t.setTorre(torre);
+                buscarCeldasEnRango(currentCelda, coorX, coorY,torre);
+                torresOnField.add(torre);
 
-                } else if (tipoTorre == 2) {
-                    TorreRango torre = new TorreRango(t);
-                    t.setTorre(torre);
-                    buscarCeldasEnRango(currentCelda, coorX, coorY,torre);
-                    torresOnField.add(torre);
+            } else if (tipoTorre == 2) {
+                TorreRango torre = new TorreRango(t);
+                t.setTorre(torre);
+                buscarCeldasEnRango(currentCelda, coorX, coorY,torre);
+                torresOnField.add(torre);
 
-                } else if (tipoTorre == 3) {
-                    TorreArea torre = new TorreArea(t);
-                    t.setTorre(torre);
-                    buscarCeldasEnRango(currentCelda, coorX, coorY,torre);
-                    torresOnField.add(torre);
+            } else if (tipoTorre == 3) {
+                TorreArea torre = new TorreArea(t);
+                t.setTorre(torre);
+                buscarCeldasEnRango(currentCelda, coorX, coorY,torre);
+                torresOnField.add(torre);
 
-                } else if (tipoTorre == 4) {
-                    TorreRalentizadora torre = new TorreRalentizadora(t);
-                    t.setTorre(torre);
-                    buscarCeldasEnRango(currentCelda, coorX, coorY,torre);
-                    torresOnField.add(torre);
+            } else if (tipoTorre == 4) {
+                TorreRalentizadora torre = new TorreRalentizadora(t);
+                t.setTorre(torre);
+                buscarCeldasEnRango(currentCelda, coorX, coorY,torre);
+                torresOnField.add(torre);
 
-                } else if (tipoTorre == 5) {
-                    TorreGeneradora torre = new TorreGeneradora(t);
-                    t.setTorre(torre);
-                    torresOnField.add(torre);
-                    return Boolean.TRUE;
-
-
-                } else {
-                    return Boolean.FALSE;
-                }
-
+            } else if (tipoTorre == 5) {
+                TorreGeneradora torre = new TorreGeneradora(t);
+                t.setTorre(torre);
+                torresOnField.add(torre);
                 return Boolean.TRUE;
 
+
+            } else {
+                return Boolean.FALSE;
             }
+
+            return Boolean.TRUE;
+
+        }
     }
 
 
@@ -315,7 +315,7 @@ public class Jugador {
 
 
 
-  
+
     public static void mostrarInterfaz() {
         System.out.println(" ");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
