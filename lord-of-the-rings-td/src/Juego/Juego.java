@@ -1,6 +1,11 @@
 package Juego;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
+
+import Enemigo.*;
+import Estructuras.Cerro;
 import Mapa.*;
 import Jugador.*;
 import Celda.*;
@@ -307,4 +312,73 @@ public class Juego {
             }
         } while ((posY > 17) || (posY < 0));
     }
-}
+
+    // ESTE MÉTODO DEBE LLAMARSE CUANDO SE ACEPTA EMPEZAR LA RONDA
+    /**
+     * Método que gestiona lo que sucede durante la duración de una oleada.
+     * @param mapa Mapa para poder obtener las oleadas de enemigos y las celdas del camino.
+     * @param dificultad La dificultad elegida por el jugador para poder seleccionar bien la oleada correspondiente.
+     * @param oleada La oleada en la cuál se encuentra el jugador en ese momento.
+     */
+    public void oleadaActiva(Mapa mapa, int dificultad, int oleada){
+        // ME FALTA RECIBIR COMO PARAMETRO LA LISTA DE TORRES ACTIVAS, PERO ESO LA TIENEN QUE HACER
+        // CUANDO COMPRAN LAS TORRES RECOMIENDO QUE SEA PARECIDO A LA QUE USO CON ENEMIGOS OSEA,
+        // QUE SEA MÁS O MENOS ASI: ArrayList<Torres> listaTorresActivas = new ArrayList<>();
+        // PERO CLARO, ESAS TORRES DEBEN SER UN ATRIBUTO DEL JUGADOR, YA QUE ÉL LAS COMPRA
+        // Y POR LO TANTO ÉL LAS POSEÉ
+        ArrayList<Enemigo> listaEnemigosActivos = new ArrayList<>();
+        int contSpawns = 0;
+        // ARREGLAR ESTO, SE SUPONE QUE TENGO UN METODO QUE TRAE LA 'CeldaCamino' CON EL CERRO
+        // O LA 1RA 'CeldaCamino' DEL MAPA, PREFERENTE ESTA ÚLTIMA PARA USARLA EN MÁS METODOS
+        CeldaCamino celdaCerro = new CeldaCamino(null);
+        celdaCerro.setCerro(new Cerro());
+        // --------
+        List<List<Character>> listaEnemigosOleada = mapa.getOleadas(dificultad);
+        while ((celdaCerro.getCerro().getVida() > 0) &&
+                (listaEnemigosActivos.size() < listaEnemigosOleada.get(oleada).size())){
+            try{
+                Thread.sleep(500);
+                // CAMBIAR ESE 'new CeldaCamino(null)' POR LA 1RA 'CeldaCamino' DEL MAPA, ES MUY IMPORTANTE
+                Enemigo enemigoSpawned = elegirEnemigo(listaEnemigosOleada.get(oleada).get(contSpawns),
+                        new CeldaCamino(null));
+                listaEnemigosActivos.add(enemigoSpawned);
+                int i = 0;
+                while (listaEnemigosActivos.size() > i){
+                    listaEnemigosActivos.get(i).waitingTick();
+                    i++;
+                }
+                int j = 0;
+                while (listaTorresActivas.size() > j){
+                    listaTorresActivas.get(j).waitingTick();
+                    j++;
+                }
+                // VER SI ME FALTA AÑADIR ALGO MÁS, PERO CREO QUE ESTA TODO
+
+            } catch(InterruptedException e){
+                e.printStackTrace();
+            }
+            }
+        }
+
+    /**
+     * Método que elige cuál enemigo será el siguiente en aparecer en el mapa.
+     * @param letra Letra dentro de 'Lista de Enemigos en la Oleada'.
+     * @param primeraCelda Celda que se encuentra al inicio del recorrido de los enemigos.
+     * @return
+     */
+    private Enemigo elegirEnemigo(char letra, CeldaCamino primeraCelda){
+        switch (letra){
+            case 'H':   // H = Humano
+                return new Humano(primeraCelda);
+            case 'O':   // O = Hobbit
+                return new Hobbit(primeraCelda);
+            case 'E':   // E = Elfo
+                return new Elfo(primeraCelda);
+            case 'N':   // N = Enano
+                return new Enano(primeraCelda);
+            case 'T':   // T = Ent
+                return new Ent(primeraCelda);
+        }
+        return null;
+    }
+    }

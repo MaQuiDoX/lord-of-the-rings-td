@@ -140,11 +140,13 @@ public abstract class Enemigo implements TimeTicks {
         setUbicacion(siguienteUbicacion);
     }
 
-    public void danarCerro(Cerro cerro){cerro.setVida(cerro.getVida() - dano);}
+    private void danarCerro(Cerro cerro){cerro.setVida(cerro.getVida() - dano);}
 
     public void morir(Enemigo enemigo){
-        enemigo.ubicacion = null; // to do: eliminarlo de la lista de la celda
-        // Eliminar la unidad de la celda en donde esta ubicado
+        CeldaCamino celda = enemigo.getUbicacion();
+        celda.sacarEnemigo(enemigo);
+        //juego.sacarEnemigo(enemigo);
+        enemigo.ubicacion = null;
     }
 
     @Override
@@ -152,12 +154,12 @@ public abstract class Enemigo implements TimeTicks {
         tick++;
         if (tick == velocidad){
             actionTick();
-            tick=0;
+            tick = 0;
         }
     }
     @Override
     public void actionTick(){
-
+        moverEnemigo(this);
     }
 }
 
