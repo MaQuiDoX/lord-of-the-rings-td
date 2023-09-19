@@ -34,12 +34,4 @@ public abstract class Celda {
     public int getCoorY(){
         return coorY;
     }
-    // NO ME SALEN USOS DE ESTO, DEBERIAMOS BORRARLO?
-    public void setCoorX(int coorX){
-        this.coorX=coorX;
-    }
-    // NO ME SALEN USOS DE ESTO, DEBERIAMOS BORRARLO?
-    public void setCoorY(int coorY) {
-        this.coorY = coorY;
-    }
 }
