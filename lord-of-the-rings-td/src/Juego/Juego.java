@@ -506,6 +506,9 @@ public class Juego {
                 System.out.println("Opción inválida. Ingrese de nuevo.");
             }
         } while (finalizador == 0);
+        jugador.setOleada(0);
+        jugador.setMagia(500);
+        mostrarMenu(jugador);
     }
     public int colocarFila(int x) {
         Scanner scanner2 = new Scanner(System.in);
