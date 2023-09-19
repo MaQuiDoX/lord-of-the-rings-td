@@ -1,6 +1,7 @@
 package Enemigo;
 
 import Celda.CeldaCamino;
+import Juego.Juego;
 
 /**
  * Una clase que genera un humano elfo del tipo normal.
@@ -8,7 +9,7 @@ import Celda.CeldaCamino;
  * @author Ezequiel L. Martins
  */
 public class Humano extends Enemigo{
-    public Humano(CeldaCamino celdaCamino){
-        super(120,2,4,8,"normal",false, celdaCamino);
+    public Humano(Juego juego, CeldaCamino celdaCamino){
+        super(juego, 120,2,4,8,"normal",false, celdaCamino);
     }
 }

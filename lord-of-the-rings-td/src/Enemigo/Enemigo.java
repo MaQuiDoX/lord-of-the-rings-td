@@ -2,11 +2,12 @@ package Enemigo;
 
 import Celda.CeldaCamino;
 import Estructuras.*;
+import Juego.Juego;
 import TimeTicks.TimeTicks;
 
 /**
  * Una clase abstracta para representar los comportamientos generales de los enemigos que intentan atacar el Cerro de la Gloria.
- * @version 1.0 18/9/23
+ * @version 1.0.1 19/9/23
  * @author Ezequiel L. Martins
  */
 public abstract class Enemigo implements TimeTicks {
@@ -15,6 +16,7 @@ public abstract class Enemigo implements TimeTicks {
     protected String tipo;
     protected Boolean ralentizado;
     protected CeldaCamino ubicacion;
+    protected Juego juego;
 
     /**
      * Constructor de enemigo, recibiendo como parametros el valor de sus atributos.
@@ -25,9 +27,12 @@ public abstract class Enemigo implements TimeTicks {
      * @param tipo Tipo de enemigo que es, siendo las opciones: 'normal', 'ligero' y 'pesado'.
      * @param ralentizado Estado lógico que dice si el enemigo se encuentra ralentizado.
      * @param ubicacion CeldaCamino en la cual se encuentra dentro del mapa.
+     * @param juego // AÑADIR AÑADIR AÑADIR AÑADIR //
      * @see CeldaCamino
+     * @see Juego
      */
-    public Enemigo(int vida, int dano, int velocidad, int magiaOtorgada, String tipo, boolean ralentizado, CeldaCamino ubicacion){
+    public Enemigo(Juego juego, int vida, int dano, int velocidad, int magiaOtorgada, String tipo, boolean ralentizado, CeldaCamino ubicacion){
+        this.juego = juego;
         this.vida = vida;
         this.dano = dano;
         this.velocidad = velocidad;
@@ -145,8 +150,9 @@ public abstract class Enemigo implements TimeTicks {
     public void morir(Enemigo enemigo){
         CeldaCamino celda = enemigo.getUbicacion();
         celda.sacarEnemigo(enemigo);
-        //juego.sacarEnemigo(enemigo);
+        juego.getListaEnemigosVivos().remove(enemigo);
         enemigo.ubicacion = null;
+        enemigo.juego = null;
     }
 
     @Override

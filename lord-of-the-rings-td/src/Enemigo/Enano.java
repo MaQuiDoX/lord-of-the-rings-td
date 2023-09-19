@@ -1,6 +1,7 @@
 package Enemigo;
 
 import Celda.CeldaCamino;
+import Juego.Juego;
 
 /**
  * Una clase que genera un enemigo enano del tipo 'pesado'.
@@ -8,7 +9,7 @@ import Celda.CeldaCamino;
  * @author Ezequiel L. Martins
  */
 public class Enano extends Enemigo{
-    public Enano(CeldaCamino celdaCamino){
-        super(320,3,5,12,"enano",false, celdaCamino);
+    public Enano(Juego juego, CeldaCamino celdaCamino){
+        super(juego,320,3,5,12,"enano",false, celdaCamino);
     }
 }

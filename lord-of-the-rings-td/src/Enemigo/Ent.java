@@ -1,6 +1,7 @@
 package Enemigo;
 
 import Celda.CeldaCamino;
+import Juego.Juego;
 
 /**
  * Una clase que genera un enemigo ent del tipo 'pesado'.
@@ -8,6 +9,6 @@ import Celda.CeldaCamino;
  * @author Ezequiel L. Martins
  */
 public class Ent extends Enemigo{
-    public Ent(CeldaCamino celdaCamino){ super(700,5,7,50,"pesado",false, celdaCamino);}
+    public Ent(Juego juego, CeldaCamino celdaCamino){ super(juego,700,5,7,50,"pesado",false, celdaCamino);}
 
 }
