@@ -61,7 +61,7 @@ public class Mapa {
             if ((x == 4) && (y == 16)) {
                 matriz[x][y] = celdaConCerro;
             } else if ((x == 4) && (y == 15)) {
-                matriz[x][y] = new CeldaCamino((CeldaCamino) matriz[5][16], x, y);
+                matriz[x][y] = new CeldaCamino((CeldaCamino) matriz[4][16], x, y);
             } else {
                 matriz[x][y] = new CeldaCamino((CeldaCamino) matriz[oldX][oldY], x, y);
             }
