@@ -66,7 +66,7 @@ public class Juego {
 
     public void menuPartida() {
         Scanner scanner = new Scanner(System.in);
-        int opcion2, opcion3, opcion4, opcion5, opcion6, finalizador, fila, columna;
+        int opcion2, opcion3, opcion4, opcion5, opcion6, finalizador, fila, columna, oleadaActual;
         do {
             opcion3 = 0;
             opcion4 = 0;
