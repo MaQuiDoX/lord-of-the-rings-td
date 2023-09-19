@@ -11,6 +11,14 @@ import Jugador.*;
 import Celda.*;
 
 public class Juego {
+    private Mapa mapa;
+    private Jugador jugador;
+
+    public void Jugador(){
+        mapa = new Mapa();
+        jugador = new Jugador();
+    }
+
     public void mostrarMenu(Jugador jugadorMain) {
         Scanner scanner = new Scanner(System.in);
         int opcion = 0;
@@ -29,7 +37,7 @@ public class Juego {
                 if (opcion == 1) {
                     ClearScreen.cls();
                     System.out.println();
-                    Celda[][] matriz = Mapa.crearMapa(1);
+                    Celda[][] matriz = mapa.crearMapa(1);
                     Mapa.imprimirMapa(matriz);
                     Jugador.mostrarInterfaz();
                     menuPartida(jugadorMain);
@@ -37,7 +45,7 @@ public class Juego {
                 } else if (opcion == 2) {
                     ClearScreen.cls();
                     System.out.println();
-                    Celda[][] matriz = Mapa.crearMapa(2);
+                    Celda[][] matriz = mapa.crearMapa(2);
                     Mapa.imprimirMapa(matriz);
                     Jugador.mostrarInterfaz();
                     menuPartida(jugadorMain);
@@ -45,7 +53,7 @@ public class Juego {
                 } else if (opcion == 3) {
                     ClearScreen.cls();
                     System.out.println();
-                    Celda[][] matriz = Mapa.crearMapa(3);
+                    Celda[][] matriz = mapa.crearMapa(3);
                     Mapa.imprimirMapa(matriz);
                     Jugador.mostrarInterfaz();
                     menuPartida(jugadorMain);
