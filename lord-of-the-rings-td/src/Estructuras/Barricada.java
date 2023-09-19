@@ -22,7 +22,7 @@ public class Barricada {
      * @see CeldaCamino
      */
     public Barricada(CeldaCamino celdaCamino) {
-        this.vida = 1000;
+        this.vida = 10;
         this.nivel = 1;
         this.celdaAsociada = celdaCamino;
     }

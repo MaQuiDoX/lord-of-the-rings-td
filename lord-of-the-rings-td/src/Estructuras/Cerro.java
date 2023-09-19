@@ -16,7 +16,7 @@ public class Cerro{
      * @see CeldaCamino
      */
     public Cerro(){
-        this.vida = 100;
+        this.vida = 20;
     }
 
     /**

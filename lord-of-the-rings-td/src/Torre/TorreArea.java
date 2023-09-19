@@ -30,7 +30,7 @@ public class TorreArea extends TorreActiva{
                 for (Enemigo enemigo : enemigoslis){
                      vida = enemigo.getVida() - dano ;
                      if (vida<=0){
-                         enemigo.morir(enemigo);
+                         enemigo.morir(enemigo, true);
                     }
                      else
                          enemigo.setVida(vida);

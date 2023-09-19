@@ -4,7 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="171d98c7-b07b-4693-a064-dba52ede5961" name="Changes" comment="" />
+    <list default="true" id="171d98c7-b07b-4693-a064-dba52ede5961" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Celda/Celda.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Celda/Celda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Celda/CeldaCamino.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Celda/CeldaCamino.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Celda/CeldaTerreno.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Celda/CeldaTerreno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Elfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Elfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Enano.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Enano.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Enemigo.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Enemigo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Ent.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Ent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Hobbit.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Hobbit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Humano.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Humano.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Estructuras/Barricada.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Estructuras/Barricada.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreActiva.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreActiva.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreArea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lord-of-the-rings-td/Enemigo/Elfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lord-of-the-rings-td/Enemigo/Elfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lord-of-the-rings-td/Enemigo/Enano.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lord-of-the-rings-td/Enemigo/Enano.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lord-of-the-rings-td/Enemigo/Enemigo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lord-of-the-rings-td/Enemigo/Enemigo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lord-of-the-rings-td/Enemigo/Ent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lord-of-the-rings-td/Enemigo/Ent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lord-of-the-rings-td/Enemigo/Hobbit.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lord-of-the-rings-td/Enemigo/Hobbit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lord-of-the-rings-td/Enemigo/Humano.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lord-of-the-rings-td/Enemigo/Humano.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

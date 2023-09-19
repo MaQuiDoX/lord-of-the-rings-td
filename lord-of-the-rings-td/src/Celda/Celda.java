@@ -22,14 +22,14 @@ public abstract class Celda {
 
     /**
      * Getter de coorX.
-     * @return Devuelve la coordenada en X.
+     * @return Devuelve la coordenada en X de la Celda.
      */
     public int getCoorX(){
         return coorX;
     }
     /**
      * Getter de coorY.
-     * @return Devuelve la coordenada en Y.
+     * @return Devuelve la coordenada en Y de la Celda.
      */
     public int getCoorY(){
         return coorY;
