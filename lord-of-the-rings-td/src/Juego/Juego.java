@@ -229,8 +229,14 @@ public class Juego {
                                                 if (celda instanceof CeldaTerreno) {
                                                     System.out.println("No es posible realizar la compra, no se puede colocar una barricada fuera del camino...");
                                                     break;
-                                                } else if (((CeldaCamino)celda).getBarricada() != null){
+                                                } else if (((CeldaCamino)celda).getBarricada() != null) {
                                                     System.out.println("No es posible realizar la compra, no se puede colocar una barrera donde ya hay una colocada...");
+                                                    break;
+                                                } else if ((fila == 1) && (columna == 0)) {
+                                                    System.out.println("No es posible realizar la compra, no se puede colocar una barrera al principio del camino...");
+                                                    break;
+                                                } else if (((CeldaCamino)celda).getCerro()!=null) {
+                                                    System.out.println("No es posible realizar la compra, no se puede colocar una barrera en el cerro...");
                                                     break;
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
@@ -256,11 +262,15 @@ public class Juego {
                                 }while((opcion6>7)||(opcion6<1));
 
                             } else if (opcion3 == 2) {
-                                System.out.println("");
-                                System.out.println("MEJORA");
-                                //MEJORA TORRE
-                                System.out.println("");
+                                fila = colocarFila(fila);
+                                columna = colocarColumna(columna);
+                                Celda celda = mapa.getMatrizCelda(fila, columna);
+                                if (celda instanceof CeldaTerreno) {
+
+                                }
                             } else if (opcion3 == 3) {
+
+                            } else if (opcion3 == 4) {
                                 break;
                             } else {
                                 System.out.println("Opción inválida. Ingrese de nuevo.");
@@ -515,11 +525,11 @@ public class Juego {
             try{
                 Thread.sleep(100);
                 //-----PRUEBAS DE ERROR-----//
-                System.out.println("Tick Actual: "+ ++tick);
+                //System.out.println("Tick Actual: "+ ++tick);
                 //System.out.println(listaEnemigosOleada.get(oleada));
                 //System.out.println(listaEnemigosOleada.get(oleada).get(contSpawns));
                 //System.out.println(mapa.getFirstCeldaCamino());
-                System.out.println("VIDA CERRO: "+celdaCerro.getCerro().getVida());
+                //System.out.println("VIDA CERRO: "+celdaCerro.getCerro().getVida());
                 // System.out.println("listaEnemigosVivos "+listaEnemigosVivos);
                 //-----PRUEBAS DE ERROR-----//
                 if (contSpawns < listaEnemigosOleada.get(oleada).size()){
@@ -542,6 +552,7 @@ public class Juego {
                     //-----PRUEBAS DE ERROR-----//
                 }
                 ClearScreen.cls();
+                System.out.println(" === VIDA CERRO: " + celdaCerro.getCerro().getVida() + " === ");
                 System.out.println();
                 mapa.imprimirMapa(mapa.getMatriz());
                 Jugador.mostrarInterfaz();
