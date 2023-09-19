@@ -21,7 +21,7 @@ public class TorreGeneradora extends Torre {
      */
     public TorreGeneradora(CeldaTerreno celdaAsociada){
         super(30,celdaAsociada);
-        cantidad=10;
+        cantidad=100;
     }
 
     /**
