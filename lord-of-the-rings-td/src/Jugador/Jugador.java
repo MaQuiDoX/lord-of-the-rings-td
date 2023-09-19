@@ -80,9 +80,8 @@ public class Jugador {
         torresOnField = new ArrayList<Torre>();
     }
 
-    public Boolean comprarTorre(Celda celdaTorre, int tipoTorre, CeldaCamino primeraCelda){
-        int coorX = celdaTorre.getCoorX();
-        int coorY = celdaTorre.getCoorY();
+    public Boolean comprarTorre(Celda celdaTorre, int tipoTorre,int coorX , int coorY, CeldaCamino primeraCelda){
+
 
         if (celdaTorre instanceof CeldaTerreno){
             CeldaTerreno j = (CeldaTerreno) celdaTorre;
