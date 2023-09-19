@@ -191,22 +191,22 @@ public class Mapa {
         List<Character> oleada13 = new ArrayList<>();
         oleada13.add('H');
         oleada13.add('E');
-        oleada13.add('S');
+        oleada13.add('O');
         oleada13.add('H');
-        oleada13.add('R');
+        oleada13.add('N');
         List<Character> oleada14 = new ArrayList<>();
         oleada14.add('E');
         oleada14.add('E');
-        oleada14.add('S');
+        oleada14.add('O');
         oleada14.add('H');
         oleada14.add('T');
         List<Character> oleada15 = new ArrayList<>();
         oleada15.add('E');
         oleada15.add('E');
-        oleada15.add('S');
-        oleada15.add('S');
+        oleada15.add('O');
+        oleada15.add('N');
         oleada15.add('T');
-        oleada15.add('R');
+        oleada15.add('N');
 
         oleada1.add(oleada11);
         oleada1.add(oleada12);
