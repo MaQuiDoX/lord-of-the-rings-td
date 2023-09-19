@@ -12,6 +12,7 @@ import Enemigo.*;
 import Torre.*;
 
 public class Mapa {
+    public Celda[][] matriz;
     static String nivel1 = "[(4,16), (4,15), (5,15), (6,15), (7,15), (8,15), (8,14), (8,13), (8,12), (8,11), (7,11), (6,11), (5,11), (4,11), (3,11), (3,12), (3,13), (2,13), (1,13), (1,12), (1,11), (1,10), (1,9), (2,9), (3,9), (4,9), (5,9), (6,9), (6,8), (6,7), (5,7), (4,7), (3,7), (2,7), (1,7), (1,6), (1,5), (1,4), (2,4), (3,4), (4,4), (4,5), (5,5), (6,5), (7,5), (7,4), (7,3), (7,2), (6,2), (5,2), (4,2), (3,2), (2,2), (1,2), (1,1), (1,0)]";
     static String nivel2 = "[(0,1), (16,4)]";
     static String nivel3 = "[(0,1), (16,4)]";
@@ -77,14 +78,18 @@ public class Mapa {
         }
         CeldaCamino primeraCelda = (CeldaCamino) matriz[firstX][firstY];
         this.primerCelda =  primeraCelda;
-
+        this.matriz = matriz;
         return matriz;
     }
     public int getNivel(){
         return this.nivel;
     }
-    public Celda getMatrizCelda(Celda[][] matriz, int x, int y){
+    public Celda getMatrizCelda(int x, int y){
         return matriz[x][y];
+    }
+
+    public Celda[][] getMatriz(){
+        return matriz;
     }
 
     public CeldaCamino getFirstCeldaCamino(){
