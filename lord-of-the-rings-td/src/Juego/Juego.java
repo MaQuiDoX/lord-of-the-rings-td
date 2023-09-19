@@ -1,4 +1,5 @@
 package Juego;
+import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -264,11 +265,42 @@ public class Juego {
                                 }while((opcion6>7)||(opcion6<1));
 
                             } else if (opcion3 == 2) {
-                                fila = colocarFila(fila);
-                                columna = colocarColumna(columna);
-                                Celda celda = mapa.getMatrizCelda(fila, columna);
-                                if (celda instanceof CeldaTerreno) {
-
+                                if (jugador.getMagia() > 200){
+                                    fila = colocarFila(fila);
+                                    columna = colocarColumna(columna);
+                                    Celda celda = mapa.getMatrizCelda(fila, columna);
+                                    if (celda instanceof CeldaTerreno) {
+                                        if (((CeldaTerreno) celda).getTorre() == null) {
+                                            System.out.println("Aqui no se encuentra ninguna torre para mejorar...");
+                                            break;
+                                        }
+                                        CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
+                                        jugador.mejorarTorre((CeldaTerreno)celda, primerCelda);
+                                        jugador.setMagia(jugador.getMagia()-200);
+                                        ClearScreen.cls();
+                                        System.out.println();
+                                        Mapa.imprimirMapa(mapa.getMatriz());
+                                        Jugador.mostrarInterfaz();
+                                        break;
+                                    } else if (celda instanceof CeldaCamino){
+                                        if (((CeldaCamino) celda).getCerro() != null) {
+                                            System.out.println("No puedes mejorar el Cerro...");
+                                            break;
+                                        } else if (((CeldaCamino) celda).getBarricada() == null) {
+                                            System.out.println("Esta es una posicion para camino. Aqui no se encuentra ninguna barricada para mejorar...");
+                                            break;
+                                        }
+                                        jugador.mejorarBarricada(((CeldaCamino) celda).getBarricada());
+                                        jugador.setMagia(jugador.getMagia()-200);
+                                        ClearScreen.cls();
+                                        System.out.println();
+                                        Mapa.imprimirMapa(mapa.getMatriz());
+                                        Jugador.mostrarInterfaz();
+                                        break;
+                                    } else {
+                                        System.out.println("No tienes la cantidad suficiente de magia para realizar una mejora...");
+                                        break;
+                                    }
                                 }
                             } else if (opcion3 == 3) {
 
@@ -281,7 +313,7 @@ public class Juego {
                             scanner.nextLine();
                             System.out.println("Opción inválida. Ingrese de nuevo.");
                         }
-                    } while ((opcion3 > 3) || (opcion3 < 1));
+                    } while ((opcion3 > 4) || (opcion3 < 1));
 
                 } else if (opcion2 == 2) {
                     System.out.println();

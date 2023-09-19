@@ -338,9 +338,9 @@ public class Jugador {
     public static void mostrarOpcionesTorres() {
         System.out.println("¿Qué desea hacer?:");
         System.out.println("1. Colocar una Torre");
-        System.out.println("2. Mejorar una Torre");
-        System.out.println("2. Vender una Torre");
-        System.out.println("3. Volver para atrás");
+        System.out.println("2. Mejorar una Torre (200 de magia por mejora)");
+        System.out.println("3. Vender una Torre (+200 de magia por torre)");
+        System.out.println("4. Volver para atrás");
     }
 
     public static void mostrarTienda(){
