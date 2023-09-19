@@ -63,14 +63,16 @@ public class Jugador {
         puntuacion=0;
     }
 
-    public Boolean comprarTorre(Celda[][] matriz, int coorX, int coorY, int tipoTorre, CeldaCamino primeraCelda){
-        Celda t = Mapa.getMatrizCelda(matriz, coorX, coorY);
-        if (t instanceof CeldaTerreno){
-            CeldaTerreno j = (CeldaTerreno) t;
+    public Boolean comprarTorre(Celda celdaTorre, int tipoTorre, CeldaCamino primeraCelda){
+        int coorX = celdaTorre.getCoorX();
+        int coorY = celdaTorre.getCoorY();
+
+        if (celdaTorre instanceof CeldaTerreno){
+            CeldaTerreno j = (CeldaTerreno) celdaTorre;
             return colocarTorre(tipoTorre,j,primeraCelda, coorX, coorY);
-        } else if (t instanceof CeldaCamino) {
+        } else if (celdaTorre instanceof CeldaCamino) {
             if (tipoTorre==6){
-                CeldaCamino j = (CeldaCamino) t;
+                CeldaCamino j = (CeldaCamino) celdaTorre;
                 return colocarBarricada(j);
             }
             else
