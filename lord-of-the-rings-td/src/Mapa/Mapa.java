@@ -17,8 +17,9 @@ public class Mapa {
     static String nivel3 = "[(0,1), (16,4)]";
     public static ArrayList<Posicion> posicionesLvl1 = parsearString(nivel1);
     public static ArrayList<Posicion> posicionesLvl2 = parsearString(nivel2);
-    public static ArrayList<Posicion> posicionesLvl3 = parsearString(nivel3);;
+    public static ArrayList<Posicion> posicionesLvl3 = parsearString(nivel3);
 
+    public int nivel = 0;
     public static ArrayList<Posicion> getPositionArray(int dificultad) {
         if (dificultad == 1) {
             return posicionesLvl1;
@@ -31,7 +32,9 @@ public class Mapa {
         }
     }
 
-    public static Celda[][] crearMapa(int dificultad) {
+    public Celda[][] crearMapa(int dificultad) {
+        this.nivel = dificultad;
+
         Celda[][] matriz = new Celda[9][17];
         ArrayList<Posicion> posiciones = getPositionArray(dificultad);
         Cerro cerro = new Cerro();
@@ -63,9 +66,21 @@ public class Mapa {
         }
         return matriz;
     }
-
+    public int getNivel(){
+        return this.nivel;
+    }
     public Celda getMatrizCelda(Celda[][] matriz, int x, int y){
         return matriz[x][y];
+    }
+
+    public CeldaCamino getFirstCeldaCamino(Celda[][] matriz){
+        int nivel = getNivel();
+        ArrayList<Posicion> posiciones = getPositionArray(nivel);
+        Posicion ultimaPosicion = posiciones.get(posiciones.size() -1);
+        int x = ultimaPosicion.getX();
+        int y = ultimaPosicion.getY();
+        CeldaCamino primerCelda = (CeldaCamino) matriz[x][y];
+        return primerCelda;
     }
 
     public static ArrayList<Posicion> parsearString(String input) {
@@ -130,6 +145,7 @@ public class Mapa {
             System.out.println("");
             letra++;
         }
+
     }
     public List<List<Character>> getOleadas(int dificultad){
         List<List<Character>> oleada1 = new ArrayList<>();

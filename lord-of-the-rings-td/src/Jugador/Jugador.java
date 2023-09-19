@@ -59,7 +59,7 @@ public class Jugador {
      * Constructor del jugador con todos los valores por default.
      */
     public Jugador(){
-        magia=50;
+        magia=500;
         puntuacion=0;
     }
 
