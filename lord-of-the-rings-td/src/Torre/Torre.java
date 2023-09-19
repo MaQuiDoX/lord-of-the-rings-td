@@ -18,18 +18,9 @@ public abstract class Torre {
     protected int tick;
 
     /**
-     *
-     * @param coste El coste en magia de la torre.
-     * @param costeMejora El coste en magia de mejorar la torre.
-     * @param nivel el nivel actual de la torre.
-     * @param celdaAsociada La celda donde se encuentra la torre.
-     * @param celdaEnRango Las celdas que estan en el rango de ataque de la torre.
-     * @param tick Contador de momentos antes de podes realizar su ejecucion.
-     */
-
-    /**
      * Constructor de la torre pasando como parametros el valor de los atributo.
      * @param costeMejora El coste en magia de mejorar la torre.
+     * @param celdaAsociada La celda donde se encuentra la torre.
      */
     public Torre( int costeMejora, CeldaTerreno celdaAsociada){
 
@@ -40,7 +31,9 @@ public abstract class Torre {
 
     }
 
-    /** Constructor de la torre solo pasando el parametro de celdaTerren */
+    /** Constructor de la torre solo pasando el parametro de celdaTerren
+     * @param celdaAsociada La celda donde se encuentra la torre.
+     * */
     public Torre(CeldaTerreno celdaAsociada){
         costeMejora=200;
         nivel=0;
