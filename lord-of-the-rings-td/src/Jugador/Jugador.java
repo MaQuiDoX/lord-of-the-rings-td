@@ -57,6 +57,7 @@ public class Jugador {
         puntuacion=0;
     }
 
+
     public Boolean comprarTorre(Mapa mapa,int coorX, int coorY, int tipoTorre, CeldaCamino primeraCelda){
         Celda t = mapa.getMatrizCelda(coorX, coorY);
         if (t instanceof CeldaTerreno){
