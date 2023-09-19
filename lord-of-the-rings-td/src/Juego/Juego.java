@@ -357,6 +357,9 @@ public class Juego {
                     jugador.setOleada(ol);
                     oleadaActiva(mapa.getNivel(), 1);
                     finalizador = 1;
+                    //-----PRUEBAS DE ERROR-----//
+                    System.out.println("SE TERMINO LA OLEADA, HAY QUE HACER ALGO!");
+                    //-----PRUEBAS DE ERROR-----//
                 } else {
                     System.out.println("Opción inválida. Ingrese de nuevo.");
                 }
@@ -444,7 +447,6 @@ public class Juego {
      * @param oleada La oleada en la cuál se encuentra el jugador en ese momento.
      */
     public void oleadaActiva(int dificultad, int oleada){
-        ArrayList<Enemigo> listaEnemigosVivos = new ArrayList<>();
         int contSpawns = 0;
         CeldaCamino celdaCerro = mapa.getFirstCeldaCamino();
         while (celdaCerro.getCerro() == null){  // Busqueda de la celda con el 'Cerro de la Gloria'
@@ -455,13 +457,13 @@ public class Juego {
                 ((contSpawns < listaEnemigosOleada.get(oleada).size()) || // Cantidad de enemigos spawneados < Cantidad total de enemigos por ronda
                 (listaEnemigosVivos.size() > 0))){  // Cantidad de enemigos vivos > 0
             try{
-                Thread.sleep(50);
+                Thread.sleep(10);
                 //-----PRUEBAS DE ERROR-----//
                 //System.out.println(listaEnemigosOleada.get(oleada));
                 //System.out.println(listaEnemigosOleada.get(oleada).get(contSpawns));
                 //System.out.println(mapa.getFirstCeldaCamino());
-                System.out.println(celdaCerro.getCerro().getVida());
-                System.out.println(listaEnemigosVivos);
+                System.out.println("Cerro.getVida() "+celdaCerro.getCerro().getVida());
+                // System.out.println("listaEnemigosVivos "+listaEnemigosVivos);
                 //-----PRUEBAS DE ERROR-----//
                 if (contSpawns < listaEnemigosOleada.get(oleada).size()){
                     Enemigo enemigoSpawned = elegirEnemigo(this, listaEnemigosOleada.get(oleada).get(contSpawns),

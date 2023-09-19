@@ -40,6 +40,10 @@ public abstract class Enemigo implements TimeTicks {
         this.tipo = tipo;
         this.ralentizado = ralentizado;
         this.ubicacion = ubicacion;
+        //-----PRUEBAS DE ERROR-----//
+        System.out.println("EnemigoTipo "+this);
+        //-----PRUEBAS DE ERROR-----//
+        ubicacion.nuevoEnemigo(this);
         this.tick = 0;
     }
 
@@ -133,23 +137,35 @@ public abstract class Enemigo implements TimeTicks {
 
     // Documentar
     public void moverEnemigo(Enemigo enemigo){
-        CeldaCamino ubicacionActual;
+        CeldaCamino ubicacionActual, ubicacionSiguiente;
         ubicacionActual = enemigo.getUbicacion();
-        if (ubicacionActual.getCerro() instanceof Cerro){
-            danarCerro(ubicacionActual.getCerro());
+        ubicacionSiguiente = ubicacionActual.getSiguienteCelda();
+        //-----PRUEBAS DE ERROR-----//
+        // System.out.println("CeldaCamino.getListaEnemigos() "+enemigo.getUbicacion().getListaEnemigos());
+        //-----PRUEBAS DE ERROR-----//
+        if (ubicacionSiguiente.getCerro() instanceof Cerro){
+            danarCerro(ubicacionSiguiente.getCerro());
+            //-----PRUEBAS DE ERROR-----//
+            System.out.println("Enemigo.java: "+enemigo.getJuego());
+            //-----PRUEBAS DE ERROR-----//
             morir(enemigo);
-            //-----PRUEBAS DE ERROR-----//
-            System.out.println(enemigo.getJuego());
-            //-----PRUEBAS DE ERROR-----//
             return;
         }
-        if (ubicacionActual.getBarricada() instanceof Barricada){
-            Barricada barricada = ubicacionActual.getBarricada();
+        if (ubicacionSiguiente.getBarricada() instanceof Barricada){
+            Barricada barricada = ubicacionSiguiente.getBarricada();
+            //-----PRUEBAS DE ERROR-----//
+            System.out.println("Esta vida le queda a la barricada: "+barricada.getVida());
+            //-----PRUEBAS DE ERROR-----//
             barricada.setVida(barricada.getVida() - dano);
+            if (barricada.getVida() < 0){
+                barricada.destruirse();
+            }
             return;
         }
+        ubicacionActual.sacarEnemigo(enemigo);
         ubicacionActual = ubicacionActual.getSiguienteCelda();
         setUbicacion(ubicacionActual);
+        ubicacionActual.nuevoEnemigo(enemigo);
     }
 
     private void danarCerro(Cerro cerro){cerro.setVida(cerro.getVida() - dano);}
@@ -157,7 +173,10 @@ public abstract class Enemigo implements TimeTicks {
     public void morir(Enemigo enemigo){
         CeldaCamino celda = enemigo.getUbicacion();
         celda.sacarEnemigo(enemigo);
-        juego.getListaEnemigosVivos().remove(enemigo);
+        //-----PRUEBAS DE ERROR-----//
+        System.out.println("Lista de Enemigos Vivos dentro de morir(): "+enemigo.getJuego().getListaEnemigosVivos());
+        //-----PRUEBAS DE ERROR-----//
+        enemigo.getJuego().getListaEnemigosVivos().remove(enemigo);
         enemigo.ubicacion = null;
         enemigo.juego = null;
     }
