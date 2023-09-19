@@ -108,7 +108,7 @@ public class Juego {
                                                     break;
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
-                                                    jugador.comprarTorre(celda, 1, primerCelda);
+                                                    jugador.comprarTorre(celda, 1,fila, columna, primerCelda);
                                                     jugador.setMagia(jugador.getMagia()-100);
                                                     ClearScreen.cls();
                                                     System.out.println();
@@ -133,7 +133,7 @@ public class Juego {
                                                     break;
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
-                                                    jugador.comprarTorre(celda, 2, primerCelda);
+                                                    jugador.comprarTorre(celda,fila, columna, 2, primerCelda);
                                                     jugador.setMagia(jugador.getMagia()-150);
                                                     ClearScreen.cls();
                                                     System.out.println();
@@ -149,6 +149,7 @@ public class Juego {
                                             } else {
                                                 fila = colocarFila(fila);
                                                 columna = colocarColumna(columna);
+
                                                 Celda celda = mapa.getMatrizCelda(fila, columna);
                                                 if (celda instanceof CeldaCamino) {
                                                     System.out.println("No es posible realizar la compra, no se puede colocar una torre en el camino...");
@@ -157,8 +158,9 @@ public class Juego {
                                                     System.out.println("No es posible realizar la compra, no se puede colocar una torre donde ya hay una colocada...");
                                                     break;
                                                 } else {
+                                                    System.out.println("celda donde poner" + celda.getCoorX()+ " "+ celda.getCoorY());
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
-                                                    jugador.comprarTorre(celda, 3, primerCelda);
+                                                    jugador.comprarTorre(celda, fila,columna,3, primerCelda);
                                                     jugador.setMagia(jugador.getMagia()-300);
                                                     ClearScreen.cls();
                                                     System.out.println();
@@ -183,7 +185,7 @@ public class Juego {
                                                         break;
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
-                                                    jugador.comprarTorre(celda, 4, primerCelda);
+                                                    jugador.comprarTorre(celda,fila, columna, 4, primerCelda);
                                                     jugador.setMagia(jugador.getMagia()-400);
                                                     ClearScreen.cls();
                                                     System.out.println();
@@ -208,7 +210,7 @@ public class Juego {
                                                     break;
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
-                                                    jugador.comprarTorre(celda, 5, primerCelda);
+                                                    jugador.comprarTorre(celda,fila, columna, 5, primerCelda);
                                                     jugador.setMagia(jugador.getMagia()-200);
                                                     ClearScreen.cls();
                                                     System.out.println();
@@ -233,7 +235,7 @@ public class Juego {
                                                     break;
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
-                                                    jugador.comprarTorre(celda, 6, primerCelda);
+                                                    jugador.comprarTorre(celda,fila, columna, 6, primerCelda);
                                                     jugador.setMagia(jugador.getMagia()-500);
                                                     ClearScreen.cls();
                                                     System.out.println();
