@@ -14,10 +14,6 @@ import Celda.CeldaTerreno;
 public class TorreGeneradora extends Torre {
 
     private int cantidad;
-    /**
-     * @param frecuencia la frecuencia en tiempo con la que se genera magia *
-     * @param cantidad la cantidad que se genera de magia *
-     */
 
     /**
      * Constructor de la Torre generadora con valores por default.
@@ -28,9 +24,18 @@ public class TorreGeneradora extends Torre {
         cantidad=10;
     }
 
+    /**
+     * Devuelve la cantidad de magia que genera por ronda la torre.
+     * @return cantidad de magia que genera la torre.
+     */
     public int getCantidad(){
         return cantidad;
     }
+
+    /**
+     * Modifica la cantidad de magia que genera la torre por ronda.
+     * @param cantidad nueva cantidad.
+     */
     public void setCantidad(int cantidad){
         this.cantidad=cantidad;
     }

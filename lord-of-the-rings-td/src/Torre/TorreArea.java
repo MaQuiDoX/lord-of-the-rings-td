@@ -12,7 +12,9 @@ public class TorreArea extends TorreActiva{
         super(20,4,2,"a",200,celda);
     }
 
-
+    /**
+     * Busca entre todas las celdas camino que tiene dentro de su rango de ataque y ataca a todos los enemigos de la ultima celda dentro de su rango.
+     */
     @Override
     public void actionTick(){
         for (CeldaCamino enRango : celdaEnRango) {
