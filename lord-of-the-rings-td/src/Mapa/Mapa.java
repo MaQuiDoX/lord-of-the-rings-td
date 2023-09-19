@@ -147,10 +147,24 @@ public class Mapa {
                     if (cerro != null){
                         System.out.print(" C ");
                     } else {
-                        if (listaEnemigo.size() > 1){
-                            System.out.print(" Va");
-                        } else {
+                        if (listaEnemigo == null){
                             System.out.print("   ");
+                        } else {
+                            if (listaEnemigo.size() >= 2){
+                                System.out.print(" Va");
+                            } else if (listaEnemigo.get(0) instanceof Humano){
+                                System.out.print(" Hu");
+                            } else if (listaEnemigo.get(0) instanceof Elfo){
+                                System.out.print(" El");
+                            } else if (listaEnemigo.get(0) instanceof Enano){
+                                System.out.print(" En");
+                            } else if (listaEnemigo.get(0) instanceof Hobbit){
+                                System.out.print(" Ho");
+                            } else if (listaEnemigo.get(0) instanceof Ent){
+                                System.out.print(" Te");
+                            } else {
+                                System.out.print("   ");
+                            }
                         }
                     }
                 }
