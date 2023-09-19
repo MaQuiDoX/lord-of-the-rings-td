@@ -49,7 +49,7 @@ public class Juego {
                     Celda[][] matriz = mapa.crearMapa(opcion);
                     Mapa.imprimirMapa(matriz);
                     Jugador.mostrarInterfaz();
-                    menuPartida(jugadorMain);
+                    menuPartida();
                     break;
                 } else if (opcion == 4) {
                     System.out.println("Cerrando...");
@@ -64,11 +64,9 @@ public class Juego {
         } while ((opcion > 4) || (opcion < 1));
     }
 
-    public void menuPartida(Jugador jugadorMain) {
+    public void menuPartida() {
         Scanner scanner = new Scanner(System.in);
         int opcion2, opcion3, opcion4, opcion5, opcion6, finalizador, fila, columna;
-        int magiaActual = jugadorMain.getMagia();
-
         do {
             opcion3 = 0;
             opcion4 = 0;
@@ -95,7 +93,7 @@ public class Juego {
                                     try{
                                         opcion6 = scanner.nextInt();
                                         if (opcion6 == 1){
-                                            if (magiaActual < 100){
+                                            if (jugador.getMagia() < 100){
                                                 System.out.println("No es posible realizar la compra...");
                                                 break;
                                             }else {
@@ -117,7 +115,7 @@ public class Juego {
                                                 }
                                             }
                                         } else if (opcion6 == 2) {
-                                            if (magiaActual < 150) {
+                                            if (jugador.getMagia() < 150) {
                                                 System.out.println("No es posible realizar la compra...");
                                                 break;
                                             } else {
@@ -131,13 +129,15 @@ public class Juego {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
                                                     jugador.comprarTorre(celda, 2, primerCelda);
                                                     jugador.setMagia(jugador.getMagia()-150);
+                                                    ClearScreen.cls();
+                                                    System.out.println();
                                                     Mapa.imprimirMapa(mapa.getMatriz());
                                                     Jugador.mostrarInterfaz();
                                                     break;
                                                 }
                                             }
                                         } else if (opcion6 == 3) {
-                                            if (magiaActual < 300) {
+                                            if (jugador.getMagia() < 300) {
                                                 System.out.println("No es posible realizar la compra...");
                                                 break;
                                             } else {
@@ -151,13 +151,15 @@ public class Juego {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
                                                     jugador.comprarTorre(celda, 3, primerCelda);
                                                     jugador.setMagia(jugador.getMagia()-300);
+                                                    ClearScreen.cls();
+                                                    System.out.println();
                                                     Mapa.imprimirMapa(mapa.getMatriz());
                                                     Jugador.mostrarInterfaz();
                                                     break;
                                                 }
                                             }
                                         } else if (opcion6 == 4) {
-                                            if (magiaActual < 400) {
+                                            if (jugador.getMagia() < 400) {
                                                 System.out.println("No es posible realizar la compra...");
                                                 break;
                                             } else {
@@ -171,13 +173,15 @@ public class Juego {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
                                                     jugador.comprarTorre(celda, 4, primerCelda);
                                                     jugador.setMagia(jugador.getMagia()-400);
+                                                    ClearScreen.cls();
+                                                    System.out.println();
                                                     Mapa.imprimirMapa(mapa.getMatriz());
                                                     Jugador.mostrarInterfaz();
                                                     break;
                                                 }
                                             }
                                         } else if (opcion6 == 5) {
-                                            if (magiaActual < 200) {
+                                            if (jugador.getMagia() < 200) {
                                                 System.out.println("No es posible realizar la compra...");
                                                 break;
                                             } else {
@@ -191,13 +195,15 @@ public class Juego {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
                                                     jugador.comprarTorre(celda, 5, primerCelda);
                                                     jugador.setMagia(jugador.getMagia()-200);
+                                                    ClearScreen.cls();
+                                                    System.out.println();
                                                     Mapa.imprimirMapa(mapa.getMatriz());
                                                     Jugador.mostrarInterfaz();
                                                     break;
                                                 }
                                             }
                                         } else if (opcion6 == 6) {
-                                            if (magiaActual < 500) {
+                                            if (jugador.getMagia() < 500) {
                                                 System.out.println("No es posible realizar la compra...");
                                                 break;
                                             } else {
@@ -314,6 +320,10 @@ public class Juego {
                     System.out.println("Info oleada...");
                     System.out.println("");
                 } else if (opcion2 == 5) {
+                    int ol = jugador.getOleada();
+                    ol++;
+                    jugador.setOleada(ol);
+                    oleadaActiva(mapa.getNivel(), 1);
                     finalizador = 1;
                 } else {
                     System.out.println("Opción inválida. Ingrese de nuevo.");
@@ -323,10 +333,7 @@ public class Juego {
                 System.out.println("Opción inválida. Ingrese de nuevo.");
             }
         } while (finalizador == 0);
-        int ol = jugador.getOleada();
-        ol++;
-        jugador.setOleada(ol);
-        oleadaActiva(mapa.getNivel(), ol);
+
     }
     public int colocarFila(int x) {
         Scanner scanner2 = new Scanner(System.in);
