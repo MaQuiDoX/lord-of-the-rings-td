@@ -334,7 +334,6 @@ public class Juego {
      * @param oleada La oleada en la cuál se encuentra el jugador en ese momento.
      */
     public void oleadaActiva(Jugador jugador, Mapa mapa, int dificultad, int oleada){
-   public void oleadaActiva(Mapa mapa, int dificultad, int oleada){
         // ME FALTA RECIBIR COMO PARAMETRO LA LISTA DE TORRES ACTIVAS, PERO ESO LA TIENEN QUE HACER
         // CUANDO COMPRAN LAS TORRES RECOMIENDO QUE SEA PARECIDO A LA QUE USO CON ENEMIGOS OSEA,
         // QUE SEA MÁS O MENOS ASI: ArrayList<Torres> listaTorresActivas = new ArrayList<>();
