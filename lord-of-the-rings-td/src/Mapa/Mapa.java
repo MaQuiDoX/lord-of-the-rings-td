@@ -144,13 +144,16 @@ public class Mapa {
                     ArrayList<Enemigo> listaEnemigo;
                     listaEnemigo = ((CeldaCamino) matriz[i][j]).getListaEnemigos();
                     Cerro cerro = ((CeldaCamino) matriz[i][j]).getCerro();
-                    if (cerro != null){
+                    Barricada barricada = ((CeldaCamino) matriz[i][j]).getBarricada();
+                    if (cerro != null) {
                         System.out.print(" C ");
+                    } else if (barricada != null) {
+                        System.out.print("BBB");
                     } else {
                         if (listaEnemigo == null){
                             System.out.print("   ");
                         } else {
-                            if (listaEnemigo.size() >= 2){
+                            if (listaEnemigo.size() > 1){
                                 System.out.print(" Va");
                             } else if (listaEnemigo.get(0) instanceof Humano){
                                 System.out.print(" Hu");

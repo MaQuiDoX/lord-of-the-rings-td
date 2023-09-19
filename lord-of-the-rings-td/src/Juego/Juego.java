@@ -75,7 +75,6 @@ public class Juego {
             fila = 0;
             columna = 0;
             finalizador = 0;
-            oleadaActual = 1;
             System.out.println();
             Jugador.mostrarOpciones();
             try {
@@ -101,8 +100,11 @@ public class Juego {
                                                 fila = colocarFila(fila);
                                                 columna = colocarColumna(columna);
                                                 Celda celda = mapa.getMatrizCelda(fila, columna);
-                                                if (celda instanceof CeldaCamino){
+                                                if (celda instanceof CeldaCamino) {
                                                     System.out.println("No es posible realizar la compra, no se puede colocar una torre en el camino...");
+                                                    break;
+                                                } else if (((CeldaTerreno)celda).getTorre() != null){
+                                                    System.out.println("No es posible realizar la compra, no se puede colocar una torre donde ya hay una colocada...");
                                                     break;
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
@@ -123,8 +125,11 @@ public class Juego {
                                                 fila = colocarFila(fila);
                                                 columna = colocarColumna(columna);
                                                 Celda celda = mapa.getMatrizCelda(fila, columna);
-                                                if (celda instanceof CeldaCamino){
+                                                if (celda instanceof CeldaCamino) {
                                                     System.out.println("No es posible realizar la compra, no se puede colocar una torre en el camino...");
+                                                    break;
+                                                } else if (((CeldaTerreno)celda).getTorre() != null){
+                                                    System.out.println("No es posible realizar la compra, no se puede colocar una torre donde ya hay una colocada...");
                                                     break;
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
@@ -145,8 +150,11 @@ public class Juego {
                                                 fila = colocarFila(fila);
                                                 columna = colocarColumna(columna);
                                                 Celda celda = mapa.getMatrizCelda(fila, columna);
-                                                if (celda instanceof CeldaCamino){
+                                                if (celda instanceof CeldaCamino) {
                                                     System.out.println("No es posible realizar la compra, no se puede colocar una torre en el camino...");
+                                                    break;
+                                                } else if (((CeldaTerreno)celda).getTorre() != null){
+                                                    System.out.println("No es posible realizar la compra, no se puede colocar una torre donde ya hay una colocada...");
                                                     break;
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
@@ -167,9 +175,12 @@ public class Juego {
                                                 fila = colocarFila(fila);
                                                 columna = colocarColumna(columna);
                                                 Celda celda = mapa.getMatrizCelda(fila, columna);
-                                                if (celda instanceof CeldaCamino){
+                                                if (celda instanceof CeldaCamino) {
                                                     System.out.println("No es posible realizar la compra, no se puede colocar una torre en el camino...");
                                                     break;
+                                                } else if (((CeldaTerreno)celda).getTorre() != null){
+                                                        System.out.println("No es posible realizar la compra, no se puede colocar una torre donde ya hay una colocada...");
+                                                        break;
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
                                                     jugador.comprarTorre(celda, 4, primerCelda);
@@ -189,8 +200,11 @@ public class Juego {
                                                 fila = colocarFila(fila);
                                                 columna = colocarColumna(columna);
                                                 Celda celda = mapa.getMatrizCelda(fila, columna);
-                                                if (celda instanceof CeldaCamino){
+                                                if (celda instanceof CeldaCamino) {
                                                     System.out.println("No es posible realizar la compra, no se puede colocar una torre en el camino...");
+                                                    break;
+                                                } else if (((CeldaTerreno)celda).getTorre() != null){
+                                                    System.out.println("No es posible realizar la compra, no se puede colocar una torre donde ya hay una colocada...");
                                                     break;
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
@@ -210,6 +224,23 @@ public class Juego {
                                             } else {
                                                 fila = colocarFila(fila);
                                                 columna = colocarColumna(columna);
+                                                Celda celda = mapa.getMatrizCelda(fila, columna);
+                                                if (celda instanceof CeldaTerreno) {
+                                                    System.out.println("No es posible realizar la compra, no se puede colocar una barricada fuera del camino...");
+                                                    break;
+                                                } else if (((CeldaCamino)celda).getBarricada() != null){
+                                                    System.out.println("No es posible realizar la compra, no se puede colocar una barrera donde ya hay una colocada...");
+                                                    break;
+                                                } else {
+                                                    CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
+                                                    jugador.comprarTorre(celda, 6, primerCelda);
+                                                    jugador.setMagia(jugador.getMagia()-500);
+                                                    ClearScreen.cls();
+                                                    System.out.println();
+                                                    Mapa.imprimirMapa(mapa.getMatriz());
+                                                    Jugador.mostrarInterfaz();
+                                                    break;
+                                                }
                                             }
                                         }else if (opcion6 == 7){
                                             break;
