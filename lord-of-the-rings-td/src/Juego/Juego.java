@@ -39,26 +39,10 @@ public class Juego {
         do {
             try {
                 opcion = scanner.nextInt();
-                if (opcion == 1) {
+                if ((opcion == 1)||(opcion == 2)||(opcion == 3)) {
                     ClearScreen.cls();
                     System.out.println();
-                    Celda[][] matriz = mapa.crearMapa(1);
-                    Mapa.imprimirMapa(matriz);
-                    Jugador.mostrarInterfaz();
-                    menuPartida(jugadorMain);
-                    break;
-                } else if (opcion == 2) {
-                    ClearScreen.cls();
-                    System.out.println();
-                    Celda[][] matriz = mapa.crearMapa(2);
-                    Mapa.imprimirMapa(matriz);
-                    Jugador.mostrarInterfaz();
-                    menuPartida(jugadorMain);
-                    break;
-                } else if (opcion == 3) {
-                    ClearScreen.cls();
-                    System.out.println();
-                    Celda[][] matriz = mapa.crearMapa(3);
+                    Celda[][] matriz = mapa.crearMapa(opcion);
                     Mapa.imprimirMapa(matriz);
                     Jugador.mostrarInterfaz();
                     menuPartida(jugadorMain);
@@ -110,48 +94,111 @@ public class Juego {
                                             if (magiaActual < 100){
                                                 System.out.println("No es posible realizar la compra...");
                                                 break;
-                                            }else{
-                                                colocarFilayColumna(fila, columna);
+                                            }else {
+                                                fila = colocarFila(fila);
+                                                columna = colocarColumna(columna);
+                                                Celda celda = mapa.getMatrizCelda(fila, columna);
+                                                if (celda instanceof CeldaCamino){
+                                                    System.out.println("No es posible realizar la compra, no se puede colocar una torre en el camino...");
+                                                    break;
+                                                } else {
+                                                    CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
+                                                    jugador.comprarTorre(celda, 1, primerCelda);
+                                                    jugador.setMagia(jugador.getMagia()-100);
+                                                    ClearScreen.cls();
+                                                    System.out.println();
+                                                    Mapa.imprimirMapa(mapa.getMatriz());
+                                                    Jugador.mostrarInterfaz();
+                                                    break;
+                                                }
                                             }
-                                        } else if (opcion6 == 1) {
+                                        } else if (opcion6 == 2) {
                                             if (magiaActual < 150) {
                                                 System.out.println("No es posible realizar la compra...");
                                                 break;
                                             } else {
-                                                //COLOCAR TORRE RANGO
-                                                //ACTUALIZAR MAPA
+                                                fila = colocarFila(fila);
+                                                columna = colocarColumna(columna);
+                                                Celda celda = mapa.getMatrizCelda(fila, columna);
+                                                if (celda instanceof CeldaCamino){
+                                                    System.out.println("No es posible realizar la compra, no se puede colocar una torre en el camino...");
+                                                    break;
+                                                } else {
+                                                    CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
+                                                    jugador.comprarTorre(celda, 2, primerCelda);
+                                                    jugador.setMagia(jugador.getMagia()-150);
+                                                    Mapa.imprimirMapa(mapa.getMatriz());
+                                                    Jugador.mostrarInterfaz();
+                                                    break;
+                                                }
                                             }
                                         } else if (opcion6 == 3) {
                                             if (magiaActual < 300) {
                                                 System.out.println("No es posible realizar la compra...");
                                                 break;
                                             } else {
-                                                //COLOCAR TORRE AREA
-                                                //ACTUALIZAR MAPA
+                                                fila = colocarFila(fila);
+                                                columna = colocarColumna(columna);
+                                                Celda celda = mapa.getMatrizCelda(fila, columna);
+                                                if (celda instanceof CeldaCamino){
+                                                    System.out.println("No es posible realizar la compra, no se puede colocar una torre en el camino...");
+                                                    break;
+                                                } else {
+                                                    CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
+                                                    jugador.comprarTorre(celda, 3, primerCelda);
+                                                    jugador.setMagia(jugador.getMagia()-300);
+                                                    Mapa.imprimirMapa(mapa.getMatriz());
+                                                    Jugador.mostrarInterfaz();
+                                                    break;
+                                                }
                                             }
                                         } else if (opcion6 == 4) {
                                             if (magiaActual < 400) {
                                                 System.out.println("No es posible realizar la compra...");
                                                 break;
                                             } else {
-                                                //COLOCAR TORRE RALENTIZADORA
-                                                //ACTUALIZAR MAPA
+                                                fila = colocarFila(fila);
+                                                columna = colocarColumna(columna);
+                                                Celda celda = mapa.getMatrizCelda(fila, columna);
+                                                if (celda instanceof CeldaCamino){
+                                                    System.out.println("No es posible realizar la compra, no se puede colocar una torre en el camino...");
+                                                    break;
+                                                } else {
+                                                    CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
+                                                    jugador.comprarTorre(celda, 4, primerCelda);
+                                                    jugador.setMagia(jugador.getMagia()-400);
+                                                    Mapa.imprimirMapa(mapa.getMatriz());
+                                                    Jugador.mostrarInterfaz();
+                                                    break;
+                                                }
                                             }
                                         } else if (opcion6 == 5) {
                                             if (magiaActual < 200) {
                                                 System.out.println("No es posible realizar la compra...");
                                                 break;
                                             } else {
-                                                //COLOCAR TORRE GENERADORA
-                                                //ACTUALIZAR MAPA
+                                                fila = colocarFila(fila);
+                                                columna = colocarColumna(columna);
+                                                Celda celda = mapa.getMatrizCelda(fila, columna);
+                                                if (celda instanceof CeldaCamino){
+                                                    System.out.println("No es posible realizar la compra, no se puede colocar una torre en el camino...");
+                                                    break;
+                                                } else {
+                                                    CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
+                                                    jugador.comprarTorre(celda, 5, primerCelda);
+                                                    jugador.setMagia(jugador.getMagia()-200);
+                                                    Mapa.imprimirMapa(mapa.getMatriz());
+                                                    Jugador.mostrarInterfaz();
+                                                    break;
+                                                }
                                             }
                                         } else if (opcion6 == 6) {
                                             if (magiaActual < 500) {
                                                 System.out.println("No es posible realizar la compra...");
                                                 break;
                                             } else {
-                                                //COLOCAR BARRICADA
-                                                //ACTUALIZAR MAPA
+                                                fila = colocarFila(fila);
+                                                columna = colocarColumna(columna);
                                             }
                                         }else if (opcion6 == 7){
                                             break;
@@ -274,32 +321,40 @@ public class Juego {
             }
         } while (finalizador == 0);
     }
-    public void colocarFilayColumna(int x, int y){
+    public int colocarFila(int x) {
         Scanner scanner2 = new Scanner(System.in);
         char posX = 'a';
-        int posY = 17;
         System.out.println("En que fila desea colocar la torre (A-I)");
-        do{
-            try{
+        do {
+            try {
                 posX = scanner2.next().charAt(0);
-                if (posX == 'A'){
+                if (posX == 'A') {
                     x = 0;
-                } else if (posX == 'B'){
+                    break;
+                } else if (posX == 'B') {
                     x = 1;
+                    break;
                 } else if (posX == 'C') {
                     x = 2;
+                    break;
                 } else if (posX == 'D') {
                     x = 3;
+                    break;
                 } else if (posX == 'E') {
                     x = 4;
+                    break;
                 } else if (posX == 'F') {
                     x = 5;
+                    break;
                 } else if (posX == 'G') {
                     x = 6;
+                    break;
                 } else if (posX == 'H') {
                     x = 7;
+                    break;
                 } else if (posX == 'I') {
                     x = 8;
+                    break;
                 } else {
                     System.out.println("Opción inválida, ingrese nuevamente...");
                 }
@@ -309,22 +364,33 @@ public class Juego {
             }
         } while ((posX != 'A') || (posX != 'B') || (posX != 'C') || (posX != 'D') || (posX != 'E') || (posX != 'F') || (posX != 'G') || (posX != 'H') || (posX != 'I'));
 
+        return x;
+
+    }
+    public int colocarColumna(int y){
+        Scanner scanner3 = new Scanner(System.in);
         System.out.println();
+        int posY = 17;
         System.out.println("En que columna desea colocar la torre (0-16)");
         do{
             try{
-                posY = scanner2.nextInt();
+                posY = scanner3.nextInt();
                 if ((posY < 17) && (posY >= 0)){
                     y = posY;
+                    break;
                 } else {
                     System.out.println("Opción inválida, ingrese nuevamente...");
                 }
             } catch (InputMismatchException e7) {
-                scanner2.nextLine();
+                scanner3.nextLine();
                 System.out.println("Opción inválida. Ingrese de nuevo.");
             }
         } while ((posY > 17) || (posY < 0));
+
+        return y;
     }
+
+
 
     // ESTE MÉTODO DEBE LLAMARSE CUANDO SE ACEPTA EMPEZAR LA RONDA
     /**
