@@ -99,7 +99,9 @@ public class Juego {
                                                 System.out.println("No es posible realizar la compra...");
                                                 break;
                                             }else {
+                                                System.out.println("En que fila desea colocar la torre (A-I)");
                                                 fila = colocarFila(fila);
+                                                System.out.println("En que columna desea colocar la torre (0-16)");
                                                 columna = colocarColumna(columna);
                                                 Celda celda = mapa.getMatrizCelda(fila, columna);
                                                 if (celda instanceof CeldaCamino) {
@@ -124,7 +126,9 @@ public class Juego {
                                                 System.out.println("No es posible realizar la compra...");
                                                 break;
                                             } else {
+                                                System.out.println("En que fila desea colocar la torre (A-I)");
                                                 fila = colocarFila(fila);
+                                                System.out.println("En que columna desea colocar la torre (0-16)");
                                                 columna = colocarColumna(columna);
                                                 Celda celda = mapa.getMatrizCelda(fila, columna);
                                                 if (celda instanceof CeldaCamino) {
@@ -149,7 +153,9 @@ public class Juego {
                                                 System.out.println("No es posible realizar la compra...");
                                                 break;
                                             } else {
+                                                System.out.println("En que fila desea colocar la torre (A-I)");
                                                 fila = colocarFila(fila);
+                                                System.out.println("En que columna desea colocar la torre (0-16)");
                                                 columna = colocarColumna(columna);
                                                 Celda celda = mapa.getMatrizCelda(fila, columna);
                                                 if (celda instanceof CeldaCamino) {
@@ -174,7 +180,9 @@ public class Juego {
                                                 System.out.println("No es posible realizar la compra...");
                                                 break;
                                             } else {
+                                                System.out.println("En que fila desea colocar la torre (A-I)");
                                                 fila = colocarFila(fila);
+                                                System.out.println("En que columna desea colocar la torre (0-16)");
                                                 columna = colocarColumna(columna);
                                                 Celda celda = mapa.getMatrizCelda(fila, columna);
                                                 if (celda instanceof CeldaCamino) {
@@ -199,7 +207,9 @@ public class Juego {
                                                 System.out.println("No es posible realizar la compra...");
                                                 break;
                                             } else {
+                                                System.out.println("En que fila desea colocar la torre (A-I)");
                                                 fila = colocarFila(fila);
+                                                System.out.println("En que columna desea colocar la torre (0-16)");
                                                 columna = colocarColumna(columna);
                                                 Celda celda = mapa.getMatrizCelda(fila, columna);
                                                 if (celda instanceof CeldaCamino) {
@@ -210,9 +220,7 @@ public class Juego {
                                                     break;
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
-
                                                     jugador.comprarTorre(celda, 5,fila, columna, primerCelda);//
-
                                                     jugador.setMagia(jugador.getMagia()-200);
                                                     ClearScreen.cls();
                                                     System.out.println();
@@ -226,7 +234,9 @@ public class Juego {
                                                 System.out.println("No es posible realizar la compra...");
                                                 break;
                                             } else {
+                                                System.out.println("En que fila desea colocar la barricada (A-I)");
                                                 fila = colocarFila(fila);
+                                                System.out.println("En que columna desea colocar la barricada (0-16)");
                                                 columna = colocarColumna(columna);
                                                 Celda celda = mapa.getMatrizCelda(fila, columna);
                                                 if (celda instanceof CeldaTerreno) {
@@ -254,7 +264,6 @@ public class Juego {
                                             }
                                         }else if (opcion6 == 7){
                                             break;
-
                                         } else {
                                             System.out.println("Opción inválida. Ingrese de nuevo.");
                                         }
@@ -263,10 +272,11 @@ public class Juego {
                                         System.out.println("Opción inválida. Ingrese de nuevo.");
                                     }
                                 }while((opcion6>7)||(opcion6<1));
-
                             } else if (opcion3 == 2) {
                                 if (jugador.getMagia() > 200){
+                                    System.out.println("En que fila se encuentra la torre que desea mejorar (A-I)");
                                     fila = colocarFila(fila);
+                                    System.out.println("En que columna se encuentra la torre que desea mejorar (0-16)");
                                     columna = colocarColumna(columna);
                                     Celda celda = mapa.getMatrizCelda(fila, columna);
                                     if (celda instanceof CeldaTerreno) {
@@ -303,6 +313,35 @@ public class Juego {
                                     }
                                 }
                             } else if (opcion3 == 3) {
+                                System.out.println("En que fila se encuentra la torre que desea eliminar (A-I)");
+                                fila = colocarFila(fila);
+                                System.out.println("En que columna se encuentra la torre que desea eliminar (0-16)");
+                                columna = colocarColumna(columna);
+                                Celda celda = mapa.getMatrizCelda(fila, columna);
+                                if (celda instanceof CeldaCamino) {
+                                    if (((CeldaCamino)celda).getCerro() != null){
+                                        System.out.println("No puedes eliminar el cerro");
+                                        break;
+                                    } else if (((CeldaCamino) celda).getBarricada() == null) {
+                                        System.out.println("En esta posicion no se encuentra una barrera para eliminar...");
+                                        break;
+                                    } else {
+                                        System.out.println("No es necesario eliminar una barrera...");
+                                        break;
+                                    }
+                                } else if (celda instanceof CeldaTerreno) {
+                                    if (((CeldaTerreno) celda).getTorre() == null){
+                                        System.out.println("En esta posicion no se encuentra una torre para eliminar...");
+                                        break;
+                                    }
+                                    jugador.venderTorre((CeldaTerreno) celda);
+                                    jugador.setMagia(jugador.getMagia()+100);
+                                    ClearScreen.cls();
+                                    System.out.println();
+                                    Mapa.imprimirMapa(mapa.getMatriz());
+                                    Jugador.mostrarInterfaz();
+                                    break;
+                                }
 
                             } else if (opcion3 == 4) {
                                 break;
@@ -471,7 +510,6 @@ public class Juego {
     public int colocarFila(int x) {
         Scanner scanner2 = new Scanner(System.in);
         char posX = 'a';
-        System.out.println("En que fila desea colocar la torre (A-I)");
         do {
             try {
                 posX = scanner2.next().charAt(0);
@@ -516,9 +554,7 @@ public class Juego {
     }
     public int colocarColumna(int y){
         Scanner scanner3 = new Scanner(System.in);
-        System.out.println();
         int posY = 17;
-        System.out.println("En que columna desea colocar la torre (0-16)");
         do{
             try{
                 posY = scanner3.nextInt();

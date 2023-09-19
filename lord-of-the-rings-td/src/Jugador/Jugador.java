@@ -289,7 +289,6 @@ public class Jugador {
         else{
             torresOnField.remove(celda.getTorre());
             celda.setTorre(null);
-            magia+=100;
             return Boolean.TRUE;
         }
     }
@@ -339,7 +338,7 @@ public class Jugador {
         System.out.println("¿Qué desea hacer?:");
         System.out.println("1. Colocar una Torre");
         System.out.println("2. Mejorar una Torre (200 de magia por mejora)");
-        System.out.println("3. Vender una Torre (+200 de magia por torre)");
+        System.out.println("3. Vender una Torre (+100 de magia por torre)");
         System.out.println("4. Volver para atrás");
     }
 
