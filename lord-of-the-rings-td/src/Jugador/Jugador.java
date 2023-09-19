@@ -47,7 +47,13 @@ public class Jugador {
         return puntuacion;
     }
 
-
+    /**
+     * Agrega puntuacion a la que tiene el jugador.
+     * @param puntuacion el aumento de la puntuacion *
+     */
+    public void sumaPuntuacion(int puntuacion){
+        this.puntuacion+=puntuacion;
+    }
 
     /**
      * Constructor del jugador con todos los valores por default.
@@ -57,14 +63,12 @@ public class Jugador {
         puntuacion=0;
     }
 
-
-    public Boolean comprarTorre(Mapa mapa,int coorX, int coorY, int tipoTorre, CeldaCamino primeraCelda){
-        Celda t = mapa.getMatrizCelda(coorX, coorY);
+    public Boolean comprarTorre(Celda[][] matriz, int coorX, int coorY, int tipoTorre, CeldaCamino primeraCelda){
+        Celda t = Mapa.getMatrizCelda(matriz, coorX, coorY);
         if (t instanceof CeldaTerreno){
             CeldaTerreno j = (CeldaTerreno) t;
             return colocarTorre(tipoTorre,j,primeraCelda, coorX, coorY);
         } else if (t instanceof CeldaCamino) {
-
             if (tipoTorre==6){
                 CeldaCamino j = (CeldaCamino) t;
                 return colocarBarricada(j);
