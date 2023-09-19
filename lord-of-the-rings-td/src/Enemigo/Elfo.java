@@ -1,6 +1,7 @@
 package Enemigo;
 
 import Celda.CeldaCamino;
+import Juego.Juego;
 
 /**
  * Una clase que genera un enemigo elfo del tipo 'ligero'.
@@ -8,7 +9,7 @@ import Celda.CeldaCamino;
  * @author Ezequiel L. Martins
  */
 public class Elfo extends Enemigo{
-    public Elfo(CeldaCamino celdaCamino){
-        super(210,3,4,10,"ligero",false, celdaCamino);
+    public Elfo(Juego juego, CeldaCamino celdaCamino){
+        super(juego, 210,3,4,10,"ligero",false, celdaCamino);
     }
 }

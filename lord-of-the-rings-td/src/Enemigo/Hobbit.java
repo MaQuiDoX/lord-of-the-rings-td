@@ -1,6 +1,7 @@
 package Enemigo;
 
 import Celda.CeldaCamino;
+import Juego.Juego;
 
 /**
  * Una clase que genera un enemigo hobbit del tipo 'ligero'.
@@ -8,7 +9,7 @@ import Celda.CeldaCamino;
  * @author Ezequiel L. Martins
  */
 public class Hobbit extends Enemigo{
-    public Hobbit(CeldaCamino celdaCamino){
-        super(40,1,2,2,"ligero",false, celdaCamino);
+    public Hobbit(Juego juego, CeldaCamino celdaCamino){
+        super(juego,40,1,2,2,"ligero",false, celdaCamino);
     }
 }

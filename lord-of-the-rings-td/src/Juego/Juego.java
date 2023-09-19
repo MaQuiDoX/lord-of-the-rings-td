@@ -14,16 +14,19 @@ import Torre.TorreGeneradora;
 public class Juego {
     private Mapa mapa;
     private Jugador jugador;
+    ArrayList<Enemigo> listaEnemigosVivos;
 
 
     public Juego(){
         mapa = new Mapa();
         jugador = new Jugador();
+        listaEnemigosVivos = new ArrayList<>();
     }
 
     public Jugador getJugador(){
         return jugador;
     }
+    public ArrayList<Enemigo> getListaEnemigosVivos(){return listaEnemigosVivos;}
 
     public void mostrarMenu(Jugador jugadorMain) {
         Scanner scanner = new Scanner(System.in);
@@ -410,20 +413,22 @@ public class Juego {
             celdaCerro = celdaCerro.getSiguienteCelda();
         }
         List<List<Character>> listaEnemigosOleada = mapa.getOleadas(dificultad);
-        while ((celdaCerro.getCerro().getVida() > 0) &&
-                (listaEnemigosVivos.size() < listaEnemigosOleada.get(oleada).size())){
+        while ((celdaCerro.getCerro().getVida() > 0) && // Vida actual del cerro > 0
+                ((contSpawns < listaEnemigosOleada.get(oleada).size()) || // Cantidad de enemigos spawneados < Cantidad total de enemigos por ronda
+                (listaEnemigosVivos.size() > 0))){  // Cantidad de enemigos vivos > 0
             try{
                 Thread.sleep(500);
-                Enemigo enemigoSpawned = elegirEnemigo(listaEnemigosOleada.get(oleada).get(contSpawns),
+                Enemigo enemigoSpawned = elegirEnemigo(this, listaEnemigosOleada.get(oleada).get(contSpawns),
                         mapa.getFirstCeldaCamino());    // Se crea el enemigo que vendra en la oleada
                 listaEnemigosVivos.add(enemigoSpawned);   // Se añade el enemigo a lista de enemigos vivos
+                contSpawns++;
                 int i = 0;
-                while (listaEnemigosVivos.size() > i){
+                while (listaEnemigosVivos.size() > i){  // Realizan las acciones las Torres
                     listaEnemigosVivos.get(i).waitingTick();
                     i++;
                 }
                 int j = 0;
-                while (jugador.getTorresOnField().size() > j){
+                while (jugador.getTorresOnField().size() > j){  // Realizan las acciones los enemigos
                     jugador.getTorresOnField().get(j).waitingTick();
                     j++;
                 }
@@ -442,6 +447,7 @@ public class Juego {
             jugador.sumaPuntuacion(1000);   // Suma puntos por pasar la oleada
             jugador.setMagia(jugador.getMagia() + 300); // Suma magia por pasar la oleada
         }
+
     }
 
     /**
@@ -450,18 +456,18 @@ public class Juego {
      * @param primeraCelda Celda que se encuentra al inicio del recorrido de los enemigos.
      * @return
      */
-    private Enemigo elegirEnemigo(char letra, CeldaCamino primeraCelda){
+    private Enemigo elegirEnemigo(Juego juego, char letra, CeldaCamino primeraCelda){
         switch (letra){
             case 'H':   // H = Humano
-                return new Humano(primeraCelda);
+                return new Humano(juego, primeraCelda);
             case 'O':   // O = Hobbit
-                return new Hobbit(primeraCelda);
+                return new Hobbit(juego, primeraCelda);
             case 'E':   // E = Elfo
-                return new Elfo(primeraCelda);
+                return new Elfo(juego, primeraCelda);
             case 'N':   // N = Enano
-                return new Enano(primeraCelda);
+                return new Enano(juego, primeraCelda);
             case 'T':   // T = Ent
-                return new Ent(primeraCelda);
+                return new Ent(juego, primeraCelda);
         }
         return null;
     }
