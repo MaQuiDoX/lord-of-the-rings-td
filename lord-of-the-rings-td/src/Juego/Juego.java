@@ -75,7 +75,6 @@ public class Juego {
             fila = 0;
             columna = 0;
             finalizador = 0;
-            oleadaActual = 1;
             System.out.println();
             Jugador.mostrarOpciones();
             try {
@@ -101,8 +100,11 @@ public class Juego {
                                                 fila = colocarFila(fila);
                                                 columna = colocarColumna(columna);
                                                 Celda celda = mapa.getMatrizCelda(fila, columna);
-                                                if (celda instanceof CeldaCamino){
+                                                if (celda instanceof CeldaCamino) {
                                                     System.out.println("No es posible realizar la compra, no se puede colocar una torre en el camino...");
+                                                    break;
+                                                } else if (((CeldaTerreno)celda).getTorre() != null){
+                                                    System.out.println("No es posible realizar la compra, no se puede colocar una torre donde ya hay una colocada...");
                                                     break;
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
@@ -123,8 +125,11 @@ public class Juego {
                                                 fila = colocarFila(fila);
                                                 columna = colocarColumna(columna);
                                                 Celda celda = mapa.getMatrizCelda(fila, columna);
-                                                if (celda instanceof CeldaCamino){
+                                                if (celda instanceof CeldaCamino) {
                                                     System.out.println("No es posible realizar la compra, no se puede colocar una torre en el camino...");
+                                                    break;
+                                                } else if (((CeldaTerreno)celda).getTorre() != null){
+                                                    System.out.println("No es posible realizar la compra, no se puede colocar una torre donde ya hay una colocada...");
                                                     break;
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
@@ -145,8 +150,11 @@ public class Juego {
                                                 fila = colocarFila(fila);
                                                 columna = colocarColumna(columna);
                                                 Celda celda = mapa.getMatrizCelda(fila, columna);
-                                                if (celda instanceof CeldaCamino){
+                                                if (celda instanceof CeldaCamino) {
                                                     System.out.println("No es posible realizar la compra, no se puede colocar una torre en el camino...");
+                                                    break;
+                                                } else if (((CeldaTerreno)celda).getTorre() != null){
+                                                    System.out.println("No es posible realizar la compra, no se puede colocar una torre donde ya hay una colocada...");
                                                     break;
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
@@ -167,9 +175,12 @@ public class Juego {
                                                 fila = colocarFila(fila);
                                                 columna = colocarColumna(columna);
                                                 Celda celda = mapa.getMatrizCelda(fila, columna);
-                                                if (celda instanceof CeldaCamino){
+                                                if (celda instanceof CeldaCamino) {
                                                     System.out.println("No es posible realizar la compra, no se puede colocar una torre en el camino...");
                                                     break;
+                                                } else if (((CeldaTerreno)celda).getTorre() != null){
+                                                        System.out.println("No es posible realizar la compra, no se puede colocar una torre donde ya hay una colocada...");
+                                                        break;
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
                                                     jugador.comprarTorre(celda, 4, primerCelda);
@@ -189,8 +200,11 @@ public class Juego {
                                                 fila = colocarFila(fila);
                                                 columna = colocarColumna(columna);
                                                 Celda celda = mapa.getMatrizCelda(fila, columna);
-                                                if (celda instanceof CeldaCamino){
+                                                if (celda instanceof CeldaCamino) {
                                                     System.out.println("No es posible realizar la compra, no se puede colocar una torre en el camino...");
+                                                    break;
+                                                } else if (((CeldaTerreno)celda).getTorre() != null){
+                                                    System.out.println("No es posible realizar la compra, no se puede colocar una torre donde ya hay una colocada...");
                                                     break;
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
@@ -210,6 +224,23 @@ public class Juego {
                                             } else {
                                                 fila = colocarFila(fila);
                                                 columna = colocarColumna(columna);
+                                                Celda celda = mapa.getMatrizCelda(fila, columna);
+                                                if (celda instanceof CeldaTerreno) {
+                                                    System.out.println("No es posible realizar la compra, no se puede colocar una barricada fuera del camino...");
+                                                    break;
+                                                } else if (((CeldaCamino)celda).getBarricada() != null){
+                                                    System.out.println("No es posible realizar la compra, no se puede colocar una barrera donde ya hay una colocada...");
+                                                    break;
+                                                } else {
+                                                    CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
+                                                    jugador.comprarTorre(celda, 6, primerCelda);
+                                                    jugador.setMagia(jugador.getMagia()-500);
+                                                    ClearScreen.cls();
+                                                    System.out.println();
+                                                    Mapa.imprimirMapa(mapa.getMatriz());
+                                                    Jugador.mostrarInterfaz();
+                                                    break;
+                                                }
                                             }
                                         }else if (opcion6 == 7){
                                             break;
@@ -326,6 +357,9 @@ public class Juego {
                     jugador.setOleada(ol);
                     oleadaActiva(mapa.getNivel(), 1);
                     finalizador = 1;
+                    //-----PRUEBAS DE ERROR-----//
+                    System.out.println("SE TERMINO LA OLEADA, HAY QUE HACER ALGO!");
+                    //-----PRUEBAS DE ERROR-----//
                 } else {
                     System.out.println("Opción inválida. Ingrese de nuevo.");
                 }
@@ -413,7 +447,6 @@ public class Juego {
      * @param oleada La oleada en la cuál se encuentra el jugador en ese momento.
      */
     public void oleadaActiva(int dificultad, int oleada){
-        ArrayList<Enemigo> listaEnemigosVivos = new ArrayList<>();
         int contSpawns = 0;
         CeldaCamino celdaCerro = mapa.getFirstCeldaCamino();
         while (celdaCerro.getCerro() == null){  // Busqueda de la celda con el 'Cerro de la Gloria'
@@ -424,13 +457,13 @@ public class Juego {
                 ((contSpawns < listaEnemigosOleada.get(oleada).size()) || // Cantidad de enemigos spawneados < Cantidad total de enemigos por ronda
                 (listaEnemigosVivos.size() > 0))){  // Cantidad de enemigos vivos > 0
             try{
-                Thread.sleep(50);
+                Thread.sleep(10);
                 //-----PRUEBAS DE ERROR-----//
                 //System.out.println(listaEnemigosOleada.get(oleada));
                 //System.out.println(listaEnemigosOleada.get(oleada).get(contSpawns));
                 //System.out.println(mapa.getFirstCeldaCamino());
-                System.out.println(celdaCerro.getCerro().getVida());
-                System.out.println(listaEnemigosVivos);
+                System.out.println("Cerro.getVida() "+celdaCerro.getCerro().getVida());
+                // System.out.println("listaEnemigosVivos "+listaEnemigosVivos);
                 //-----PRUEBAS DE ERROR-----//
                 if (contSpawns < listaEnemigosOleada.get(oleada).size()){
                     Enemigo enemigoSpawned = elegirEnemigo(this, listaEnemigosOleada.get(oleada).get(contSpawns),

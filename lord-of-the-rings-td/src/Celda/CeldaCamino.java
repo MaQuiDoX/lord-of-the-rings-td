@@ -28,6 +28,7 @@ public class CeldaCamino extends Celda{
         this.siguienteCelda = siguienteCelda;
         this.cerro = null;
         this.barricada = null;
+        this.listaEnemigos = new ArrayList<>();
     }
 
     public CeldaCamino(CeldaCamino siguienteCelda, int coordenadaX, int coordenadaY){
@@ -35,6 +36,7 @@ public class CeldaCamino extends Celda{
         this.siguienteCelda = siguienteCelda;
         this.cerro = null;
         this.barricada = null;
+        this.listaEnemigos = new ArrayList<>();
     }
 
     /**
