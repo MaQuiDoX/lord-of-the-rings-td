@@ -357,13 +357,19 @@ public class Juego {
                     jugador.setOleada(ol);
                     oleadaActiva(mapa.getNivel(), ol);
 
-                    if ((mapa.getNivel() == 1) && (ol == 5)){
+                    if ((mapa.getNivel() == 1) && (ol == 4)){
+                        ClearScreen.cls();
+                        System.out.println(" === FELICIDADES, EL CERRO SOBREVIVIÓ A LAS OLEADAS DE ENEMIGOS === ");
                         finalizador = 1;
                     }
-                    if ((mapa.getNivel() == 2) && (ol == 6)){
+                    if ((mapa.getNivel() == 2) && (ol == 5)){
+                        ClearScreen.cls();
+                        System.out.println(" === FELICIDADES, EL CERRO SOBREVIVIÓ A LAS OLEADAS DE ENEMIGOS === ");
                         finalizador = 1;
                     }
-                    if ((mapa.getNivel() == 3) && (ol == 7)){
+                    if ((mapa.getNivel() == 3) && (ol == 6)){
+                        ClearScreen.cls();
+                        System.out.println(" === FELICIDADES, EL CERRO SOBREVIVIÓ A LAS OLEADAS DE ENEMIGOS === ");
                         finalizador = 1;
                     }
 
@@ -469,7 +475,7 @@ public class Juego {
                 //System.out.println(listaEnemigosOleada.get(oleada));
                 //System.out.println(listaEnemigosOleada.get(oleada).get(contSpawns));
                 //System.out.println(mapa.getFirstCeldaCamino());
-                System.out.println("Cerro.getVida() "+celdaCerro.getCerro().getVida());
+                System.out.println("VIDA CERRO: "+celdaCerro.getCerro().getVida());
                 // System.out.println("listaEnemigosVivos "+listaEnemigosVivos);
                 //-----PRUEBAS DE ERROR-----//
                 if (contSpawns < listaEnemigosOleada.get(oleada).size()){
@@ -488,7 +494,7 @@ public class Juego {
                     jugador.getTorresOnField().get(j).waitingTick();
                     j++;
                     //-----PRUEBAS DE ERROR-----//
-                    System.out.println("Estoy en Bucle?");
+                    //System.out.println("Estoy en Bucle?");
                     //-----PRUEBAS DE ERROR-----//
                 }
                 ClearScreen.cls();
@@ -499,14 +505,14 @@ public class Juego {
                 e.printStackTrace();
             }
             //-----PRUEBAS DE ERROR-----//
-            System.out.println("Estoy en Bucle?2");
+            //System.out.println("Estoy en Bucle?2");
             //-----PRUEBAS DE ERROR-----//
         }
         if (celdaCerro.getCerro().getVida() > 0){
             int g = 0;
             while(jugador.getTorresOnField().size() > g){   // Añade magia y puntos por cada torre generadora
                 //-----PRUEBAS DE ERROR-----//
-                System.out.println("Estoy en Bucle?3");
+                //System.out.println("Estoy en Bucle?3");
                 //-----PRUEBAS DE ERROR-----//
                 if (jugador.getTorresOnField().get(g) instanceof TorreGeneradora){
                     ((TorreGeneradora) jugador.getTorresOnField().get(g)).generarMagia(jugador);
