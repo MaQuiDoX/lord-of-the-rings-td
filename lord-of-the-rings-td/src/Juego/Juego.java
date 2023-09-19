@@ -104,7 +104,7 @@ public class Juego {
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
                                                     jugador.comprarTorre(celda, 1, primerCelda);
-                                                    jugador.setmagia(jugador.getmagia()-100);
+                                                    jugador.setMagia(jugador.getMagia()-100);
                                                     ClearScreen.cls();
                                                     System.out.println();
                                                     Mapa.imprimirMapa(mapa.getMatriz());
@@ -126,7 +126,7 @@ public class Juego {
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
                                                     jugador.comprarTorre(celda, 2, primerCelda);
-                                                    jugador.setmagia(jugador.getmagia()-150);
+                                                    jugador.setMagia(jugador.getMagia()-150);
                                                     Mapa.imprimirMapa(mapa.getMatriz());
                                                     Jugador.mostrarInterfaz();
                                                     break;
@@ -146,7 +146,7 @@ public class Juego {
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
                                                     jugador.comprarTorre(celda, 3, primerCelda);
-                                                    jugador.setmagia(jugador.getmagia()-300);
+                                                    jugador.setMagia(jugador.getMagia()-300);
                                                     Mapa.imprimirMapa(mapa.getMatriz());
                                                     Jugador.mostrarInterfaz();
                                                     break;
@@ -166,7 +166,7 @@ public class Juego {
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
                                                     jugador.comprarTorre(celda, 4, primerCelda);
-                                                    jugador.setmagia(jugador.getmagia()-400);
+                                                    jugador.setMagia(jugador.getMagia()-400);
                                                     Mapa.imprimirMapa(mapa.getMatriz());
                                                     Jugador.mostrarInterfaz();
                                                     break;
@@ -186,7 +186,7 @@ public class Juego {
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
                                                     jugador.comprarTorre(celda, 5, primerCelda);
-                                                    jugador.setmagia(jugador.getmagia()-200);
+                                                    jugador.setMagia(jugador.getMagia()-200);
                                                     Mapa.imprimirMapa(mapa.getMatriz());
                                                     Jugador.mostrarInterfaz();
                                                     break;
