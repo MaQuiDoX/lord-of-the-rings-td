@@ -35,7 +35,7 @@ public class TorreArea extends TorreActiva{
                         }
                     }
                     if ((vida) < 0) {
-                        enemigo.morir(enemigo);
+                        enemigo.morir(enemigo, true);
                     } else {
                         enemigo.setVida(vida);
                     }
