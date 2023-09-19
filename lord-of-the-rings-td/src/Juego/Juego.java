@@ -1,12 +1,10 @@
 package Juego;
-import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
 import Enemigo.*;
-import Estructuras.Cerro;
 import Mapa.*;
 import Jugador.*;
 import Celda.*;
@@ -16,7 +14,6 @@ public class Juego {
     private Mapa mapa;
     private Jugador jugador;
     ArrayList<Enemigo> listaEnemigosVivos;
-
 
     public Juego(){
         mapa = new Mapa();
@@ -545,9 +542,7 @@ public class Juego {
                 System.out.println("Opción inválida. Ingrese de nuevo.");
             }
         } while ((posX != 'A') || (posX != 'B') || (posX != 'C') || (posX != 'D') || (posX != 'E') || (posX != 'F') || (posX != 'G') || (posX != 'H') || (posX != 'I'));
-
         return x;
-
     }
     public int colocarColumna(int y){
         Scanner scanner3 = new Scanner(System.in);
@@ -566,11 +561,9 @@ public class Juego {
                 System.out.println("Opción inválida. Ingrese de nuevo.");
             }
         } while ((posY > 17) || (posY < 0));
-
         return y;
     }
 
-    // ESTE MÉTODO DEBE LLAMARSE CUANDO SE ACEPTA EMPEZAR LA RONDA
     /**
      * Método que gestiona lo que sucede cuando se empieza una oleada y durante su ejecución.
      * @param dificultad La dificultad elegida por el jugador para poder seleccionar bien la oleada correspondiente.
@@ -589,13 +582,13 @@ public class Juego {
                 (listaEnemigosVivos.size() > 0))){  // Cantidad de enemigos vivos > 0
             try{
                 Thread.sleep(100);
-                if (contSpawns < listaEnemigosOleada.get(oleada).size()){
+                if (contSpawns < listaEnemigosOleada.get(oleada).size()){ // Cantidad de enemigos spawneados < Cantidad total de enemigos por ronda
                     if (contDelay == 0){
                         Enemigo enemigoSpawned = elegirEnemigo(this, listaEnemigosOleada.get(oleada).get(contSpawns),
                                 mapa.getFirstCeldaCamino());    // Se crea el enemigo que vendra en la oleada
                         listaEnemigosVivos.add(enemigoSpawned);   // Se añade el enemigo a lista de enemigos vivos
                         contSpawns++;
-                        contDelay = spawnDelay(enemigoSpawned);
+                        contDelay = spawnDelay(enemigoSpawned); // Asigna el tiempo hasta que aparece el proximo enemigo
                     } else {
                         contDelay--;
                     }
@@ -655,11 +648,17 @@ public class Juego {
         }
         return null;
     }
+
+    /**
+     * Método privado que sirve para retrasar la aparición de enemigos en el mapa.
+     * @param enemigo Objeto Enemigo que seleccionara el tiempo a usar.
+     * @return Devuelve un int que simboliza el tiempo de retraso hasta el próximo enemigo.
+     */
     private int spawnDelay(Enemigo enemigo){
-        if (enemigo instanceof Hobbit){ return 6;}
-        if (enemigo instanceof Elfo){ return 8;} // 16
-        if (enemigo instanceof Enano){ return 24;}
+        if (enemigo instanceof Hobbit){ return 1;}
+        if (enemigo instanceof Elfo){ return 12;}
+        if (enemigo instanceof Enano){ return 16;}
         if (enemigo instanceof Ent){ return 64;}
-        return 4; // 8
+        return 8;
     }
 }
