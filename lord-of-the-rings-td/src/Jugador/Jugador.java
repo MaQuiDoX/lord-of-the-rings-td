@@ -47,13 +47,7 @@ public class Jugador {
         return puntuacion;
     }
 
-    /**
-     * Agrega puntuacion a la que tiene el jugador.
-     * @param puntuacion el aumento de la puntuacion *
-     */
-    public void sumaPuntuacion(int puntuacion){
-        this.puntuacion+=puntuacion;
-    }
+
 
     /**
      * Constructor del jugador con todos los valores por default.
