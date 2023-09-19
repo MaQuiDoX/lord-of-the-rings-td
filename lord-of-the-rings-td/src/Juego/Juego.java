@@ -65,7 +65,7 @@ public class Juego {
 
     public void menuPartida(Jugador jugadorMain) {
         Scanner scanner = new Scanner(System.in);
-        int opcion2, opcion3, opcion4, opcion5, opcion6, finalizador, fila, columna;
+        int opcion2, opcion3, opcion4, opcion5, opcion6, finalizador, fila, columna, oleadaActual;
         int magiaActual = jugadorMain.getMagia();
 
         do {
@@ -76,6 +76,7 @@ public class Juego {
             fila = 0;
             columna = 0;
             finalizador = 0;
+            oleadaActual = 1;
             System.out.println();
             Jugador.mostrarOpciones();
             try {
@@ -313,6 +314,9 @@ public class Juego {
                     System.out.println("Info oleada...");
                     System.out.println("");
                 } else if (opcion2 == 5) {
+                    oleadaActiva(mapa.getNivel(), oleadaActual);
+                    oleadaActual++;
+
                     finalizador = 1;
 
                 } else {
@@ -405,7 +409,7 @@ public class Juego {
         ArrayList<Enemigo> listaEnemigosVivos = new ArrayList<>();
         int contSpawns = 0;
         CeldaCamino celdaCerro = mapa.getFirstCeldaCamino();
-        while (celdaCerro.getCerro() != null){  // Busqueda de la celda con el 'Cerro de la Gloria'
+        while (celdaCerro.getCerro() == null){  // Busqueda de la celda con el 'Cerro de la Gloria'
             celdaCerro = celdaCerro.getSiguienteCelda();
         }
         List<List<Character>> listaEnemigosOleada = mapa.getOleadas(dificultad);
@@ -428,6 +432,7 @@ public class Juego {
                     jugador.getTorresOnField().get(j).waitingTick();
                     j++;
                 }
+                mapa.imprimirMapa(mapa.getMatriz());
             } catch(InterruptedException e){
                 e.printStackTrace();
             }
