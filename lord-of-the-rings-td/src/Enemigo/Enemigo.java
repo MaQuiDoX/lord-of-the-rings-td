@@ -140,21 +140,15 @@ public abstract class Enemigo implements TimeTicks {
         CeldaCamino ubicacionActual, ubicacionSiguiente;
         ubicacionActual = enemigo.getUbicacion();
         ubicacionSiguiente = ubicacionActual.getSiguienteCelda();
-        //-----PRUEBAS DE ERROR-----//
-        // System.out.println("CeldaCamino.getListaEnemigos() "+enemigo.getUbicacion().getListaEnemigos());
-        //-----PRUEBAS DE ERROR-----//
         if (ubicacionSiguiente.getCerro() instanceof Cerro){
             danarCerro(ubicacionSiguiente.getCerro());
-            //-----PRUEBAS DE ERROR-----//
-            System.out.println("Enemigo.java: "+enemigo.getJuego());
-            //-----PRUEBAS DE ERROR-----//
             morir(enemigo);
             return;
         }
         if (ubicacionSiguiente.getBarricada() instanceof Barricada){
             Barricada barricada = ubicacionSiguiente.getBarricada();
             //-----PRUEBAS DE ERROR-----//
-            System.out.println("Esta vida le queda a la barricada: "+barricada.getVida());
+            System.out.println("Barricada.getVida() "+barricada.getVida());
             //-----PRUEBAS DE ERROR-----//
             barricada.setVida(barricada.getVida() - dano);
             if (barricada.getVida() < 0){
