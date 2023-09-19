@@ -6,14 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="171d98c7-b07b-4693-a064-dba52ede5961" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Celda/Celda.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Celda/Celda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Elfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Elfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Enano.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Enano.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Enemigo.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Enemigo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Ent.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Ent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Hobbit.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Hobbit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Humano.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Humano.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Estructuras/Cerro.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Estructuras/Cerro.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Juego/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Juego/Juego.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lord-of-the-rings-td/Enemigo/Enemigo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lord-of-the-rings-td/Enemigo/Enemigo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lord-of-the-rings-td/Estructuras/Cerro.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lord-of-the-rings-td/Estructuras/Cerro.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lord-of-the-rings-td/Juego/Juego.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lord-of-the-rings-td/Juego/Juego.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +67,7 @@
       <workItem from="1694007857638" duration="1102000" />
       <workItem from="1695063440828" duration="13878000" />
       <workItem from="1695080479822" duration="4200000" />
+      <workItem from="1695140198012" duration="2198000" />
     </task>
     <servers />
   </component>
