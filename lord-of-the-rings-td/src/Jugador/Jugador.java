@@ -148,7 +148,7 @@ public class Jugador {
             y = currentCelda.getCoorY();
             if (Math.abs(x-coorX)<= torre.getAlcance()){
                 if (Math.abs(y-coorY)<= torre.getAlcance()){
-                    list.add(currentCelda);
+                    list.add(0,currentCelda);
                 }
             }
             if (currentCelda.getSiguienteCelda()==null)
@@ -170,7 +170,7 @@ public class Jugador {
             y = currentCelda.getCoorY();
             if (Math.abs(x-coorX)<= torre.getAlcance()){
                 if (Math.abs(y-coorY)<= torre.getAlcance()){
-                    list.add(currentCelda);
+                    list.add(0,currentCelda);
                 }
             }
             if (currentCelda.getSiguienteCelda()==null)

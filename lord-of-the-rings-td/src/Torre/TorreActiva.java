@@ -21,16 +21,16 @@ public abstract class TorreActiva extends Torre implements TimeTicks {
     protected int alcance;
     protected String tipoDano;
 
+
+
     /**
-     *
+     * Constructor de la torre pasando como parametros el valor de los atributo.
      * @param dano Dano que le causa la torre al enemigo en cada ataque.
      * @param velocidad Tiempo que tarda en atacar a un enemigo.
      * @param alcance Radio, en cantidad de celdas, en el que puede atacar enemigos.
      * @param tipoDano Tipo de ataque que hace la torre.
-     */
-
-    /**
-     * Constructor de la torre pasando como parametros el valor de los atributo.
+     * @param celdaAsociada Celda donde se encuentra la Torre.
+     * @param costeMejora el coste en magia de la mejora inicial.
      */
     public TorreActiva(int dano, int velocidad, int alcance, String tipoDano, int costeMejora, CeldaTerreno celdaAsociada){
         super( costeMejora, celdaAsociada);
@@ -42,6 +42,7 @@ public abstract class TorreActiva extends Torre implements TimeTicks {
 
     /**
      * Consturctor con todos los atributos por defecto.
+     * @param celdaAsociada Celda donde se encuentra la Torre.
      */
     public TorreActiva(CeldaTerreno celdaAsociada){
         super(celdaAsociada);
@@ -116,6 +117,9 @@ public abstract class TorreActiva extends Torre implements TimeTicks {
         this.tipoDano=tipoDano;
     }
 
+    /**
+     * Avanza un tick y comprueba si es momente de realizar una accion.
+     */
     @Override
     public void waitingTick(){
         tick++;
@@ -124,6 +128,10 @@ public abstract class TorreActiva extends Torre implements TimeTicks {
             tick=0;
         }
     }
+
+    /**
+     * Busca entre todas las celdas camino que tiene dentro de su rango de ataque y ataca al primer enemigo de la ultima celda dentro de su rango.
+     */
     @Override
     public void actionTick(){
         for (CeldaCamino enRango : celdaEnRango) {
