@@ -1,5 +1,6 @@
 package Mapa;
 
+import java.util.List;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.regex.Matcher;
@@ -29,14 +30,56 @@ public class Mapa {
             return null;
         }
     }
+    public List<List<Character>> getOleadas(int dificultad){
+        List<List<Character>> oleada1 = new ArrayList<>();
+        List<Character> oleada11 = new ArrayList<>();
+        oleada11.add('H');
+        oleada11.add('H');
+        oleada11.add('H');
+        List<Character> oleada12 = new ArrayList<>();
+        oleada12.add('H');
+        oleada12.add('H');
+        oleada12.add('E');
+        oleada12.add('H');
+        List<Character> oleada13 = new ArrayList<>();
+        oleada13.add('H');
+        oleada13.add('E');
+        oleada13.add('S');
+        oleada13.add('H');
+        oleada13.add('R');
+        List<Character> oleada14 = new ArrayList<>();
+        oleada14.add('E');
+        oleada14.add('E');
+        oleada14.add('S');
+        oleada14.add('H');
+        oleada14.add('T');
+        List<Character> oleada15 = new ArrayList<>();
+        oleada15.add('E');
+        oleada15.add('E');
+        oleada15.add('S');
+        oleada15.add('S');
+        oleada15.add('T');
+        oleada15.add('R');
+
+        oleada1.add(oleada11);
+        oleada1.add(oleada12);
+        oleada1.add(oleada13);
+        oleada1.add(oleada14);
+        oleada1.add(oleada15);
+
+        if (dificultad == 1){
+            return oleada1;
+        } else {
+            int x = 1; // RELLENO
+        }
+    }
+
+
+
 
     public static Celda[][] crearMapa(int dificultad) {
         Celda[][] matriz = new Celda[9][17];
         ArrayList<Posicion> posiciones = getPositionArray(dificultad);
-
-        // BETA, camino matriz
-        String beta = "[(0,0)]";
-
 
         int oldX = 0;
         int oldY = 0;
@@ -45,11 +88,11 @@ public class Mapa {
             int y = posiciones.get(i).getY();
 
             if ((x == 4) && (y == 16)) {
-                matriz[x][y] = new CeldaCamino(null, x, y).setCerro(new Cerro);
+                matriz[x][y] = new CeldaCamino(null, x, y).setCerro(Cerro);
             } else if ((x == 4) && (y == 15)) {
-                matriz[x][y] = new CeldaCamino(matriz[5][16], x, y);
+                matriz[x][y] = new CeldaCamino((CeldaCamino) matriz[5][16], x, y);
             } else {
-                matriz[x][y] = new CeldaCamino(matriz[oldX][oldY], x, y);
+                matriz[x][y] = new CeldaCamino((CeldaCamino) matriz[oldX][oldY], x, y);
             }
             oldX = x;
             oldY = y;
@@ -65,8 +108,8 @@ public class Mapa {
         return matriz;
     }
 
-    public static Celda getMatrizCelda(Celda[][] matriz, int x, int y){
-        Celda celda = new Celda;
+    public Celda getMatrizCelda(Celda[][] matriz, int x, int y){
+        Celda celda = new Celda[][];
         celda = matriz[x][y];
         return celda;
     }
