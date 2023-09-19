@@ -329,36 +329,27 @@ public class Juego {
     // ESTE MÉTODO DEBE LLAMARSE CUANDO SE ACEPTA EMPEZAR LA RONDA
     /**
      * Método que gestiona lo que sucede cuando se empieza una oleada y durante su ejecución.
-     * @param mapa Mapa para poder obtener las oleadas de enemigos y las celdas del camino.
      * @param dificultad La dificultad elegida por el jugador para poder seleccionar bien la oleada correspondiente.
      * @param oleada La oleada en la cuál se encuentra el jugador en ese momento.
      */
-    public void oleadaActiva(Jugador jugador, Mapa mapa, int dificultad, int oleada){
-   public void oleadaActiva(Mapa mapa, int dificultad, int oleada){
-        // ME FALTA RECIBIR COMO PARAMETRO LA LISTA DE TORRES ACTIVAS, PERO ESO LA TIENEN QUE HACER
-        // CUANDO COMPRAN LAS TORRES RECOMIENDO QUE SEA PARECIDO A LA QUE USO CON ENEMIGOS OSEA,
-        // QUE SEA MÁS O MENOS ASI: ArrayList<Torres> listaTorresActivas = new ArrayList<>();
-        // PERO CLARO, ESAS TORRES DEBEN SER UN ATRIBUTO DEL JUGADOR, YA QUE ÉL LAS COMPRA
-        // Y POR LO TANTO ÉL LAS POSEÉ
-        ArrayList<Enemigo> listaEnemigosActivos = new ArrayList<>();
+    public void oleadaActiva(int dificultad, int oleada){
+        ArrayList<Enemigo> listaEnemigosVivos = new ArrayList<>();
         int contSpawns = 0;
-        // ARREGLAR ESTO, SE SUPONE QUE TENGO UN METODO QUE TRAE LA 'CeldaCamino' CON EL CERRO
-        // O LA 1RA 'CeldaCamino' DEL MAPA, PREFERENTE ESTA ÚLTIMA PARA USARLA EN MÁS METODOS
-        CeldaCamino celdaCerro = new CeldaCamino(null);
-        celdaCerro.setCerro(new Cerro());
-        // --------
+        CeldaCamino celdaCerro = mapa.getFirstCeldaCamino();
+        while (celdaCerro.getCerro() != null){  // Busqueda de la celda con el 'Cerro de la Gloria'
+            celdaCerro = celdaCerro.getSiguienteCelda();
+        }
         List<List<Character>> listaEnemigosOleada = mapa.getOleadas(dificultad);
         while ((celdaCerro.getCerro().getVida() > 0) &&
-                (listaEnemigosActivos.size() < listaEnemigosOleada.get(oleada).size())){
+                (listaEnemigosVivos.size() < listaEnemigosOleada.get(oleada).size())){
             try{
                 Thread.sleep(500);
-                // CAMBIAR ESE 'new CeldaCamino(null)' POR LA 1RA 'CeldaCamino' DEL MAPA, ES MUY IMPORTANTE
                 Enemigo enemigoSpawned = elegirEnemigo(listaEnemigosOleada.get(oleada).get(contSpawns),
-                        new CeldaCamino(null));
-                listaEnemigosActivos.add(enemigoSpawned);
+                        mapa.getFirstCeldaCamino());    // Se crea el enemigo que vendra en la oleada
+                listaEnemigosVivos.add(enemigoSpawned);   // Se añade el enemigo a lista de enemigos vivos
                 int i = 0;
-                while (listaEnemigosActivos.size() > i){
-                    listaEnemigosActivos.get(i).waitingTick();
+                while (listaEnemigosVivos.size() > i){
+                    listaEnemigosVivos.get(i).waitingTick();
                     i++;
                 }
                 int j = 0;
@@ -370,7 +361,6 @@ public class Juego {
                 e.printStackTrace();
             }
         }
-        // CAMBIAR EL CERRO PARA SEA EL VERDADERO
         if (celdaCerro.getCerro().getVida() > 0){
             int g = 0;
             while(jugador.getTorresOnField().size() > g){   // Añade magia y puntos por cada torre generadora
