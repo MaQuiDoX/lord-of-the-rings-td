@@ -14,8 +14,8 @@ import Torre.*;
 public class Mapa {
     public Celda[][] matriz;
     static String nivel1 = "[(4,16), (4,15), (5,15), (6,15), (7,15), (8,15), (8,14), (8,13), (8,12), (8,11), (7,11), (6,11), (5,11), (4,11), (3,11), (3,12), (3,13), (2,13), (1,13), (1,12), (1,11), (1,10), (1,9), (2,9), (3,9), (4,9), (5,9), (6,9), (6,8), (6,7), (5,7), (4,7), (3,7), (2,7), (1,7), (1,6), (1,5), (1,4), (2,4), (3,4), (4,4), (4,5), (5,5), (6,5), (7,5), (7,4), (7,3), (7,2), (6,2), (5,2), (4,2), (3,2), (2,2), (1,2), (1,1), (1,0)]";
-    static String nivel2 = "[(0,1), (16,4)]";
-    static String nivel3 = "[(0,1), (16,4)]";
+    static String nivel2 = "[(4,16),(4,15) ,(4,14), (4,13) ,(4,12) ,(5,12) ,(6,12) ,(6,11) ,(6,10) ,(6,9) ,(5,9) ,(4,9) ,(3,9) ,(2,9) ,(2,8) ,(2,7) ,(2,6) ,(3,6) ,(4,6) ,(5,6) ,(6,6) ,(7,6) ,(7,5) ,(7,4) ,(7,3) ,(6,3) ,(5,3) ,(4,3) ,(3,3) ,(2,3) ,(1,3) ,(1,2) ,(1,1), (1,0)]";
+    static String nivel3 = "[(4,16),(3,16) ,(2,16) ,(1,16) ,(0,16) ,(0,15) ,(0,14) ,(0,13) ,(0,12) ,(0,11) ,(0,10) ,(0,9) ,(0,8) ,(1,8) ,(2,8) ,(3,8) ,(4,8) ,(5,8) ,(6,8) ,(7,8) ,(8,8) ,(8,7) ,(8,6) ,(8,5) ,(8,4) ,(8,3) ,(8,2) ,(8,1) ,(8,0) ,(7,0) ,(6,0) ,(5,0) ,(4,0) ,(3,0) ,(2,0) ,(1,0)]";
     public static ArrayList<Posicion> posicionesLvl1 = parsearString(nivel1);
     public static ArrayList<Posicion> posicionesLvl2 = parsearString(nivel2);
     public static ArrayList<Posicion> posicionesLvl3 = parsearString(nivel3);
@@ -177,48 +177,218 @@ public class Mapa {
         }
 
     }
-    public List<List<Character>> getOleadas(int dificultad){
+    public List<List<Character>> getOleadas(int dificultad) {
         List<List<Character>> oleada1 = new ArrayList<>();
+
         List<Character> oleada11 = new ArrayList<>();
         oleada11.add('H');
         oleada11.add('H');
         oleada11.add('H');
+
         List<Character> oleada12 = new ArrayList<>();
         oleada12.add('H');
         oleada12.add('H');
         oleada12.add('E');
         oleada12.add('H');
+
         List<Character> oleada13 = new ArrayList<>();
         oleada13.add('H');
         oleada13.add('E');
         oleada13.add('O');
         oleada13.add('H');
         oleada13.add('N');
+        oleada13.add('N');
+
         List<Character> oleada14 = new ArrayList<>();
         oleada14.add('E');
         oleada14.add('E');
         oleada14.add('O');
         oleada14.add('H');
-        oleada14.add('T');
+        oleada14.add('H');
+        oleada14.add('N');
+        oleada14.add('N');
+
         List<Character> oleada15 = new ArrayList<>();
         oleada15.add('E');
         oleada15.add('E');
+        oleada15.add('H');
+        oleada15.add('H');
+        oleada15.add('H');
+        oleada15.add('N');
+        oleada15.add('N');
         oleada15.add('O');
-        oleada15.add('N');
-        oleada15.add('T');
-        oleada15.add('N');
+        oleada15.add('O');
+
+        List<Character> oleada16 = new ArrayList<>();
+        oleada16.add('T');
+        oleada16.add('T');
 
         oleada1.add(oleada11);
         oleada1.add(oleada12);
         oleada1.add(oleada13);
         oleada1.add(oleada14);
         oleada1.add(oleada15);
+        oleada1.add(oleada16);
 
-        if (dificultad == 1){
+        // ========================================================================================
+
+        List<List<Character>> oleada2 = new ArrayList<>();
+        List<Character> oleada21 = new ArrayList<>();
+        oleada21.add('H');
+        oleada21.add('H');
+        oleada21.add('H');
+        oleada21.add('O');
+
+        List<Character> oleada22 = new ArrayList<>();
+        oleada22.add('H');
+        oleada22.add('E');
+        oleada22.add('E');
+        oleada22.add('O');
+        oleada22.add('N');
+
+        List<Character> oleada23 = new ArrayList<>();
+        oleada23.add('H');
+        oleada23.add('N');
+        oleada23.add('N');
+        oleada23.add('O');
+        oleada23.add('O');
+        oleada23.add('O');
+        oleada23.add('E');
+        oleada23.add('E');
+
+        List<Character> oleada24 = new ArrayList<>();
+        oleada24.add('N');
+        oleada24.add('N');
+        oleada24.add('N');
+        oleada24.add('O');
+        oleada24.add('E');
+        oleada24.add('O');
+        oleada24.add('E');
+        oleada24.add('E');
+
+        List<Character> oleada25 = new ArrayList<>();
+        oleada25.add('H');
+        oleada25.add('H');
+        oleada25.add('N');
+        oleada25.add('N');
+        oleada25.add('E');
+        oleada25.add('E');
+        oleada25.add('E');
+        oleada25.add('E');
+
+        List<Character> oleada26 = new ArrayList<>();
+        oleada26.add('N');
+        oleada26.add('N');
+        oleada26.add('N');
+        oleada26.add('N');
+        oleada26.add('E');
+        oleada26.add('E');
+        oleada26.add('E');
+        oleada26.add('E');
+
+        List<Character> oleada27 = new ArrayList<>();
+        oleada27.add('T');
+        oleada27.add('T');
+        oleada27.add('N');
+        oleada27.add('N');
+
+
+        oleada2.add(oleada21);
+        oleada2.add(oleada22);
+        oleada2.add(oleada23);
+        oleada2.add(oleada24);
+        oleada2.add(oleada25);
+        oleada2.add(oleada26);
+        oleada2.add(oleada27);
+
+        // ========================================================================================
+
+        List<List<Character>> oleada3 = new ArrayList<>();
+        List<Character> oleada31 = new ArrayList<>();
+        oleada31.add('H');
+        oleada31.add('H');
+        oleada31.add('H');
+        oleada31.add('O');
+        oleada31.add('O');
+
+        List<Character> oleada32 = new ArrayList<>();
+        oleada32.add('H');
+        oleada32.add('E');
+        oleada32.add('E');
+        oleada32.add('O');
+        oleada32.add('N');
+        oleada32.add('O');
+
+        List<Character> oleada33 = new ArrayList<>();
+        oleada33.add('H');
+        oleada33.add('N');
+        oleada33.add('N');
+        oleada33.add('O');
+        oleada33.add('O');
+        oleada33.add('O');
+        oleada33.add('E');
+        oleada33.add('E');
+        oleada33.add('O');
+
+        List<Character> oleada34 = new ArrayList<>();
+        oleada34.add('N');
+        oleada34.add('N');
+        oleada34.add('N');
+        oleada34.add('O');
+        oleada34.add('E');
+        oleada34.add('O');
+        oleada34.add('E');
+        oleada34.add('E');
+        oleada34.add('O');
+        oleada34.add('O');
+
+        List<Character> oleada35 = new ArrayList<>();
+        oleada35.add('H');
+        oleada35.add('H');
+        oleada35.add('N');
+        oleada35.add('N');
+        oleada35.add('E');
+        oleada35.add('E');
+        oleada35.add('E');
+        oleada35.add('E');
+        oleada35.add('O');
+        oleada35.add('O');
+
+        List<Character> oleada36 = new ArrayList<>();
+        oleada36.add('N');
+        oleada36.add('N');
+        oleada36.add('N');
+        oleada36.add('N');
+        oleada36.add('E');
+        oleada36.add('E');
+        oleada36.add('E');
+        oleada36.add('E');
+        oleada36.add('O');
+        oleada36.add('O');
+
+        List<Character> oleada37 = new ArrayList<>();
+        oleada37.add('T');
+        oleada37.add('T');
+        oleada37.add('N');
+        oleada37.add('N');
+        oleada37.add('N');
+
+        oleada3.add(oleada31);
+        oleada3.add(oleada32);
+        oleada3.add(oleada33);
+        oleada3.add(oleada34);
+        oleada3.add(oleada35);
+        oleada3.add(oleada36);
+        oleada3.add(oleada37);
+
+        // ========================================================================================
+
+        if (dificultad == 1) {
             return oleada1;
+        } else if (dificultad == 2) {
+            return oleada2;
         } else {
-            int x = 1; // RELLENO
+            return oleada3;
         }
-        return oleada1;
     }
 }
