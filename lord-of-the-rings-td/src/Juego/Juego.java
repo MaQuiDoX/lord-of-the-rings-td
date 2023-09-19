@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Scanner;
 
 import Enemigo.*;
-import Estructuras.Cerro;
 import Mapa.*;
 import Jugador.*;
 import Celda.*;
@@ -208,7 +207,7 @@ public class Juego {
                                                     break;
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
-                                                    jugador.comprarTorre(celda, 5, primerCelda);
+                                                    jugador.comprarTorre(celda, 5, primerCelda);//
                                                     jugador.setMagia(jugador.getMagia()-200);
                                                     ClearScreen.cls();
                                                     System.out.println();
@@ -356,6 +355,7 @@ public class Juego {
                     ol++;
                     jugador.setOleada(ol);
                     oleadaActiva(mapa.getNivel(), ol);
+
                     if ((mapa.getNivel() == 1) && (ol == 4)){
                         ClearScreen.cls();
                         System.out.println(" === FELICIDADES, EL CERRO SOBREVIVIÓ A LAS OLEADAS DE ENEMIGOS === ");
@@ -460,11 +460,13 @@ public class Juego {
      */
     public void oleadaActiva(int dificultad, int oleada){
         int contSpawns = 0;
-        int spawnTicks = 0;
         CeldaCamino celdaCerro = mapa.getFirstCeldaCamino();
         while (celdaCerro.getCerro() == null){  // Busqueda de la celda con el 'Cerro de la Gloria'
             celdaCerro = celdaCerro.getSiguienteCelda();
         }
+        //-----PRUEBAS DE ERROR-----//
+        int tick = 0;
+        //-----PRUEBAS DE ERROR-----//
         List<List<Character>> listaEnemigosOleada = mapa.getOleadas(dificultad);
         while ((celdaCerro.getCerro().getVida() > 0) && // Vida actual del cerro > 0
                 ((contSpawns < listaEnemigosOleada.get(oleada).size()) || // Cantidad de enemigos spawneados < Cantidad total de enemigos por ronda
@@ -472,6 +474,7 @@ public class Juego {
             try{
                 Thread.sleep(100);
                 //-----PRUEBAS DE ERROR-----//
+                System.out.println("Tick Actual: "+ ++tick);
                 //System.out.println(listaEnemigosOleada.get(oleada));
                 //System.out.println(listaEnemigosOleada.get(oleada).get(contSpawns));
                 //System.out.println(mapa.getFirstCeldaCamino());
@@ -479,15 +482,10 @@ public class Juego {
                 // System.out.println("listaEnemigosVivos "+listaEnemigosVivos);
                 //-----PRUEBAS DE ERROR-----//
                 if (contSpawns < listaEnemigosOleada.get(oleada).size()){
-                    if (spawnTicks == 0){
-                        Enemigo enemigoSpawned = elegirEnemigo(this, listaEnemigosOleada.get(oleada).get(contSpawns),
-                                mapa.getFirstCeldaCamino());    // Se crea el enemigo que vendra en la oleada
-                        listaEnemigosVivos.add(enemigoSpawned);   // Se añade el enemigo a lista de enemigos vivos
-                        contSpawns++;
-                        spawnTicks = spawnDelay(enemigoSpawned);    // Tiempo de retraso antes del proximo spawn
-                    } else {
-                        spawnTicks--;
-                    }
+                    Enemigo enemigoSpawned = elegirEnemigo(this, listaEnemigosOleada.get(oleada).get(contSpawns),
+                            mapa.getFirstCeldaCamino());    // Se crea el enemigo que vendra en la oleada
+                    listaEnemigosVivos.add(enemigoSpawned);   // Se añade el enemigo a lista de enemigos vivos
+                    contSpawns++;
                 }
                 int i = 0;
                 while (listaEnemigosVivos.size() > i){  // Realizan las acciones las Torres
@@ -498,6 +496,9 @@ public class Juego {
                 while (jugador.getTorresOnField().size() > j){  // Realizan las acciones los enemigos
                     jugador.getTorresOnField().get(j).waitingTick();
                     j++;
+                    //-----PRUEBAS DE ERROR-----//
+                    //System.out.println("Estoy en Bucle?");
+                    //-----PRUEBAS DE ERROR-----//
                 }
                 ClearScreen.cls();
                 System.out.println();
@@ -506,10 +507,16 @@ public class Juego {
             } catch(InterruptedException e){
                 e.printStackTrace();
             }
+            //-----PRUEBAS DE ERROR-----//
+            //System.out.println("Estoy en Bucle?2");
+            //-----PRUEBAS DE ERROR-----//
         }
         if (celdaCerro.getCerro().getVida() > 0){
             int g = 0;
             while(jugador.getTorresOnField().size() > g){   // Añade magia y puntos por cada torre generadora
+                //-----PRUEBAS DE ERROR-----//
+                //System.out.println("Estoy en Bucle?3");
+                //-----PRUEBAS DE ERROR-----//
                 if (jugador.getTorresOnField().get(g) instanceof TorreGeneradora){
                     ((TorreGeneradora) jugador.getTorresOnField().get(g)).generarMagia(jugador);
                     jugador.sumaPuntuacion(100);
@@ -542,12 +549,5 @@ public class Juego {
                 return new Ent(juego, primeraCelda);
         }
         return null;
-    }
-    private int spawnDelay(Enemigo enemigo){
-        if (enemigo instanceof Hobbit){ return 6;}
-        if (enemigo instanceof Elfo){ return 0;} // 16
-        if (enemigo instanceof Enano){ return 24;}
-        if (enemigo instanceof Ent){ return 64;}
-        return 0; // 8
     }
     }
