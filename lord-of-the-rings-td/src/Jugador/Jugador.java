@@ -75,7 +75,7 @@ public class Jugador {
      * Constructor del jugador con todos los valores por default.
      */
     public Jugador(){
-        magia=500;
+        magia=5000;
         puntuacion=0;
         torresOnField = new ArrayList<Torre>();
     }
