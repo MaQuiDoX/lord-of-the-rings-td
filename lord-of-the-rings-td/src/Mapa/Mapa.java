@@ -21,6 +21,11 @@ public class Mapa {
 
     public CeldaCamino primerCelda;
     public int nivel = 0;
+
+    public void mapa(){
+        primerCelda = null;
+        nivel = 0;
+    }
     public static ArrayList<Posicion> getPositionArray(int dificultad) {
         if (dificultad == 1) {
             return posicionesLvl1;
