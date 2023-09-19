@@ -190,7 +190,7 @@ public class Jugador {
         torre.setCeldaEnRango(list);
     }
 
-
+// asd
 
     public Boolean mejorarBarricada(Barricada barricada){
         puntuacion+=100;

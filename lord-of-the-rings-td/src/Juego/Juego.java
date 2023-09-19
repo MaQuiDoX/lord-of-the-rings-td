@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Scanner;
 
 import Enemigo.*;
-import Estructuras.Cerro;
 import Mapa.*;
 import Jugador.*;
 import Celda.*;
