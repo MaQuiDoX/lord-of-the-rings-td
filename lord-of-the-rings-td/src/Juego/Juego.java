@@ -109,7 +109,7 @@ public class Juego {
                                                     break;
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
-                                                    jugador.comprarTorre(celda, 1, primerCelda);
+                                                    jugador.comprarTorre(celda, 1, fila, columna, primerCelda);
                                                     jugador.setMagia(jugador.getMagia()-100);
                                                     ClearScreen.cls();
                                                     System.out.println();
@@ -134,7 +134,7 @@ public class Juego {
                                                     break;
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
-                                                    jugador.comprarTorre(celda, 2, primerCelda);
+                                                    jugador.comprarTorre(celda, 2,fila, columna, primerCelda);
                                                     jugador.setMagia(jugador.getMagia()-150);
                                                     ClearScreen.cls();
                                                     System.out.println();
@@ -159,7 +159,7 @@ public class Juego {
                                                     break;
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
-                                                    jugador.comprarTorre(celda, 3, primerCelda);
+                                                    jugador.comprarTorre(celda, 3,fila, columna, primerCelda);
                                                     jugador.setMagia(jugador.getMagia()-300);
                                                     ClearScreen.cls();
                                                     System.out.println();
@@ -184,7 +184,7 @@ public class Juego {
                                                     break;
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
-                                                    jugador.comprarTorre(celda, 4, primerCelda);
+                                                    jugador.comprarTorre(celda, 4,fila, columna, primerCelda);
                                                     jugador.setMagia(jugador.getMagia()-400);
                                                     ClearScreen.cls();
                                                     System.out.println();
@@ -209,7 +209,9 @@ public class Juego {
                                                     break;
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
-                                                    jugador.comprarTorre(celda, 5, primerCelda);
+
+                                                    jugador.comprarTorre(celda, 5,fila, columna, primerCelda);//
+
                                                     jugador.setMagia(jugador.getMagia()-200);
                                                     ClearScreen.cls();
                                                     System.out.println();
@@ -240,7 +242,7 @@ public class Juego {
                                                     break;
                                                 } else {
                                                     CeldaCamino primerCelda = mapa.getFirstCeldaCamino();
-                                                    jugador.comprarTorre(celda, 6, primerCelda);
+                                                    jugador.comprarTorre(celda, 6,fila, columna, primerCelda);
                                                     jugador.setMagia(jugador.getMagia()-500);
                                                     ClearScreen.cls();
                                                     System.out.println();

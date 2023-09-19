@@ -21,6 +21,7 @@ public class TorreArea extends TorreActiva{
     public void actionTick(){
         for (CeldaCamino enRango : celdaEnRango) {
 
+
             ArrayList<Enemigo> enemigoslis = enRango.getListaEnemigos();
             if (!enemigoslis.isEmpty()) {
                 for (var i = 0; i<enemigoslis.size() ; i++) {
