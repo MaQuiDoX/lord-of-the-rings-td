@@ -10,7 +10,7 @@ import Estructuras.*;
  * @author Ezequiel L. Martins *
  */
 public class CeldaCamino extends Celda{
-    private ArrayList<Enemigo> listaEnemigos = new ArrayList<Enemigo>();
+    private ArrayList<Enemigo> listaEnemigos;
     private Barricada barricada;
     private Cerro cerro;
     private CeldaCamino siguienteCelda;
