@@ -1,6 +1,5 @@
 package Celda;
 
-import Estructuras.Cerro;
 import Torre.Torre;
 
 /**
