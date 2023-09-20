@@ -619,12 +619,12 @@ public class Juego {
                     }
                 }
                 int i = 0;
-                while (listaEnemigosVivos.size() > i){  // Realizan las acciones las Torres
+                while (listaEnemigosVivos.size() > i){  // Realizan las acciones los enemigos
                     listaEnemigosVivos.get(i).waitingTick();
                     i++;
                 }
                 int j = 0;
-                while (jugador.getTorresOnField().size() > j){  // Realizan las acciones los enemigos
+                while (jugador.getTorresOnField().size() > j){  // Realizan las acciones las Torres
                     jugador.getTorresOnField().get(j).waitingTick();
                     j++;
                 }

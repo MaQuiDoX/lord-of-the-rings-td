@@ -14,7 +14,7 @@ public abstract class Enemigo implements TimeTicks {
 
     protected int vida, velocidad, dano, magiaOtorgada, tick;
     protected String tipo;
-    protected Boolean ralentizado;
+    protected boolean ralentizado;
     protected CeldaCamino ubicacion;
     protected Juego juego;
 
@@ -95,14 +95,14 @@ public abstract class Enemigo implements TimeTicks {
      * Getter de ralentizado.
      * @return Estado lógico de ralentización del enemigo.
      */
-    public Boolean getRalentizado(){
+    public boolean getRalentizado(){
         return this.ralentizado;
     }
     /**
      * Setter de ralentizado.
      * @param ralentizado Nuevo valor de ralentizado.
      */
-    public void setRalentizado(Boolean ralentizado){
+    public void setRalentizado(boolean ralentizado){
         this.ralentizado = ralentizado;
     }
 

@@ -63,6 +63,7 @@ public class TorreRalentizadora extends Torre implements TimeTicks {
         tick++;
         if (tick==velocidad){
             actionTick();
+            tick=0;
         }
     }
 
@@ -76,7 +77,7 @@ public class TorreRalentizadora extends Torre implements TimeTicks {
             if (!enemigoslis.isEmpty()) {
                 Enemigo enemigo = enemigoslis.get(0);
                 if (!enemigo.getRalentizado()){
-                    enemigo.setVelocidad(enemigo.getVelocidad() + 4);
+                    enemigo.setVelocidad(enemigo.getVelocidad() + 2);
                     enemigo.setRalentizado(true);
                 }
                 break;

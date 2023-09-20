@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="171d98c7-b07b-4693-a064-dba52ede5961" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Celda/CeldaTerreno.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Celda/CeldaTerreno.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Enemigo.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Enemigo/Enemigo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Juego/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Juego/Juego.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreRalentizadora.java" beforeDir="false" afterPath="$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreRalentizadora.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,5 +72,56 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreRalentizadora.java</url>
+          <line>82</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreRalentizadora.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreRalentizadora.java</url>
+          <line>83</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreRalentizadora.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreRalentizadora.java</url>
+          <line>87</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/lord-of-the-rings-td/src/Torre/TorreRalentizadora.java</url>
+          <line>88</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/lord-of-the-rings-td/src/Juego/Juego.java</url>
+          <line>628</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/lord-of-the-rings-td/src/Juego/Juego.java</url>
+          <line>629</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/lord-of-the-rings-td/src/Juego/Juego.java</url>
+          <line>627</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
