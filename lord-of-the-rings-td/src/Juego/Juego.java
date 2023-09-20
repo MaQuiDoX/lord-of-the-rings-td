@@ -466,6 +466,10 @@ public class Juego {
                     ol = jugador.getOleada();
                     jugador.setOleada(ol);
                     oleadaActiva(mapa.getNivel(), ol);
+                    ClearScreen.cls();
+                    System.out.println();
+                    Mapa.imprimirMapa(mapa.getMatriz());
+                    Jugador.mostrarInterfaz();
                     ol++;
                     jugador.setOleada(ol);
                     CeldaCamino celdaCerro = (CeldaCamino) mapa.getMatrizCelda(4,16);
@@ -507,6 +511,7 @@ public class Juego {
         jugador.setMagia(500);
         mostrarMenu(jugador);
     }
+    
     public int colocarFila(int x) {
         Scanner scanner2 = new Scanner(System.in);
         char posX = 'a';
