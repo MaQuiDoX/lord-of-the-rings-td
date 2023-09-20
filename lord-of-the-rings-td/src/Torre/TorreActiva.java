@@ -44,7 +44,7 @@ public abstract class TorreActiva extends Torre implements TimeTicks {
 
     /**
      * Getter del dano.
-     * @return daño de la torre*
+     * @return dano de la torre*
      */
     public int getDano(){
         return dano;
