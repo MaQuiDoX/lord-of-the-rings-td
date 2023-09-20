@@ -476,22 +476,19 @@ public class Juego {
                         System.out.println(" --- PUNTUACION FINAL: " + jugador.getPuntuacion() + " --- ");
                         jugador.setPuntuacion(0);
                         finalizador = 1;
-                    }
-                    if ((mapa.getNivel() == 1) && (ol == 4)){
+                    } else if ((mapa.getNivel() == 1) && (ol == 6)){
                         jugador.getTorresOnField().clear(); // Limpia la lista de torres activas al terminar el juego
                         ClearScreen.cls();
                         System.out.println(" === FELICIDADES, EL CERRO SOBREVIVIÓ A LAS OLEADAS DE ENEMIGOS === ");
                         System.out.println(" --- PUNTUACION FINAL: " + jugador.getPuntuacion() + " --- ");
                         finalizador = 1;
-                    }
-                    if ((mapa.getNivel() == 2) && (ol == 5)){
+                    } else if ((mapa.getNivel() == 2) && (ol == 6)){
                         jugador.getTorresOnField().clear(); // Limpia la lista de torres activas al terminar el juego
                         ClearScreen.cls();
                         System.out.println(" === FELICIDADES, EL CERRO SOBREVIVIÓ A LAS OLEADAS DE ENEMIGOS === ");
                         System.out.println(" --- PUNTUACION FINAL: " + jugador.getPuntuacion() + " --- ");
                         finalizador = 1;
-                    }
-                    if ((mapa.getNivel() == 3) && (ol == 6)){
+                    } else if ((mapa.getNivel() == 3) && (ol == 6)){
                         jugador.getTorresOnField().clear(); // Limpia la lista de torres activas al terminar el juego
                         ClearScreen.cls();
                         System.out.println(" === FELICIDADES, EL CERRO SOBREVIVIÓ A LAS OLEADAS DE ENEMIGOS === ");
