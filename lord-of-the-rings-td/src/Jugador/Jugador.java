@@ -396,7 +396,7 @@ public class Jugador {
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.println("Magia: " + magia + " - Puntuación: " + puntuacion);
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        System.out.println("Glosario:");
+        System.out.println("Glosario: C: CERRO");
         System.out.println("Enemigos: Hu: Humano -- El: Elfo -- En: Enano -- Ho: Hobbit -- Te: Ent -- Va: Varios enemigos");
         System.out.println("Torres: B: Torre Basica -- R: Torre Rango -- A: Torre Area -- L: Torre Ralentizadora");
         System.out.println("        G: Torre Generadora -- BBB: Barricada ");
