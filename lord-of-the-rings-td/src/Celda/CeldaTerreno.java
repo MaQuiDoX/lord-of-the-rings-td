@@ -3,7 +3,7 @@ package Celda;
 import Torre.Torre;
 
 /**
- * Una clase que representa las celdas donde el jugador podrá colocar sus defensas.
+ * Una clase que representa las celdas donde el jugador podra colocar sus defensas.
  * @version 1.0 19/9/23 *
  * @author Ezequiel L. Martins *
  */
@@ -40,7 +40,7 @@ public class CeldaTerreno extends Celda{
     }
     /**
      * Setter de torre.
-     * @param torre Objeto Torre la cual estará vinculada con la CeldaTerreno.
+     * @param torre Objeto Torre la cual estara vinculada con la CeldaTerreno.
      * @see Torre
      */
     public void setTorre(Torre torre){
