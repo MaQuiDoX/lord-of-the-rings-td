@@ -460,9 +460,9 @@ public class Juego {
 
                 } else if (opcion2 == 5) {
                     ol = jugador.getOleada();
-                    ol++;
                     jugador.setOleada(ol);
                     oleadaActiva(mapa.getNivel(), ol);
+                    ol++;
                     CeldaCamino celdaCerro = (CeldaCamino) mapa.getMatrizCelda(4,16);
                     if (celdaCerro.getCerro().getVida() < 1){
                         ClearScreen.cls();
