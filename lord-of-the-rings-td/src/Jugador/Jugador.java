@@ -11,15 +11,19 @@ import java.util.ArrayList;
 
 /**
  * Clase que representa al jugador.
- * @version 1.1, 10/7/23
+ * @version 1.1, 19/9/23
  * @author Ignacio Coppede Santos */
 public class Jugador {
 
     private static int magia;
     private static int puntuacion;
     private ArrayList<Torre> torresOnField;
-
     public int oleada = 0;
+
+    /**
+     * Devuelve la oleada actual en la que esta jugando el jugador.
+     * @return Numero de la oleada, entre 0 y 5.
+     */
     public int getOleada(){
         return oleada;
     }
@@ -60,8 +64,8 @@ public class Jugador {
     }
 
     /**
-     *
-     * @return
+     * Devuelve la lista de Torres que se encuentran dentro del mapa.
+     * @return Un ArrayList con los objetos torres que estan en el mapa.
      */
     public ArrayList<Torre> getTorresOnField(){
         return torresOnField;
@@ -77,6 +81,15 @@ public class Jugador {
         torresOnField = new ArrayList<Torre>();
     }
 
+    /**
+     * Compra una torre, inicializandola y colocandola en el mapa.
+     * @param celdaTorre Celda donde se encontrara la torre.
+     * @param tipoTorre Un entero que indentifica que clase de torre se quiere comparar.
+     * @param coorX La coordena en filas de la ubicacion de la torre que se quiere colocar.
+     * @param coorY La coordena en columnas de la ubicacion de la torre que se quiere colocar.
+     * @param primeraCelda La primera CeldaCamino del mapa.
+     * @return Devuelve True si se pudo comprar la torre y False en caso contrario.
+     */
     public Boolean comprarTorre(Celda celdaTorre, int tipoTorre,int coorX , int coorY, CeldaCamino primeraCelda){
 
 
@@ -95,6 +108,16 @@ public class Jugador {
         }
 
     }
+
+    /**
+     * Coloca un objeto torre en la celda que se le asigna.
+     * @param tipoTorre un entero que representa que clase de torre se quiere colocar.
+     * @param t  Celda donde se encontrara la torre.
+     * @param currentCelda La primera CeldaCamino del mapa.
+     * @param coorX La coordena en filas de la ubicacion de la torre que se quiere colocar.
+     * @param coorY La coordena en columnas de la ubicacion de la torre que se quiere colocar.
+     * @return Devuelve True si se pudo colocar la torre y False en caso contrario.
+     */
     private Boolean colocarTorre(int tipoTorre,CeldaTerreno t, CeldaCamino currentCelda,int coorX, int coorY){
         if (t.getOcupada()){
             return Boolean.FALSE;
@@ -141,7 +164,13 @@ public class Jugador {
     }
 
 
-
+    /**
+     * Coloca todas las celdas dentro del rango de accion de una TorreActiva.
+     * @param currentCelda La primera CeldaCamino del mapa.
+     * @param coorX La coordena en filas de la ubicacion de la torre que se quiere colocar.
+     * @param coorY La coordena en columnas de la ubicacion de la torre que se quiere colocar.
+     * @param torre La Torre a la que se le tiene que cargar las celdas en su rango.
+     */
     private void buscarCeldasEnRango(CeldaCamino currentCelda, int coorX, int coorY, TorreActiva torre){
         boolean b = Boolean.TRUE;
         int x;
@@ -164,6 +193,13 @@ public class Jugador {
         torre.setCeldaEnRango(list);
     }
 
+    /**
+     * Coloca todas las celdas dentro del rango de accion de una TorreRalentizadora.
+     * @param currentCelda La primera CeldaCamino del mapa.
+     * @param coorX La coordena en filas de la ubicacion de la torre que se quiere colocar.
+     * @param coorY La coordena en columnas de la ubicacion de la torre que se quiere colocar.
+     * @param torre La Torre a la que se le tiene que cargar las celdas en su rango.
+     */
     private void buscarCeldasEnRango(CeldaCamino currentCelda, int coorX, int coorY, TorreRalentizadora torre){
         boolean b = Boolean.TRUE;
         int x;
@@ -186,26 +222,36 @@ public class Jugador {
         torre.setCeldaEnRango(list);
     }
 
-// asd
 
+    /**
+     * Mejora de nivel la barricada, aumentandole la vida.
+     * @param barricada Barricada que se quiere mejorar.
+     * @return Devuelve True si se pudo mejorar la barricada y False en caso contrario.
+     */
     public Boolean mejorarBarricada(Barricada barricada){
         puntuacion+=100;
         if (barricada.getNivel()>=3){
             return Boolean.FALSE;
         }
         if (barricada.getNivel()==0){
-            barricada.setVida(barricada.getVida()+100);
+            barricada.setVida(barricada.getVida()+20);
         }
         if (barricada.getNivel()==1){
-            barricada.setVida(barricada.getVida()+100);
+            barricada.setVida(barricada.getVida()+20);
         }
         if (barricada.getNivel()==2){
-            barricada.setVida(barricada.getVida()+100);
+            barricada.setVida(barricada.getVida()+20);
         }
+        barricada.setNivel(barricada.getNivel()+1);
         return Boolean.TRUE;
     }
 
-
+    /**
+     * Mejorar los distintos atributos de una determinada torre.
+     * @param celdaDeTorre  Celda donde se encuentra la celda a mejorar.
+     * @param primeraCelda La primera CeldaCamino del mapa.
+     * @return Devuelve True si se pudo mejorar la torre y False en caso contrario.
+     */
     public Boolean mejorarTorre(CeldaTerreno celdaDeTorre, CeldaCamino primeraCelda){
         puntuacion+=100;
         Torre torre = celdaDeTorre.getTorre();
@@ -228,6 +274,11 @@ public class Jugador {
         return Boolean.FALSE;
     }
 
+    /**
+     * Mejorar la cantidad de magia que genera la torre.
+     * @param torre TorreGeneradora que se desea mejorar
+     * @return Devuelve True si se pudo mejorar la torre y False en caso contrario.
+     */
     private Boolean mejorarTorreGeneradora(TorreGeneradora torre){
         if (torre.getNivel()>=3){
             return Boolean.FALSE;
@@ -246,6 +297,12 @@ public class Jugador {
         return Boolean.TRUE;
     }
 
+    /**
+     * Mejorar los distintos atributos de una determinada TorreActiva.
+     * @param torre TorreActiva que se desea mejorar.
+     * @return Devuelve True si se pudo mejorar la torre y False en caso contrario.
+     */
+
     private Boolean mejorarTorreActiva(TorreActiva torre){
         if (torre.getNivel()>=3){
             return Boolean.FALSE;
@@ -263,6 +320,12 @@ public class Jugador {
         torre.setNivel(torre.getNivel()+1);
         return Boolean.TRUE;
     }
+
+    /**
+     * Mejorar los distintos atributos de una determinada TorreRalentizadora.
+     * @param torre TorreRalentizadora que se desea mejorar.
+     * @return Devuelve True si se pudo mejorar la torre y False en caso contrario.
+     */
 
     private Boolean mejorarTorreRalentizadora(TorreRalentizadora torre){
         if (torre.getNivel()>=3){
@@ -283,6 +346,12 @@ public class Jugador {
         return Boolean.TRUE;
     }
 
+    /**
+     * Saca del mapa la torre y aumenta la cantidad de magia que tiene el jugador.
+     * @param celda Celda donde se encuentra la torre a vender.
+     * @return Devuelve True si se pudo vender la torre y False en caso contrario.
+     */
+
     public Boolean venderTorre(CeldaTerreno celda){
         if (celda.getTorre()==null)
             return Boolean.FALSE;
@@ -292,6 +361,12 @@ public class Jugador {
             return Boolean.TRUE;
         }
     }
+
+    /**
+     * Coloca un objeto barricada en la celda que se le asigna.
+     * @param celda Celda donde se encontrara la barricada.
+     * @return Devuelve True si se pudo colocar la torre y False en caso contrario.
+     */
 
     private   Boolean colocarBarricada(CeldaCamino celda){
         Barricada barricada = celda.getBarricada();
@@ -306,13 +381,9 @@ public class Jugador {
     }
 
 
-
-
-
-
-
-
-
+    /**
+     * Muestra una pequeña descripcion de los atributos del jugador y el glosario.
+     */
     public static void mostrarInterfaz() {
         System.out.println(" ");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -325,6 +396,9 @@ public class Jugador {
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     }
 
+    /**
+     * Muestra las opciones del menú.
+     */
     public static void mostrarOpciones() {
         System.out.println("¿Qué desea hacer?:");
         System.out.println("1. Fortalecer defensas");
@@ -334,6 +408,9 @@ public class Jugador {
         System.out.println("5. Comenzar oleada");
     }
 
+    /**
+     * Muestra las opciones cuando se desea fortalecer las defensas.
+     */
     public static void mostrarOpcionesTorres() {
         System.out.println("¿Qué desea hacer?:");
         System.out.println("1. Colocar una Torre");
@@ -342,6 +419,9 @@ public class Jugador {
         System.out.println("4. Volver para atrás");
     }
 
+    /**
+     * Muestra las opciones cuando se desea comprar defensas.
+     */
     public static void mostrarTienda(){
         System.out.println("1. Colocar Torre Básica (100 coste de magia)");
         System.out.println("2. Colocar Torre de Rango (150 coste de magia)");
@@ -352,6 +432,9 @@ public class Jugador {
         System.out.println("7. Volver para atrás");
     }
 
+    /**
+     * Muestra una descripción de cada torre.
+     */
     public static void descripcionTorres() {
         System.out.println("¿Acerca de que Torre quieres saber más?");
         System.out.println("1. Torre Básica");
@@ -363,6 +446,9 @@ public class Jugador {
         System.out.println("7. Volver atrás");
     }
 
+    /**
+     * Muestra una descripción de cada enemigo.
+     */
     public static void descripcionEnemigos() {
         System.out.println("¿Acerca de que Enemigo quieres saber más?");
         System.out.println("1. Humano");
