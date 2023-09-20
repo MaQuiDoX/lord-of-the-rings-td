@@ -477,6 +477,7 @@ public class Juego {
                         ClearScreen.cls();
                         System.out.println(" === GAME OVER ===");
                         System.out.println(" --- PUNTUACION FINAL: " + jugador.getPuntuacion() + " --- ");
+                        jugador.setPuntuacion(0);
                         finalizador = 1;
                     }
                     if ((mapa.getNivel() == 1) && (ol == 4)){
