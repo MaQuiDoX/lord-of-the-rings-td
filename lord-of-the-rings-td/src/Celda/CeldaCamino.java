@@ -50,7 +50,7 @@ public class CeldaCamino extends Celda{
     }
     /**
      * Anade un nuevo enemigo al final de listaEnemigos.
-     * @param enemigo Objeto Enemigo que será anadido.
+     * @param enemigo Objeto Enemigo que sera anadido.
      * @see Enemigo
      */
     public void nuevoEnemigo(Enemigo enemigo){
@@ -58,7 +58,7 @@ public class CeldaCamino extends Celda{
     }
     /**
      * Elimina un enemigo de listaEnemigos.
-     * @param enemigo Objeto Enemigo que será eliminado.
+     * @param enemigo Objeto Enemigo que sera eliminado.
      * @see Enemigo
      * @return Devuelve un boolean de si pudo eliminar al enemigo
      */
@@ -86,7 +86,7 @@ public class CeldaCamino extends Celda{
     public Cerro getCerro(){return this.cerro;}
     /**
      * Setter de cerro.
-     * @param cerro Objeto Cerro el cual estará vinculado con la CeldaCamino.
+     * @param cerro Objeto Cerro el cual estara vinculado con la CeldaCamino.
      * @see Cerro
      */
     public void setCerro(Cerro cerro){this.cerro = cerro;}
@@ -101,7 +101,7 @@ public class CeldaCamino extends Celda{
     }
     /**
      * Setter de barricada.
-     * @param barricada Objeto Barricada la cual estará vinculada con la CeldaCamino.
+     * @param barricada Objeto Barricada la cual estara vinculada con la CeldaCamino.
      * @see Barricada
      */
     public void setBarricada(Barricada barricada){

@@ -3,7 +3,7 @@ package Juego;
 /**
  * Clase encargada de eliminar lo mostrado en consola
  * @version 1.1, 18/9/23
- * @author Manuel Matías Quesada Riccieri
+ * @author Manuel Matias Quesada Riccieri
  */
 public class ClearScreen {
     /**

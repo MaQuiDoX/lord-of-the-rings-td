@@ -20,13 +20,13 @@ public abstract class Enemigo implements TimeTicks {
 
     /**
      * Constructor de enemigo.
-     * @param vida Vida que tendrá cuando este activo.
+     * @param vida Vida que tendra cuando este activo.
      * @param dano Dano que le causa a las defensas cuando ataca.
      * @param velocidad Tiempo que tarda en atacar o moverse de una celda.
      * @param magiaOtorgada Magia otorgada al jugador cuando es eliminado por una torre.
      * @param tipo Tipo de enemigo que es, siendo las opciones: 'normal', 'ligero' y 'pesado'.
-     * @param ralentizado Estado lógico que dice si el enemigo se encuentra ralentizado.
-     * @param ubicacion Objeto CeldaCamino en donde se ubicará dentro de la oleada.
+     * @param ralentizado Estado logico que dice si el enemigo se encuentra ralentizado.
+     * @param ubicacion Objeto CeldaCamino en donde se ubicara dentro de la oleada.
      * @param juego Objeto Juego en donde estara viviendo el enemigo.
      * @see CeldaCamino
      * @see Juego
@@ -93,7 +93,7 @@ public abstract class Enemigo implements TimeTicks {
 
     /**
      * Getter de ralentizado.
-     * @return Estado lógico de ralentización del enemigo.
+     * @return Estado logico de ralentizacion del enemigo.
      */
     public boolean getRalentizado(){
         return this.ralentizado;
@@ -107,24 +107,24 @@ public abstract class Enemigo implements TimeTicks {
     }
 
     /**
-     * Getter de ubicación.
-     * @return Ubicación del enemigo.
+     * Getter de ubicacion.
+     * @return Ubicacion del enemigo.
      */
     public CeldaCamino getUbicacion(){ // ADECUAR A COMO FUNCIONA LA UBICACION
         return this.ubicacion;
     }
     /**
-     * Setter de ubicación.
-     * @param nuevaUbicacion Objeto CeldaCamino que correspondería a la ubicación actual del enemigo.
+     * Setter de ubicacion.
+     * @param nuevaUbicacion Objeto CeldaCamino que corresponderia a la ubicacion actual del enemigo.
      */
     public void setUbicacion(CeldaCamino nuevaUbicacion){ // ADECUAR A COMO FUNCIONA LA UBICACION
         this.ubicacion = nuevaUbicacion;
     }
 
     /**
-     * Método para eliminar al enemigo de la partida cuando su vida baja de 1 y dar una recompensa si la causo el jugador.
+     * Metodo para eliminar al enemigo de la partida cuando su vida baja de 1 y dar una recompensa si la causo el jugador.
      * @param enemigo Objeto Cerro que sera danado.
-     * @param recompensa Estado lógico de si se recibirá recompensa por su muerte.
+     * @param recompensa Estado logico de si se recibira recompensa por su muerte.
      */
     public void morir(Enemigo enemigo, boolean recompensa){
         if (recompensa){
@@ -140,12 +140,12 @@ public abstract class Enemigo implements TimeTicks {
     }
 
     /**
-     * Método privado para causarle dano al cerro cuando el enemigo llega hasta él.
+     * Metodo privado para causarle dano al cerro cuando el enemigo llega hasta el.
      * @param cerro Objeto Cerro que sera danado.
      */
     private void danarCerro(Cerro cerro){cerro.setVida(cerro.getVida() - dano);}
     /**
-     * Método privado para causarle dano a una barricada cuando el enemigo se topa con una y destruirla si su vida baja de 1.
+     * Metodo privado para causarle dano a una barricada cuando el enemigo se topa con una y destruirla si su vida baja de 1.
      * @param barricada Objeto Barricada que sera danada.
      */
     private void danarBarricada(Barricada barricada){
@@ -166,7 +166,7 @@ public abstract class Enemigo implements TimeTicks {
     }
 
     /**
-     * Método que funciona como temporizador antes de las acciones del Enemigo.
+     * Metodo que funciona como temporizador antes de las acciones del Enemigo.
      */
     @Override
     public void waitingTick(){
@@ -178,7 +178,7 @@ public abstract class Enemigo implements TimeTicks {
     }
 
     /**
-     * Método que realiza las acciones del Enemigo, como avanzar por las celdas, atacar barricas y morir al danar el cerro.
+     * Metodo que realiza las acciones del Enemigo, como avanzar por las celdas, atacar barricas y morir al danar el cerro.
      */
     @Override
     public void actionTick(){

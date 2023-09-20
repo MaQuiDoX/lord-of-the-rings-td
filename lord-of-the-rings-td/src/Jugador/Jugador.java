@@ -397,7 +397,7 @@ public class Jugador {
     public static void mostrarInterfaz() {
         System.out.println(" ");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        System.out.println("Magia: " + magia + " - Puntuación: " + puntuacion);
+        System.out.println("Magia: " + magia + " - Puntuacion: " + puntuacion);
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.println("Glosario: C: CERRO");
         System.out.println("Enemigos: Hu: Humano -- El: Elfo -- En: Enano -- Ho: Hobbit -- Te: Ent -- Va: Varios enemigos");
@@ -407,13 +407,13 @@ public class Jugador {
     }
 
     /**
-     * Muestra las opciones del menú.
+     * Muestra las opciones del menu.
      */
     public static void mostrarOpciones() {
-        System.out.println("¿Qué desea hacer?:");
+        System.out.println("¿Que desea hacer?:");
         System.out.println("1. Fortalecer defensas");
-        System.out.println("2. Descripción de Torres");
-        System.out.println("3. Descripción de Enemigos");
+        System.out.println("2. Descripcion de Torres");
+        System.out.println("3. Descripcion de Enemigos");
         System.out.println("4. Conocer siguientes oleadas");
         System.out.println("5. Comenzar oleada");
     }
@@ -422,50 +422,50 @@ public class Jugador {
      * Muestra las opciones cuando se desea fortalecer las defensas.
      */
     public static void mostrarOpcionesTorres() {
-        System.out.println("¿Qué desea hacer?:");
+        System.out.println("¿Que desea hacer?:");
         System.out.println("1. Colocar una Torre");
         System.out.println("2. Mejorar una Torre (200 de magia por mejora)");
         System.out.println("3. Vender una Torre (+100 de magia por torre)");
-        System.out.println("4. Volver para atrás");
+        System.out.println("4. Volver para atras");
     }
 
     /**
      * Muestra las opciones cuando se desea comprar defensas.
      */
     public static void mostrarTienda(){
-        System.out.println("1. Colocar Torre Básica (100 coste de magia)");
+        System.out.println("1. Colocar Torre Basica (100 coste de magia)");
         System.out.println("2. Colocar Torre de Rango (150 coste de magia)");
         System.out.println("3. Colocar Torre de Area (300 coste de magia)");
         System.out.println("4. Colocar Torre Ralentizadora (400 coste de magia)");
         System.out.println("5. Colocar Torre Generadora (200 coste de magia)");
         System.out.println("6. Colocar Barricada (500 coste de magia)");
-        System.out.println("7. Volver para atrás");
+        System.out.println("7. Volver para atras");
     }
 
     /**
      * Muestra una descripcion de cada torre.
      */
     public static void descripcionTorres() {
-        System.out.println("¿Acerca de que Torre quieres saber más?");
-        System.out.println("1. Torre Básica");
+        System.out.println("¿Acerca de que Torre quieres saber mas?");
+        System.out.println("1. Torre Basica");
         System.out.println("2. Torre de Rango");
         System.out.println("3. Torre de Area");
         System.out.println("4. Torre Ralentizadora");
         System.out.println("5. Torre Generadora");
         System.out.println("6. Barricada");
-        System.out.println("7. Volver atrás");
+        System.out.println("7. Volver atras");
     }
 
     /**
      * Muestra una descripcion de cada enemigo.
      */
     public static void descripcionEnemigos() {
-        System.out.println("¿Acerca de que Enemigo quieres saber más?");
+        System.out.println("¿Acerca de que Enemigo quieres saber mas?");
         System.out.println("1. Humano");
         System.out.println("2. Elfo");
         System.out.println("3. Enano");
         System.out.println("4. Hobbit");
         System.out.println("5. Ent");
-        System.out.println("6. Volver atrás");
+        System.out.println("6. Volver atras");
     }
 }

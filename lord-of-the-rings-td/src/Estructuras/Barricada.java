@@ -54,7 +54,7 @@ public class Barricada {
     }
 
     /**
-     * Método que sirve para eliminar la barricada de una CeldaCamino .
+     * Metodo que sirve para eliminar la barricada de una CeldaCamino .
      * @see CeldaCamino
      */
     public void destruirse() {
