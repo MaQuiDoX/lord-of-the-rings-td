@@ -1,12 +1,10 @@
 package Juego;
-import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
 import Enemigo.*;
-import Estructuras.Cerro;
 import Mapa.*;
 import Jugador.*;
 import Celda.*;
@@ -15,8 +13,8 @@ import Torre.TorreGeneradora;
 public class Juego {
     private Mapa mapa;
     private Jugador jugador;
+    private int numeroOleada;
     ArrayList<Enemigo> listaEnemigosVivos;
-
 
     public Juego(){
         mapa = new Mapa();
@@ -459,13 +457,16 @@ public class Juego {
                     } while ((opcion5 > 6) || (opcion5 < 1));
 
                 } else if (opcion2 == 4) {
-                    System.out.println(" -- SIGUIENTE OLEADA: " + ol + " -- ");
+                    System.out.println(" === La próxima oleada es la oleada N°: " + (jugador.getOleada()+1) + " === ");
+                    System.out.println();
+                    int diff = mapa.getNivel();
+                    printOleadas(mapa.getOleadas(diff));
 
                 } else if (opcion2 == 5) {
                     ol = jugador.getOleada();
-                    ol++;
                     jugador.setOleada(ol);
                     oleadaActiva(mapa.getNivel(), ol);
+                    ol++;
                     CeldaCamino celdaCerro = (CeldaCamino) mapa.getMatrizCelda(4,16);
                     if (celdaCerro.getCerro().getVida() < 1){
                         ClearScreen.cls();
@@ -545,10 +546,28 @@ public class Juego {
                 System.out.println("Opción inválida. Ingrese de nuevo.");
             }
         } while ((posX != 'A') || (posX != 'B') || (posX != 'C') || (posX != 'D') || (posX != 'E') || (posX != 'F') || (posX != 'G') || (posX != 'H') || (posX != 'I'));
-
         return x;
-
     }
+
+    public void printOleadas(List<List<Character>> listaEnemigo){
+        for (int i = 0; i < listaEnemigo.size(); i++){
+            System.out.println("Oleada " + (i+1) + ":");
+            for (int j = 0; j < listaEnemigo.get(i).size(); j++){
+                if (listaEnemigo.get(i).get(j) == 'H'){
+                    System.out.print("Humano - ");
+                } else if (listaEnemigo.get(i).get(j) == 'E') {
+                    System.out.print("Elfo - ");
+                } else if (listaEnemigo.get(i).get(j) == 'O') {
+                    System.out.print("Hobbit - ");
+                } else if (listaEnemigo.get(i).get(j) == 'N') {
+                    System.out.print("Enano - ");
+                } else if (listaEnemigo.get(i).get(j) == 'T') {
+                    System.out.print("Ent (Jefe) - ");
+                }
+            } System.out.println();
+        }
+    }
+
     public int colocarColumna(int y){
         Scanner scanner3 = new Scanner(System.in);
         int posY = 17;
@@ -566,11 +585,9 @@ public class Juego {
                 System.out.println("Opción inválida. Ingrese de nuevo.");
             }
         } while ((posY > 17) || (posY < 0));
-
         return y;
     }
 
-    // ESTE MÉTODO DEBE LLAMARSE CUANDO SE ACEPTA EMPEZAR LA RONDA
     /**
      * Método que gestiona lo que sucede cuando se empieza una oleada y durante su ejecución.
      * @param dificultad La dificultad elegida por el jugador para poder seleccionar bien la oleada correspondiente.
@@ -589,13 +606,13 @@ public class Juego {
                 (listaEnemigosVivos.size() > 0))){  // Cantidad de enemigos vivos > 0
             try{
                 Thread.sleep(100);
-                if (contSpawns < listaEnemigosOleada.get(oleada).size()){
+                if (contSpawns < listaEnemigosOleada.get(oleada).size()){ // Cantidad de enemigos spawneados < Cantidad total de enemigos por ronda
                     if (contDelay == 0){
                         Enemigo enemigoSpawned = elegirEnemigo(this, listaEnemigosOleada.get(oleada).get(contSpawns),
                                 mapa.getFirstCeldaCamino());    // Se crea el enemigo que vendra en la oleada
                         listaEnemigosVivos.add(enemigoSpawned);   // Se añade el enemigo a lista de enemigos vivos
                         contSpawns++;
-                        contDelay = spawnDelay(enemigoSpawned);
+                        contDelay = spawnDelay(enemigoSpawned); // Asigna el tiempo hasta que aparece el proximo enemigo
                     } else {
                         contDelay--;
                     }
@@ -611,7 +628,7 @@ public class Juego {
                     j++;
                 }
                 ClearScreen.cls();
-                System.out.println(" === VIDA CERRO: " + celdaCerro.getCerro().getVida() + " === ");
+                System.out.println(" === VIDA CERRO: " + celdaCerro.getCerro().getVida());
                 System.out.println();
                 mapa.imprimirMapa(mapa.getMatriz());
                 Jugador.mostrarInterfaz();
@@ -655,11 +672,17 @@ public class Juego {
         }
         return null;
     }
+
+    /**
+     * Método privado que sirve para retrasar la aparición de enemigos en el mapa.
+     * @param enemigo Objeto Enemigo que seleccionara el tiempo a usar.
+     * @return Devuelve un int que simboliza el tiempo de retraso hasta el próximo enemigo.
+     */
     private int spawnDelay(Enemigo enemigo){
-        if (enemigo instanceof Hobbit){ return 6;}
-        if (enemigo instanceof Elfo){ return 8;} // 16
-        if (enemigo instanceof Enano){ return 24;}
+        if (enemigo instanceof Hobbit){ return 1;}
+        if (enemigo instanceof Elfo){ return 12;}
+        if (enemigo instanceof Enano){ return 16;}
         if (enemigo instanceof Ent){ return 64;}
-        return 4; // 8
+        return 8;
     }
 }
