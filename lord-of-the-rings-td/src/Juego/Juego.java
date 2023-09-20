@@ -13,7 +13,7 @@ import Torre.TorreGeneradora;
 /**
  * Clase que representa al juego
  * @version 1.4, 18/9/23
- * @auhor Manuel Matias Quesada Riccieri
+ * @auhor Manuel Matías Quesada Riccieri
  */
 public class Juego {
     private Mapa mapa;

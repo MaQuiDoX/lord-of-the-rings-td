@@ -1,6 +1,14 @@
 package Juego;
 
+/**
+ * Clase encargada de eliminar lo mostrado en consola
+ * @version 1.1, 18/9/23
+ * @author Manuel Matías Quesada Riccieri
+ */
 public class ClearScreen {
+    /**
+     * Metodo que se encarga de detectar el sistema operativo de la computadora, y dependiendo de este, opte por eliminar lo mostrado en consola de una forma u otra.
+     */
     public static void cls() {
         try {
             if (System.getProperty("os.name").contains("Windows")){

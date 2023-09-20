@@ -11,6 +11,11 @@ import Estructuras.*;
 import Enemigo.*;
 import Torre.*;
 
+/**
+ * Clase encargada de lo referido al Mapa
+ * @version 1.3, 18/9/23
+ * @author Manuel Matías Quesada Riccieri
+ */
 public class Mapa {
     public Celda[][] matriz;
     static String nivel1 = "[(4,16), (4,15), (5,15), (6,15), (7,15), (8,15), (8,14), (8,13), (8,12), (8,11), (7,11), (6,11), (5,11), (4,11), (3,11), (3,12), (3,13), (2,13), (1,13), (1,12), (1,11), (1,10), (1,9), (2,9), (3,9), (4,9), (5,9), (6,9), (6,8), (6,7), (5,7), (4,7), (3,7), (2,7), (1,7), (1,6), (1,5), (1,4), (2,4), (3,4), (4,4), (4,5), (5,5), (6,5), (7,5), (7,4), (7,3), (7,2), (6,2), (5,2), (4,2), (3,2), (2,2), (1,2), (1,1), (1,0)]";
@@ -23,10 +28,19 @@ public class Mapa {
     public CeldaCamino primerCelda;
     public int nivel = 0;
 
+    /**
+     * Constructor de mapa
+     */
     public void mapa(){
         primerCelda = null;
         nivel = 0;
     }
+
+    /**
+     * Metodo que lee la dificultad escogida por el usuario y devuelve el Array de Posiciones del camino de la matriz con la que se va a trabajar.
+     * @param dificultad int que representa el numero de dificultad del juego.
+     * @return devuelve un ArrayList ya existente dependiendo de la dificultad, en caso de que la dificultad no sea reconocida devuelve null.
+     */
     public static ArrayList<Posicion> getPositionArray(int dificultad) {
         if (dificultad == 1) {
             return posicionesLvl1;
@@ -39,6 +53,11 @@ public class Mapa {
         }
     }
 
+    /**
+     * Metodo encargado de crear el mapa compuesto por el objeto Celda[][] y extensiones, a partir de la dificultad escogida por el usuario.
+     * @param dificultad que representa el numero de dificultad del juego.
+     * @return matriz Celda[][] ya armada, con sus celdas ocupadas por los objetos CeldaCamino y CeldaTerreno, extensiones de Celda.
+     */
     public Celda[][] crearMapa(int dificultad) {
         this.nivel = dificultad;
 
@@ -81,21 +100,46 @@ public class Mapa {
         this.matriz = matriz;
         return matriz;
     }
+
+    /**
+     * Getter del nivel de dificultad del mapa.
+     * @return int igual al nivel de dificultad.
+     */
     public int getNivel(){
         return this.nivel;
     }
+
+    /**
+     * Getter para obtener una celda dentro de la matriz Celda[][].
+     * @param x representando el numero de posición de fila.
+     * @param y representando el número de posición de columna.
+     * @return Celda correspondiente a la posicion ingresada.
+     */
     public Celda getMatrizCelda(int x, int y){
         return matriz[x][y];
     }
 
+    /**
+     * Getter para obtener matriz completa.
+     * @return matriz Celda[][].
+     */
     public Celda[][] getMatriz(){
         return matriz;
     }
 
+    /**
+     * Getter para obtener la primer celda del camino.
+     * @return Primer celda CeldaCamino correspondiente al camino.
+     */
     public CeldaCamino getFirstCeldaCamino(){
         return this.primerCelda;
     }
 
+    /**
+     * Metodo encargado de interpretar una String separandola por comas y parentesis, para asignarle al Objeto Posicion los parametros x e y, e introducirlos en un ArrayList
+     * @param input representa el String que ingresa.
+     * @return retorna el ArrayList de Posicion.
+     */
     public static ArrayList<Posicion> parsearString(String input) {
         ArrayList<Posicion> posiciones = new ArrayList<>();
         Pattern pattern = Pattern.compile("\\((\\d+),(\\d+)\\)");
@@ -107,10 +151,13 @@ public class Mapa {
             Posicion posicion = new Posicion(x, y);
             posiciones.add(posicion);
         }
-
         return posiciones;
     }
 
+    /**
+     * Metodo encargado de imprimir la matriz
+     * @param matriz Celda[][] correspondiente a la matriz que se va a imprimir.
+     */
     public static void imprimirMapa(Celda[][] matriz){
         char letra = 'A';
         System.out.print("    ");
@@ -177,6 +224,12 @@ public class Mapa {
         }
 
     }
+
+    /**
+     * Metodo que define las Listas compuestas por Listas compuestas de Caracteres que representan enemigos y devuelve la lista correspondiente dependiendo la dificultad elegida.
+     * @param dificultad correspondiente al nivel de dificultad elegido.
+     * @return Lista compuesta de Listas compuestas por Caracteres representando enemigos.
+     */
     public List<List<Character>> getOleadas(int dificultad) {
         List<List<Character>> oleada1 = new ArrayList<>();
 
