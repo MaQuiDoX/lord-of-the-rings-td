@@ -443,7 +443,7 @@ public class Jugador {
     }
 
     /**
-     * Muestra una descripción de cada torre.
+     * Muestra una descripcion de cada torre.
      */
     public static void descripcionTorres() {
         System.out.println("¿Acerca de que Torre quieres saber más?");
@@ -457,7 +457,7 @@ public class Jugador {
     }
 
     /**
-     * Muestra una descripción de cada enemigo.
+     * Muestra una descripcion de cada enemigo.
      */
     public static void descripcionEnemigos() {
         System.out.println("¿Acerca de que Enemigo quieres saber más?");
