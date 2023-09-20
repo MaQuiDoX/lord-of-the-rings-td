@@ -4,7 +4,7 @@ import Celda.CeldaCamino;
 
 /**
  * Una clase que representa a una barricada, un medio de defensa que detiene el avance de los atacantes.
- * @version 1.0 18/9/23 *
+ * @version 1.1 19/9/23 *
  * @author Ezequiel L. Martins *
  */
 public class Barricada {
@@ -13,29 +13,25 @@ public class Barricada {
     private CeldaCamino celdaAsociada = null;
 
     /**
-     * Constructor de cerro, recibiendo como parametro la CeldaCamino donde se encuentra.
-     * @param celdaCamino
-     * -------------------------------
-     * RELLENAR Y/O CAMBIAR PARAMETROS
-     * -------------------------------
-     * @param celdaCamino Celda en la cual se encuentra dentro del mapa.
+     * Constructor de cerro.
+     * @param celdaCamino Objeto CeldaCamino en la cual se encuentra la barricada en el mapa.
      * @see CeldaCamino
      */
     public Barricada(CeldaCamino celdaCamino) {
-        this.vida = 10;
+        this.vida = 20;
         this.nivel = 1;
         this.celdaAsociada = celdaCamino;
     }
 
     /**
-     * Getter de la vida.
+     * Getter de vida.
      * @return Devuelve un int de la vida actual de la barricada.
      */
     public int getVida() {
         return this.vida;
     }
     /**
-     * Setter de la vida.
+     * Setter de vida.
      * @param vida Nuevo valor para la vida de la barricada.
      */
     public void setVida(int vida) {
@@ -43,17 +39,25 @@ public class Barricada {
     }
 
     /**
-     * D
+     * Getter de nivel.
+     * @return Devuelve un int con el nivel actual de la barricada.
+     */
+    public int getNivel(){
+        return nivel;
+    }
+    /**
+     * Setter de nivel.
+     * @param nivel Nuevo valor para el nivel de la barricada.
+     */
+    public void setNivel(int nivel){
+        this.nivel=nivel;
+    }
+
+    /**
+     * Método que sirve para eliminar la barricada de una CeldaCamino .
      * @see CeldaCamino
      */
     public void destruirse() {
         this.celdaAsociada.setBarricada(null);
-    }
-
-    public int getNivel(){
-        return nivel;
-    }
-    public void setNivel(int nivel){
-        this.nivel=nivel;
     }
 }
