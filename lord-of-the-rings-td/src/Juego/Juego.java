@@ -10,23 +10,45 @@ import Jugador.*;
 import Celda.*;
 import Torre.TorreGeneradora;
 
+/**
+ * Clase que representa al juego
+ * @version 1.4, 18/9/23
+ * @auhor Manuel Matias Quesada Riccieri
+ */
 public class Juego {
     private Mapa mapa;
     private Jugador jugador;
     private int numeroOleada;
     ArrayList<Enemigo> listaEnemigosVivos;
 
+    /**
+     * Constructor del Objeto Juego para definir atributos
+     */
     public Juego(){
         mapa = new Mapa();
         jugador = new Jugador();
         listaEnemigosVivos = new ArrayList<>();
     }
 
+    /**
+     * Getter del objeto jugador
+     * @return Objeto de clase jugador
+     */
     public Jugador getJugador(){
         return jugador;
     }
+
+    /**
+     * Getter de la lista de enemigos vivos
+     * @return ArrayList compuesta de objetos Enemigos vivos
+     */
     public ArrayList<Enemigo> getListaEnemigosVivos(){return listaEnemigosVivos;}
 
+
+    /**
+     * Método para inicializar el menú para elegir la dificultad del juego, e inicializar la partida
+     * @param jugadorMain: Parametro que entra como placeHolder para iniciar la funcion desde main como argumento.
+     */
     public void mostrarMenu(Jugador jugadorMain) {
         Scanner scanner = new Scanner(System.in);
         int opcion = 0;
@@ -63,6 +85,9 @@ public class Juego {
         } while ((opcion > 4) || (opcion < 1));
     }
 
+    /**
+     * Método que maneja todos los menús del juego, junto a las acciones que realiza cada opción.
+     */
     public void menuPartida() {
         Scanner scanner = new Scanner(System.in);
         int opcion2, opcion3, opcion4, opcion5, opcion6, finalizador, fila, columna, ol;
@@ -271,7 +296,7 @@ public class Juego {
                                     }
                                 }while((opcion6>7)||(opcion6<1));
                             } else if (opcion3 == 2) {
-                                if (jugador.getMagia() > 200){
+                                if (jugador.getMagia() >= 200){
                                     System.out.println("En que fila se encuentra la torre que desea mejorar (A-I)");
                                     fila = colocarFila(fila);
                                     System.out.println("En que columna se encuentra la torre que desea mejorar (0-16)");
@@ -514,7 +539,12 @@ public class Juego {
         jugador.setMagia(500);
         mostrarMenu(jugador);
     }
-    
+
+    /**
+     * Método para leer una fila de la matriz.
+     * @param x que representa un int que entra por referencia y, dependiendo del Caracter ingresado por el usuario, lo cambia.
+     * @return x con el numero asignado al Caracter ingresada por el usuario.
+     */
     public int colocarFila(int x) {
         Scanner scanner2 = new Scanner(System.in);
         char posX = 'a';
@@ -559,6 +589,10 @@ public class Juego {
         return x;
     }
 
+    /**
+     * Metodo que imprime una lista de las oleadas que acarrea la dificultad elegida por el usuario
+     * @param listaEnemigo entra la lista compuesta de listas con los Enemigos de las oleadas
+     */
     public void printOleadas(List<List<Character>> listaEnemigo){
         for (int i = 0; i < listaEnemigo.size(); i++){
             System.out.println("Oleada " + (i+1) + ":");
@@ -578,6 +612,11 @@ public class Juego {
         }
     }
 
+    /**
+     * Metodo para leer una columna de la matriz.
+     * @param y que representa la posicion en columna de una matriz, entra por referencia.
+     * @return retorna la variable y ya cambiada.
+     */
     public int colocarColumna(int y){
         Scanner scanner3 = new Scanner(System.in);
         int posY = 17;
