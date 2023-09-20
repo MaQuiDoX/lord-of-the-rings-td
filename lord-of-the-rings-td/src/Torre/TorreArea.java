@@ -5,7 +5,6 @@ import Celda.CeldaTerreno;
 import Enemigo.Enemigo;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Objects;
 
 public class TorreArea extends TorreActiva{

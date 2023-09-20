@@ -40,18 +40,7 @@ public abstract class TorreActiva extends Torre implements TimeTicks {
         this.tipoDano=tipoDano;
     }
 
-    /**
-     * Consturctor con todos los atributos por defecto.
-     * @param celdaAsociada Celda donde se encuentra la Torre.
-     */
-    public TorreActiva(CeldaTerreno celdaAsociada){
-        super(celdaAsociada);
-        dano=10;
-        velocidad=1;
-        alcance=1;
-        tipoDano="neutro";
-        ////valores por default, a modificar
-    }
+
 
     /**
      * Getter del dano.
@@ -101,21 +90,9 @@ public abstract class TorreActiva extends Torre implements TimeTicks {
         this.alcance=alcance;
     }
 
-    /**
-     * Getter del tipoDano.
-     * @return el tipo de daño *
-     */
-    public String getTipoDano(){
-        return tipoDano;
-    }
 
-    /**
-     * Modifica el tipo de dano.
-     * @param tipoDano nuevo tipo de dano *
-     */
-    public void setTipoDano(String tipoDano){
-        this.tipoDano=tipoDano;
-    }
+
+
 
     /**
      * Avanza un tick y comprueba si es momente de realizar una accion.
