@@ -463,6 +463,9 @@ public class Juego {
                     printOleadas(mapa.getOleadas(diff));
 
                 } else if (opcion2 == 5) {
+                    // TEST
+                    System.out.println("LISTA DE TORRES ACTIVAS"+jugador.getTorresOnField());
+                    // TEST
                     ol = jugador.getOleada();
                     jugador.setOleada(ol);
                     oleadaActiva(mapa.getNivel(), ol);
@@ -470,25 +473,28 @@ public class Juego {
                     jugador.setOleada(ol);
                     CeldaCamino celdaCerro = (CeldaCamino) mapa.getMatrizCelda(4,16);
                     if (celdaCerro.getCerro().getVida() < 1){
+                        jugador.getTorresOnField().clear(); // Limpia la lista de torres activas al terminar el juego
                         ClearScreen.cls();
                         System.out.println(" === GAME OVER ===");
                         System.out.println(" --- PUNTUACION FINAL: " + jugador.getPuntuacion() + " --- ");
                         finalizador = 1;
                     }
-
                     if ((mapa.getNivel() == 1) && (ol == 4)){
+                        jugador.getTorresOnField().clear(); // Limpia la lista de torres activas al terminar el juego
                         ClearScreen.cls();
                         System.out.println(" === FELICIDADES, EL CERRO SOBREVIVIÓ A LAS OLEADAS DE ENEMIGOS === ");
                         System.out.println(" --- PUNTUACION FINAL: " + jugador.getPuntuacion() + " --- ");
                         finalizador = 1;
                     }
                     if ((mapa.getNivel() == 2) && (ol == 5)){
+                        jugador.getTorresOnField().clear(); // Limpia la lista de torres activas al terminar el juego
                         ClearScreen.cls();
                         System.out.println(" === FELICIDADES, EL CERRO SOBREVIVIÓ A LAS OLEADAS DE ENEMIGOS === ");
                         System.out.println(" --- PUNTUACION FINAL: " + jugador.getPuntuacion() + " --- ");
                         finalizador = 1;
                     }
                     if ((mapa.getNivel() == 3) && (ol == 6)){
+                        jugador.getTorresOnField().clear(); // Limpia la lista de torres activas al terminar el juego
                         ClearScreen.cls();
                         System.out.println(" === FELICIDADES, EL CERRO SOBREVIVIÓ A LAS OLEADAS DE ENEMIGOS === ");
                         System.out.println(" --- PUNTUACION FINAL: " + jugador.getPuntuacion() + " --- ");
