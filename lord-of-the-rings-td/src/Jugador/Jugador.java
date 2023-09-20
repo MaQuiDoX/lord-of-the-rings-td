@@ -66,9 +66,7 @@ public class Jugador {
     public ArrayList<Torre> getTorresOnField(){
         return torresOnField;
     }
-    public void setTorresOnField(ArrayList<Torre> torresOnField){
-        this.torresOnField=torresOnField;
-    }
+
 
     /**
      * Constructor del jugador con todos los valores por default.
@@ -146,8 +144,8 @@ public class Jugador {
 
     private void buscarCeldasEnRango(CeldaCamino currentCelda, int coorX, int coorY, TorreActiva torre){
         boolean b = Boolean.TRUE;
-        int x = 1;
-        int y = 1;
+        int x;
+        int y;
         ArrayList<CeldaCamino> list = new ArrayList<>();
         while(b){
             x = currentCelda.getCoorX();
@@ -168,8 +166,8 @@ public class Jugador {
 
     private void buscarCeldasEnRango(CeldaCamino currentCelda, int coorX, int coorY, TorreRalentizadora torre){
         boolean b = Boolean.TRUE;
-        int x = 1;
-        int y = 1;
+        int x;
+        int y;
         ArrayList<CeldaCamino> list = new ArrayList<>();
         while(b){
             x = currentCelda.getCoorX();
@@ -243,6 +241,7 @@ public class Jugador {
         if (torre.getNivel()==2){
             torre.setCantidad(torre.getCantidad()+50);
         }
+        torre.setNivel(torre.getNivel()+1);
         torre.setCosteMejora(torre.getCosteMejora()+50);
         return Boolean.TRUE;
     }
@@ -261,6 +260,7 @@ public class Jugador {
             torre.setAlcance(torre.getAlcance()+1);
         }
         torre.setCosteMejora(torre.getCosteMejora()+20);
+        torre.setNivel(torre.getNivel()+1);
         return Boolean.TRUE;
     }
 
@@ -278,8 +278,8 @@ public class Jugador {
             torre.setAlcance(torre.getAlcance()+1);
 
         }
-
         torre.setCosteMejora(torre.getCosteMejora()+20);
+        torre.setNivel(torre.getNivel()+1);
         return Boolean.TRUE;
     }
 
