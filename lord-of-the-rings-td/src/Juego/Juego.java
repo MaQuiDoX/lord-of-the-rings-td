@@ -13,7 +13,7 @@ import Torre.TorreGeneradora;
 /**
  * Clase que representa al juego
  * @version 1.4, 18/9/23
- * @author Manuel Matías Quesada Riccieri
+ * @author Manuel Matias Quesada Riccieri
  */
 public class Juego {
     private Mapa mapa;
@@ -45,7 +45,7 @@ public class Juego {
 
 
     /**
-     * Método para inicializar el menú para elegir la dificultad del juego, e inicializar la partida
+     * Metodo para inicializar el menu para elegir la dificultad del juego, e inicializar la partida
      * @param jugadorMain: Parametro que entra como placeHolder para iniciar la funcion desde main como argumento.
      */
     public void mostrarMenu(Jugador jugadorMain) {
@@ -58,7 +58,7 @@ public class Juego {
         System.out.println("        3 . DIFICULTAD DIFICIL ");
         System.out.println("        4 . CERRAR ");
         System.out.println("  ");
-        System.out.println("Ingrese una opción");
+        System.out.println("Ingrese una opcion");
 
         do {
             try {
@@ -75,17 +75,17 @@ public class Juego {
                     System.out.println("Cerrando...");
                     System.exit(0);
                 } else {
-                    System.out.println("Opción inválida. Ingrese de nuevo.");
+                    System.out.println("Opcion invalida. Ingrese de nuevo.");
                 }
             } catch (InputMismatchException e1) {
                 scanner.nextLine();
-                System.out.println("Opción inválida. Ingrese de nuevo.");
+                System.out.println("Opcion invalida. Ingrese de nuevo.");
             }
         } while ((opcion > 4) || (opcion < 1));
     }
 
     /**
-     * Método que maneja todos los menús del juego, junto a las acciones que realiza cada opción.
+     * Metodo que maneja todos los menus del juego, junto a las acciones que realiza cada opcion.
      */
     public void menuPartida() {
         Scanner scanner = new Scanner(System.in);
@@ -287,11 +287,11 @@ public class Juego {
                                         }else if (opcion6 == 7){
                                             break;
                                         } else {
-                                            System.out.println("Opción inválida. Ingrese de nuevo.");
+                                            System.out.println("Opcion invalida. Ingrese de nuevo.");
                                         }
                                     } catch (InputMismatchException e6){
                                         scanner.nextLine();
-                                        System.out.println("Opción inválida. Ingrese de nuevo.");
+                                        System.out.println("Opcion invalida. Ingrese de nuevo.");
                                     }
                                 }while((opcion6>7)||(opcion6<1));
                             } else if (opcion3 == 2) {
@@ -368,11 +368,11 @@ public class Juego {
                             } else if (opcion3 == 4) {
                                 break;
                             } else {
-                                System.out.println("Opción inválida. Ingrese de nuevo.");
+                                System.out.println("Opcion invalida. Ingrese de nuevo.");
                             }
                         } catch (InputMismatchException e3) {
                             scanner.nextLine();
-                            System.out.println("Opción inválida. Ingrese de nuevo.");
+                            System.out.println("Opcion invalida. Ingrese de nuevo.");
                         }
                     } while ((opcion3 > 4) || (opcion3 < 1));
 
@@ -385,16 +385,16 @@ public class Juego {
                             if (opcion4 == 1) {
                                 System.out.println("");
                                 System.out.println("Torre Basica:");
-                                System.out.println(" + Descripción: Torre confiable que dispara flechas a los enemigos cercanos para defender tu cerro");
+                                System.out.println(" + Descripcion: Torre confiable que dispara flechas a los enemigos cercanos para defender tu cerro");
                                 System.out.println(" + Dano: 5 (+10 mejora de nivel 1)");
                                 System.out.println(" + Velocidad: 2 (+1 mejora a nivel 2)");
                                 System.out.println(" + Alcance: 2 (+1 mejora a nivel3)");
-                                System.out.println(" + Tipo de dano: Dano básico");
+                                System.out.println(" + Tipo de dano: Dano basico");
                                 System.out.println("");
                             } else if (opcion4 == 2) {
                                 System.out.println("");
                                 System.out.println("Torre Rango:");
-                                System.out.println(" + Descripción: Torre especializada en disparar proyectiles de largo alcance con precisión letal");
+                                System.out.println(" + Descripcion: Torre especializada en disparar proyectiles de largo alcance con precision letal");
                                 System.out.println(" + Dano: 30 (+10 mejora de nivel 1)");
                                 System.out.println(" + Velocidad: 8 (+1 mejora de nivel 2)");
                                 System.out.println(" + Alcance: 4 (+1 mejora de nivel 3)");
@@ -403,39 +403,39 @@ public class Juego {
                             } else if (opcion4 == 3) {
                                 System.out.println("");
                                 System.out.println("Torre Area:");
-                                System.out.println(" + Descripción: Torre mágica que libera hechizos explosivos para danar múltiples enemigos a la vez");
+                                System.out.println(" + Descripcion: Torre magica que libera hechizos explosivos para danar multiples enemigos a la vez");
                                 System.out.println(" + Dano: 10 (+10 mejora de nivel 1)");
                                 System.out.println(" + Velocidad: 6 (+1 mejora de nivel 2)");
                                 System.out.println(" + Alcance: 2 (+1 mejora de nivel 3)");
-                                System.out.println(" + Tipo de dano: Dano en área");
+                                System.out.println(" + Tipo de dano: Dano en area");
                                 System.out.println("");
                             } else if (opcion4 == 4) {
                                 System.out.println("");
                                 System.out.println("Torre Ralentizadora:");
-                                System.out.println(" + Descripción:  Torre que emite una aura gélida que desacelera a los invasores");
+                                System.out.println(" + Descripcion:  Torre que emite una aura gelida que desacelera a los invasores");
                                 System.out.println(" + Velocidad: 3 (+1 mejora a nivel 1, +1 a nivel 2)");
                                 System.out.println(" + Alcance: 1 (+1 mejora a nivel3)");
                                 System.out.println("");
                             } else if (opcion4 == 5) {
                                 System.out.println("");
                                 System.out.println("Torre Generadora:");
-                                System.out.println(" + Descripción: Una estructura que acumula y canaliza capital mágico luego de cada oleada");
+                                System.out.println(" + Descripcion: Una estructura que acumula y canaliza capital magico luego de cada oleada");
                                 System.out.println(" + Ganancia por ronda: 10 de magia ()");
                                 System.out.println("");
                             } else if (opcion4 == 6) {
                                 System.out.println("");
                                 System.out.println("Barricada:");
-                                System.out.println(" + Descripción: Una sólida barrera que bloquea el avance de los enemigos, ganando tiempo para tus torres");
+                                System.out.println(" + Descripcion: Una solida barrera que bloquea el avance de los enemigos, ganando tiempo para tus torres");
                                 System.out.println(" + Vida: 10 (+10 mejora a nivel 1, +10 mejora a nivel 2, +10 mejora a nivel 3)");
                                 System.out.println("");
                             } else if (opcion4 == 7) {
                                 break;
                             } else {
-                                System.out.println("Opción inválida. Ingrese de nuevo.");
+                                System.out.println("Opcion invalida. Ingrese de nuevo.");
                             }
                         } catch (InputMismatchException e4) {
                             scanner.nextLine();
-                            System.out.println("Opción inválida. Ingrese de nuevo.");
+                            System.out.println("Opcion invalida. Ingrese de nuevo.");
                         }
                     } while ((opcion4 > 7) || (opcion4 < 1));
                 } else if (opcion2 == 3) {
@@ -467,21 +467,21 @@ public class Juego {
                             } else if (opcion5 == 5) {
                                 System.out.println("");
                                 System.out.println(" -- ENT -- ");
-                                System.out.println("Criaturas gigantes de la naturaleza que avanzan lentamente pero son difíciles de derrotar.");
+                                System.out.println("Criaturas gigantes de la naturaleza que avanzan lentamente pero son dificiles de derrotar.");
                                 System.out.println("");
                             } else if (opcion5 == 6) {
                                 break;
                             } else {
-                                System.out.println("Opción inválida. Ingrese de nuevo.");
+                                System.out.println("Opcion invalida. Ingrese de nuevo.");
                             }
                         } catch (InputMismatchException e5) {
                             scanner.nextLine();
-                            System.out.println("Opción inválida. Ingrese de nuevo.");
+                            System.out.println("Opcion invalida. Ingrese de nuevo.");
                         }
                     } while ((opcion5 > 6) || (opcion5 < 1));
 
                 } else if (opcion2 == 4) {
-                    System.out.println(" === La próxima oleada es la oleada N°: " + (jugador.getOleada()+1) + " === ");
+                    System.out.println(" === La proxima oleada es la oleada N°: " + (jugador.getOleada()+1) + " === ");
                     System.out.println();
                     int diff = mapa.getNivel();
                     printOleadas(mapa.getOleadas(diff));
@@ -507,28 +507,28 @@ public class Juego {
                     } else if ((mapa.getNivel() == 1) && (ol == 6)){
                         jugador.getTorresOnField().clear(); // Limpia la lista de torres activas al terminar el juego
                         ClearScreen.cls();
-                        System.out.println(" === FELICIDADES, EL CERRO SOBREVIVIÓ A LAS OLEADAS DE ENEMIGOS === ");
+                        System.out.println(" === FELICIDADES, EL CERRO SOBREVIVIo A LAS OLEADAS DE ENEMIGOS === ");
                         System.out.println(" --- PUNTUACION FINAL: " + jugador.getPuntuacion() + " --- ");
                         finalizador = 1;
                     } else if ((mapa.getNivel() == 2) && (ol == 6)){
                         jugador.getTorresOnField().clear(); // Limpia la lista de torres activas al terminar el juego
                         ClearScreen.cls();
-                        System.out.println(" === FELICIDADES, EL CERRO SOBREVIVIÓ A LAS OLEADAS DE ENEMIGOS === ");
+                        System.out.println(" === FELICIDADES, EL CERRO SOBREVIVIo A LAS OLEADAS DE ENEMIGOS === ");
                         System.out.println(" --- PUNTUACION FINAL: " + jugador.getPuntuacion() + " --- ");
                         finalizador = 1;
                     } else if ((mapa.getNivel() == 3) && (ol == 6)){
                         jugador.getTorresOnField().clear(); // Limpia la lista de torres activas al terminar el juego
                         ClearScreen.cls();
-                        System.out.println(" === FELICIDADES, EL CERRO SOBREVIVIÓ A LAS OLEADAS DE ENEMIGOS === ");
+                        System.out.println(" === FELICIDADES, EL CERRO SOBREVIVIo A LAS OLEADAS DE ENEMIGOS === ");
                         System.out.println(" --- PUNTUACION FINAL: " + jugador.getPuntuacion() + " --- ");
                         finalizador = 1;
                     }
                 } else {
-                    System.out.println("Opción inválida. Ingrese de nuevo.");
+                    System.out.println("Opcion invalida. Ingrese de nuevo.");
                 }
             } catch (InputMismatchException e2) {
                 scanner.nextLine();
-                System.out.println("Opción inválida. Ingrese de nuevo.");
+                System.out.println("Opcion invalida. Ingrese de nuevo.");
             }
         } while (finalizador == 0);
         jugador.setOleada(0);
@@ -537,7 +537,7 @@ public class Juego {
     }
 
     /**
-     * Método para leer una fila de la matriz.
+     * Metodo para leer una fila de la matriz.
      * @param x que representa un int que entra por referencia y, dependiendo del Caracter ingresado por el usuario, lo cambia.
      * @return x con el numero asignado al Caracter ingresada por el usuario.
      */
@@ -575,11 +575,11 @@ public class Juego {
                     x = 8;
                     break;
                 } else {
-                    System.out.println("Opción inválida, ingrese nuevamente...");
+                    System.out.println("Opcion invalida, ingrese nuevamente...");
                 }
             } catch (InputMismatchException e6) {
                 scanner2.nextLine();
-                System.out.println("Opción inválida. Ingrese de nuevo.");
+                System.out.println("Opcion invalida. Ingrese de nuevo.");
             }
         } while ((posX != 'A') || (posX != 'B') || (posX != 'C') || (posX != 'D') || (posX != 'E') || (posX != 'F') || (posX != 'G') || (posX != 'H') || (posX != 'I'));
         return x;
@@ -623,20 +623,20 @@ public class Juego {
                     y = posY;
                     break;
                 } else {
-                    System.out.println("Opción inválida, ingrese nuevamente...");
+                    System.out.println("Opcion invalida, ingrese nuevamente...");
                 }
             } catch (InputMismatchException e7) {
                 scanner3.nextLine();
-                System.out.println("Opción inválida. Ingrese de nuevo.");
+                System.out.println("Opcion invalida. Ingrese de nuevo.");
             }
         } while ((posY > 17) || (posY < 0));
         return y;
     }
 
     /**
-     * Método que gestiona lo que sucede cuando se empieza una oleada y durante su ejecución.
+     * Metodo que gestiona lo que sucede cuando se empieza una oleada y durante su ejecucion.
      * @param dificultad La dificultad elegida por el jugador para poder seleccionar bien la oleada correspondiente.
-     * @param oleada La oleada en la cuál se encuentra el jugador en ese momento.
+     * @param oleada La oleada en la cual se encuentra el jugador en ese momento.
      */
     public void oleadaActiva(int dificultad, int oleada){
         int contSpawns = 0;
@@ -697,7 +697,7 @@ public class Juego {
     }
 
     /**
-     * Método que elige cuál enemigo será el siguiente en aparecer en el mapa.
+     * Metodo que elige cual enemigo sera el siguiente en aparecer en el mapa.
      * @param letra Letra dentro de 'Lista de Enemigos en la Oleada'.
      * @param primeraCelda Celda que se encuentra al inicio del recorrido de los enemigos.
      * @return
@@ -719,9 +719,9 @@ public class Juego {
     }
 
     /**
-     * Método privado que sirve para retrasar la aparición de enemigos en el mapa.
+     * Metodo privado que sirve para retrasar la aparicion de enemigos en el mapa.
      * @param enemigo Objeto Enemigo que seleccionara el tiempo a usar.
-     * @return Devuelve un int que simboliza el tiempo de retraso hasta el próximo enemigo.
+     * @return Devuelve un int que simboliza el tiempo de retraso hasta el proximo enemigo.
      */
     private int spawnDelay(Enemigo enemigo){
         if (enemigo instanceof Hobbit){ return 1;}
