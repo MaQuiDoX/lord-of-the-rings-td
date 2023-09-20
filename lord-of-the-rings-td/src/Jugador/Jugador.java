@@ -62,6 +62,13 @@ public class Jugador {
     public void sumaPuntuacion(int puntuacion){
         this.puntuacion+=puntuacion;
     }
+    /**
+     * Modifica la puntuacion que tiene el jugador.
+     * @param puntuacion nueva puntuacion que va a tener el jugador.
+     */
+    public void setPuntuacion(int puntuacion){
+        this.puntuacion=puntuacion;
+    }
 
     /**
      * Devuelve la lista de Torres que se encuentran dentro del mapa.
