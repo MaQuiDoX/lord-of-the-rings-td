@@ -467,6 +467,7 @@ public class Juego {
                     jugador.setOleada(ol);
                     oleadaActiva(mapa.getNivel(), ol);
                     ol++;
+                    jugador.setOleada(ol);
                     CeldaCamino celdaCerro = (CeldaCamino) mapa.getMatrizCelda(4,16);
                     if (celdaCerro.getCerro().getVida() < 1){
                         ClearScreen.cls();
