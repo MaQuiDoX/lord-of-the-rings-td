@@ -1,10 +1,10 @@
 package Torre;
-import Celda.*;
-import Enemigo.Enemigo;
+
+import Celda.CeldaCamino;
+import Celda.CeldaTerreno;
 import TimeTicks.TimeTicks;
 
-import java.util.ArrayList; //importo la clase ArrayList
-import java.util.Objects;
+import java.util.ArrayList;
 
 /**
  * Una clase abstracta para representar los comportamientos generales de las torres.

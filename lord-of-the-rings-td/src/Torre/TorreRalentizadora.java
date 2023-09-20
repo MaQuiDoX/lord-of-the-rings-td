@@ -1,11 +1,11 @@
 package Torre;
+
 import Celda.CeldaCamino;
 import Celda.CeldaTerreno;
 import Enemigo.Enemigo;
 import TimeTicks.TimeTicks;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class TorreRalentizadora extends Torre implements TimeTicks {
 
