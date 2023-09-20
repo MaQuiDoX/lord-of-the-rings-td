@@ -56,8 +56,8 @@ public abstract class Torre implements TimeTicks {
     }
 
     /**
-     //* modifica el coste de la mejora.
-     //* @param costeMejora nuevo coste de mejora *
+     * modifica el coste de la mejora.
+     * @param costeMejora nuevo coste de mejora *
      */
     public void setCosteMejora(int costeMejora){
         this.costeMejora=costeMejora;

@@ -10,7 +10,7 @@ import Juego.Juego;
  */
 public class Ent extends Enemigo{
     /**
-     * Constructor de Ent. Vida: 1200 || Daño: 10 || Velocidad: 10 || Magia Otorgada: 200 || Tipo: pesado
+     * Constructor de Ent. Vida: 1200 || Dano: 10 || Velocidad: 10 || Magia Otorgada: 200 || Tipo: pesado
      * @param juego Objeto Juego en donde estara viviendo el enemigo.
      * @param celdaCamino Objeto CeldaCamino en donde se ubicará dentro de la oleada.
      */

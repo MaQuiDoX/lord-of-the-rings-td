@@ -13,12 +13,11 @@ import Torre.TorreGeneradora;
 /**
  * Clase que representa al juego
  * @version 1.4, 18/9/23
- * @auhor Manuel Matías Quesada Riccieri
+ * @author Manuel Matías Quesada Riccieri
  */
 public class Juego {
     private Mapa mapa;
     private Jugador jugador;
-    private int numeroOleada;
     ArrayList<Enemigo> listaEnemigosVivos;
 
     /**
@@ -387,28 +386,28 @@ public class Juego {
                                 System.out.println("");
                                 System.out.println("Torre Basica:");
                                 System.out.println(" + Descripción: Torre confiable que dispara flechas a los enemigos cercanos para defender tu cerro");
-                                System.out.println(" + Daño: 5 (+10 mejora de nivel 1)");
+                                System.out.println(" + Dano: 5 (+10 mejora de nivel 1)");
                                 System.out.println(" + Velocidad: 2 (+1 mejora a nivel 2)");
                                 System.out.println(" + Alcance: 2 (+1 mejora a nivel3)");
-                                System.out.println(" + Tipo de daño: Daño básico");
+                                System.out.println(" + Tipo de dano: Dano básico");
                                 System.out.println("");
                             } else if (opcion4 == 2) {
                                 System.out.println("");
                                 System.out.println("Torre Rango:");
                                 System.out.println(" + Descripción: Torre especializada en disparar proyectiles de largo alcance con precisión letal");
-                                System.out.println(" + Daño: 30 (+10 mejora de nivel 1)");
+                                System.out.println(" + Dano: 30 (+10 mejora de nivel 1)");
                                 System.out.println(" + Velocidad: 8 (+1 mejora de nivel 2)");
                                 System.out.println(" + Alcance: 4 (+1 mejora de nivel 3)");
-                                System.out.println(" + Tipo de daño: Daño en rango");
+                                System.out.println(" + Tipo de dano: Dano en rango");
                                 System.out.println("");
                             } else if (opcion4 == 3) {
                                 System.out.println("");
                                 System.out.println("Torre Area:");
-                                System.out.println(" + Descripción: Torre mágica que libera hechizos explosivos para dañar múltiples enemigos a la vez");
-                                System.out.println(" + Daño: 10 (+10 mejora de nivel 1)");
+                                System.out.println(" + Descripción: Torre mágica que libera hechizos explosivos para danar múltiples enemigos a la vez");
+                                System.out.println(" + Dano: 10 (+10 mejora de nivel 1)");
                                 System.out.println(" + Velocidad: 6 (+1 mejora de nivel 2)");
                                 System.out.println(" + Alcance: 2 (+1 mejora de nivel 3)");
-                                System.out.println(" + Tipo de daño: Daño en área");
+                                System.out.println(" + Tipo de dano: Dano en área");
                                 System.out.println("");
                             } else if (opcion4 == 4) {
                                 System.out.println("");
@@ -453,7 +452,7 @@ public class Juego {
                             } else if (opcion5 == 2) {
                                 System.out.println("");
                                 System.out.println(" -- ELFO -- ");
-                                System.out.println("Ágiles arqueros elfos que disparan flechas con precisión, dañando con mayor eficacia tu Cerro");
+                                System.out.println("Agiles arqueros elfos que disparan flechas con precision, danando con mayor eficacia tu Cerro");
                                 System.out.println("");
                             } else if (opcion5 == 3) {
                                 System.out.println("");
@@ -463,7 +462,7 @@ public class Juego {
                             } else if (opcion5 == 4) {
                                 System.out.println("");
                                 System.out.println(" -- HOBBIT -- ");
-                                System.out.println("Pequeños y debiles pero agiles y astutos, los hobbits intentan infiltrarse rapidamente en el Cerro");
+                                System.out.println("Pequenos y debiles pero agiles y astutos, los hobbits intentan infiltrarse rapidamente en el Cerro");
                                 System.out.println("");
                             } else if (opcion5 == 5) {
                                 System.out.println("");
@@ -656,7 +655,7 @@ public class Juego {
                     if (contDelay == 0){
                         Enemigo enemigoSpawned = elegirEnemigo(this, listaEnemigosOleada.get(oleada).get(contSpawns),
                                 mapa.getFirstCeldaCamino());    // Se crea el enemigo que vendra en la oleada
-                        listaEnemigosVivos.add(enemigoSpawned);   // Se añade el enemigo a lista de enemigos vivos
+                        listaEnemigosVivos.add(enemigoSpawned);   // Se anade el enemigo a lista de enemigos vivos
                         contSpawns++;
                         contDelay = spawnDelay(enemigoSpawned); // Asigna el tiempo hasta que aparece el proximo enemigo
                     } else {
@@ -684,7 +683,7 @@ public class Juego {
         }
         if (celdaCerro.getCerro().getVida() > 0){
             int g = 0;
-            while(jugador.getTorresOnField().size() > g){   // Añade magia y puntos por cada torre generadora
+            while(jugador.getTorresOnField().size() > g){   // Anade magia y puntos por cada torre generadora
                 if (jugador.getTorresOnField().get(g) instanceof TorreGeneradora){
                     ((TorreGeneradora) jugador.getTorresOnField().get(g)).generarMagia(jugador);
                     jugador.sumaPuntuacion(100);

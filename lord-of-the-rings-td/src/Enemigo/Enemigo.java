@@ -21,7 +21,7 @@ public abstract class Enemigo implements TimeTicks {
     /**
      * Constructor de enemigo.
      * @param vida Vida que tendrá cuando este activo.
-     * @param dano Daño que le causa a las defensas cuando ataca.
+     * @param dano Dano que le causa a las defensas cuando ataca.
      * @param velocidad Tiempo que tarda en atacar o moverse de una celda.
      * @param magiaOtorgada Magia otorgada al jugador cuando es eliminado por una torre.
      * @param tipo Tipo de enemigo que es, siendo las opciones: 'normal', 'ligero' y 'pesado'.
@@ -123,7 +123,7 @@ public abstract class Enemigo implements TimeTicks {
 
     /**
      * Método para eliminar al enemigo de la partida cuando su vida baja de 1 y dar una recompensa si la causo el jugador.
-     * @param enemigo Objeto Cerro que sera dañado.
+     * @param enemigo Objeto Cerro que sera danado.
      * @param recompensa Estado lógico de si se recibirá recompensa por su muerte.
      */
     public void morir(Enemigo enemigo, boolean recompensa){
@@ -140,13 +140,13 @@ public abstract class Enemigo implements TimeTicks {
     }
 
     /**
-     * Método privado para causarle daño al cerro cuando el enemigo llega hasta él.
-     * @param cerro Objeto Cerro que sera dañado.
+     * Método privado para causarle dano al cerro cuando el enemigo llega hasta él.
+     * @param cerro Objeto Cerro que sera danado.
      */
     private void danarCerro(Cerro cerro){cerro.setVida(cerro.getVida() - dano);}
     /**
-     * Método privado para causarle daño a una barricada cuando el enemigo se topa con una y destruirla si su vida baja de 1.
-     * @param barricada Objeto Barricada que sera dañada.
+     * Método privado para causarle dano a una barricada cuando el enemigo se topa con una y destruirla si su vida baja de 1.
+     * @param barricada Objeto Barricada que sera danada.
      */
     private void danarBarricada(Barricada barricada){
         barricada.setVida(barricada.getVida() - dano);
@@ -162,7 +162,7 @@ public abstract class Enemigo implements TimeTicks {
         ubicacionActual.sacarEnemigo(enemigo); // Saca al enemigo de la lista de enemigos en la celda donde esta parado
         ubicacionActual = ubicacionActual.getSiguienteCelda();  // Avanza a la siguiente celda
         setUbicacion(ubicacionActual);  // Le asigna la celda a la que avanzo a su atributo ubicacion
-        ubicacionActual.nuevoEnemigo(enemigo); // Añade el enemigo a la lista de enemigos en esa celda
+        ubicacionActual.nuevoEnemigo(enemigo); // Anade el enemigo a la lista de enemigos en esa celda
     }
 
     /**
@@ -178,7 +178,7 @@ public abstract class Enemigo implements TimeTicks {
     }
 
     /**
-     * Método que realiza las acciones del Enemigo, como avanzar por las celdas, atacar barricas y morir al dañar el cerro.
+     * Método que realiza las acciones del Enemigo, como avanzar por las celdas, atacar barricas y morir al danar el cerro.
      */
     @Override
     public void actionTick(){
