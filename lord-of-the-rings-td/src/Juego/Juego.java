@@ -463,9 +463,6 @@ public class Juego {
                     printOleadas(mapa.getOleadas(diff));
 
                 } else if (opcion2 == 5) {
-                    // TEST
-                    System.out.println("LISTA DE TORRES ACTIVAS"+jugador.getTorresOnField());
-                    // TEST
                     ol = jugador.getOleada();
                     jugador.setOleada(ol);
                     oleadaActiva(mapa.getNivel(), ol);
