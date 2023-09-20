@@ -21,26 +21,29 @@ public class Jugador {
     public int oleada = 0;
 
     /**
-     * Devuelve la oleada actual en la que esta jugando el jugador.
+     * Getter de oleada.
      * @return Numero de la oleada, entre 0 y 5.
      */
     public int getOleada(){
         return oleada;
     }
+    /**
+     * Setter de oleada.
+     * @param oleada1 La oleada eligida *
+     */
     public void setOleada(int oleada1){
         this.oleada = oleada1;
     }
 
     /**
      * Getter de magia.
-     * @return magia del jugador *
+     * @return Magia del jugador *
      */
     public int getMagia(){
         return magia;
     }
-
     /**
-     * Modifica la magia.
+     * Setter de magia.
      * @param magia nuevo valor de la magia *
      */
     public void setMagia(int magia){
@@ -63,7 +66,7 @@ public class Jugador {
         this.puntuacion+=puntuacion;
     }
     /**
-     * Modifica la puntuacion que tiene el jugador.
+     * Setter de puntuacion.
      * @param puntuacion nueva puntuacion que va a tener el jugador.
      */
     public void setPuntuacion(int puntuacion){

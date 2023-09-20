@@ -14,7 +14,7 @@ import Torre.*;
 /**
  * Clase encargada de lo referido al Mapa
  * @version 1.3, 18/9/23
- * @author Manuel Matías Quesada Riccieri
+ * @author Manuel Matias Quesada Riccieri
  */
 public class Mapa {
     public Celda[][] matriz;
@@ -111,8 +111,8 @@ public class Mapa {
 
     /**
      * Getter para obtener una celda dentro de la matriz Celda[][].
-     * @param x representando el numero de posición de fila.
-     * @param y representando el número de posición de columna.
+     * @param x representando el numero de posicion de fila.
+     * @param y representando el numero de posicion de columna.
      * @return Celda correspondiente a la posicion ingresada.
      */
     public Celda getMatrizCelda(int x, int y){
