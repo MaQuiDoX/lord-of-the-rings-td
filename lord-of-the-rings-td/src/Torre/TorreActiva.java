@@ -52,7 +52,7 @@ public abstract class TorreActiva extends Torre implements TimeTicks {
 
     /**
      * Modifica el dano de la torre.
-     * @param dano nuevo daño *
+     * @param dano nuevo dano *
      */
     public void setDano(int dano){
         this.dano=dano;

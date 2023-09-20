@@ -49,8 +49,8 @@ public class CeldaCamino extends Celda{
         return listaEnemigos;
     }
     /**
-     * Añade un nuevo enemigo al final de listaEnemigos.
-     * @param enemigo Objeto Enemigo que será añadido.
+     * Anade un nuevo enemigo al final de listaEnemigos.
+     * @param enemigo Objeto Enemigo que será anadido.
      * @see Enemigo
      */
     public void nuevoEnemigo(Enemigo enemigo){
@@ -60,6 +60,7 @@ public class CeldaCamino extends Celda{
      * Elimina un enemigo de listaEnemigos.
      * @param enemigo Objeto Enemigo que será eliminado.
      * @see Enemigo
+     * @return Devuelve un boolean de si pudo eliminar al enemigo
      */
     public Boolean sacarEnemigo(Enemigo enemigo) {
         Boolean b1 = listaEnemigos.contains(enemigo);

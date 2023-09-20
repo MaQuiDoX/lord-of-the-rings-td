@@ -42,6 +42,7 @@ public class TorreGeneradora extends Torre {
 
     /**
      * Metodo para sumarle magia al jugador.
+     * @param jugador Objeto Jugador que sera el que genere magia.
      */
     public void generarMagia(Jugador jugador){
          int magia=jugador.getMagia();

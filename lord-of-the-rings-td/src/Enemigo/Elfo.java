@@ -10,7 +10,7 @@ import Juego.Juego;
  */
 public class Elfo extends Enemigo{
     /**
-     * Constructor de Elfo. Vida: 210 || Daño: 3 || Velocidad: 4 || Magia Otorgada: 30 || Tipo: ligero
+     * Constructor de Elfo. Vida: 210 || Dano: 3 || Velocidad: 4 || Magia Otorgada: 30 || Tipo: ligero
      * @param juego Objeto Juego en donde estara viviendo el enemigo.
      * @param celdaCamino Objeto CeldaCamino en donde se ubicará dentro de la oleada.
      */

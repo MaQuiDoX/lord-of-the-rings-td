@@ -389,7 +389,7 @@ public class Jugador {
 
 
     /**
-     * Muestra una pequeña descripcion de los atributos del jugador y el glosario.
+     * Muestra una pequena descripcion de los atributos del jugador y el glosario.
      */
     public static void mostrarInterfaz() {
         System.out.println(" ");
@@ -398,7 +398,7 @@ public class Jugador {
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.println("Glosario: C: CERRO");
         System.out.println("Enemigos: Hu: Humano -- El: Elfo -- En: Enano -- Ho: Hobbit -- Te: Ent -- Va: Varios enemigos");
-        System.out.println("Torres: B: Torre Básica -- R: Torre Rango -- A: Torre Área -- L: Torre Ralentizadora");
+        System.out.println("Torres: B: Torre Basica -- R: Torre Rango -- A: Torre Area -- L: Torre Ralentizadora");
         System.out.println("        G: Torre Generadora -- BBB: Barricada ");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     }
@@ -432,7 +432,7 @@ public class Jugador {
     public static void mostrarTienda(){
         System.out.println("1. Colocar Torre Básica (100 coste de magia)");
         System.out.println("2. Colocar Torre de Rango (150 coste de magia)");
-        System.out.println("3. Colocar Torre de Área (300 coste de magia)");
+        System.out.println("3. Colocar Torre de Area (300 coste de magia)");
         System.out.println("4. Colocar Torre Ralentizadora (400 coste de magia)");
         System.out.println("5. Colocar Torre Generadora (200 coste de magia)");
         System.out.println("6. Colocar Barricada (500 coste de magia)");
@@ -446,7 +446,7 @@ public class Jugador {
         System.out.println("¿Acerca de que Torre quieres saber más?");
         System.out.println("1. Torre Básica");
         System.out.println("2. Torre de Rango");
-        System.out.println("3. Torre de Área");
+        System.out.println("3. Torre de Area");
         System.out.println("4. Torre Ralentizadora");
         System.out.println("5. Torre Generadora");
         System.out.println("6. Barricada");
