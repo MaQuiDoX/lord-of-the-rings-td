@@ -674,7 +674,7 @@ public class Juego {
                     j++;
                 }
                 ClearScreen.cls();
-                System.out.println(" === VIDA CERRO: " + celdaCerro.getCerro().getVida());
+                System.out.println(" === VIDA CERRO: " + celdaCerro.getCerro().getVida() + " === ");
                 System.out.println();
                 mapa.imprimirMapa(mapa.getMatriz());
                 Jugador.mostrarInterfaz();
