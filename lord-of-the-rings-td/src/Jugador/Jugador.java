@@ -330,7 +330,7 @@ public class Jugador {
         System.out.println("1. Fortalecer defensas");
         System.out.println("2. Descripción de Torres");
         System.out.println("3. Descripción de Enemigos");
-        System.out.println("4. Conocer siguiente oleada");
+        System.out.println("4. Conocer siguientes oleadas");
         System.out.println("5. Comenzar oleada");
     }
 

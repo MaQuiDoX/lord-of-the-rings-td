@@ -13,6 +13,7 @@ import Torre.TorreGeneradora;
 public class Juego {
     private Mapa mapa;
     private Jugador jugador;
+    private int numeroOleada;
     ArrayList<Enemigo> listaEnemigosVivos;
 
     public Juego(){
@@ -456,7 +457,10 @@ public class Juego {
                     } while ((opcion5 > 6) || (opcion5 < 1));
 
                 } else if (opcion2 == 4) {
-                    System.out.println(" -- SIGUIENTE OLEADA: " + ol + " -- ");
+                    System.out.println(" === La próxima oleada es la oleada N°: " + (jugador.getOleada()+1) + " === ");
+                    System.out.println();
+                    int diff = mapa.getNivel();
+                    printOleadas(mapa.getOleadas(diff));
 
                 } else if (opcion2 == 5) {
                     ol = jugador.getOleada();
@@ -544,6 +548,26 @@ public class Juego {
         } while ((posX != 'A') || (posX != 'B') || (posX != 'C') || (posX != 'D') || (posX != 'E') || (posX != 'F') || (posX != 'G') || (posX != 'H') || (posX != 'I'));
         return x;
     }
+
+    public void printOleadas(List<List<Character>> listaEnemigo){
+        for (int i = 0; i < listaEnemigo.size(); i++){
+            System.out.println("Oleada " + (i+1) + ":");
+            for (int j = 0; j < listaEnemigo.get(i).size(); j++){
+                if (listaEnemigo.get(i).get(j) == 'H'){
+                    System.out.print("Humano - ");
+                } else if (listaEnemigo.get(i).get(j) == 'E') {
+                    System.out.print("Elfo - ");
+                } else if (listaEnemigo.get(i).get(j) == 'O') {
+                    System.out.print("Hobbit - ");
+                } else if (listaEnemigo.get(i).get(j) == 'N') {
+                    System.out.print("Enano - ");
+                } else if (listaEnemigo.get(i).get(j) == 'T') {
+                    System.out.print("Ent (Jefe) - ");
+                }
+            } System.out.println();
+        }
+    }
+
     public int colocarColumna(int y){
         Scanner scanner3 = new Scanner(System.in);
         int posY = 17;
@@ -604,7 +628,7 @@ public class Juego {
                     j++;
                 }
                 ClearScreen.cls();
-                System.out.println(" === VIDA CERRO: " + celdaCerro.getCerro().getVida() + " === ");
+                System.out.println(" === VIDA CERRO: " + celdaCerro.getCerro().getVida());
                 System.out.println();
                 mapa.imprimirMapa(mapa.getMatriz());
                 Jugador.mostrarInterfaz();
